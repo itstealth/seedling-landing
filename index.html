@@ -1,909 +1,1650 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seedlings School Jaipur | Nurturing Tomorrow's Leaders</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --emerald: #ab0d45;
-    --emerald-dark: #233571;
-    --emerald-light: #445691;
-    --gold: #233571;
-    --gold-light: #ab0d45;
-    --accent-orange: rgb(247, 148, 30);
-    --cream: #fcf7f7;
-    --white: #ffffff;
-    --text: #2c2c2c;
-    --text-light: #666666;
-    --border: #e8e0d4;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seedlings School Jaipur | Nurturing Tomorrow's Leaders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --emerald: #ab0d45;
+      --emerald-dark: #233571;
+      --emerald-light: #445691;
+      --gold: #233571;
+      --gold-light: #ab0d45;
+      --accent-orange: rgb(247, 148, 30);
+      --cream: #fcf7f7;
+      --white: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #666666;
+      --border: #e8e0d4;
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--cream);
-    overflow-x: hidden;
-  }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 60px;
-    background: rgba(35, 53, 113, 0.97);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(163, 18, 63, 0.3);
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-  }
-  .nav-logo-icon {
-    width: 42px; height: 42px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-  }
-  .nav-logo-text { line-height: 1.1; }
-  .nav-logo-text .school-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 600; color: var(--white);
-    letter-spacing: 0.03em;
-  }
-  .nav-logo-text .school-sub {
-    font-size: 10px; color: var(--gold-light); letter-spacing: 0.12em; text-transform: uppercase;
-  }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a {
-    color: rgba(255,255,255,0.75); text-decoration: none;
-    font-size: 13px; letter-spacing: 0.05em; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold-light); }
-  .nav-cta {
-    background: var(--gold); color: var(--white);
-    border: none; padding: 10px 24px; border-radius: 2px;
-    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
-    letter-spacing: 0.05em; cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(35, 53, 113, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(163, 18, 63, 0.3);
+    }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh; position: relative;
-    display: flex; align-items: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(135deg, #233571 0%, #ab0d45 60%, #ab0d45 100%);
-  }
-  .hero-bg::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  /* Decorative circle */
-  .hero-bg::after {
-    content: '';
-    position: absolute; right: -200px; top: -200px;
-    width: 700px; height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(243, 125, 31, 0.15) 0%, transparent 70%);
-  }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 1200px; margin: 0 auto; padding: 120px 60px 80px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-  }
-  .hero-text .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(243, 125, 31, 0.15); border: 1px solid rgba(243, 125, 31, 0.4);
-    padding: 6px 16px; border-radius: 20px;
-    font-size: 11px; color: var(--gold-light); letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .hero-text .badge::before { content: '●'; font-size: 8px; }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 5vw, 68px);
-    font-weight: 300; line-height: 1.1;
-    color: var(--white); margin-bottom: 20px;
-  }
-  .hero-title span { color: var(--gold); font-style: italic; }
-  .hero-subtitle {
-    font-size: 16px; color: rgba(255,255,255,0.7);
-    line-height: 1.7; margin-bottom: 36px; max-width: 460px;
-  }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold); color: var(--white);
-    border: none; padding: 14px 32px; border-radius: 2px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-    letter-spacing: 0.05em; cursor: pointer;
-    transition: all 0.2s; text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
-  .btn-outline {
-    background: transparent; color: var(--white);
-    border: 1px solid rgba(255,255,255,0.4);
-    padding: 14px 32px; border-radius: 2px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px;
-    letter-spacing: 0.05em; cursor: pointer;
-    transition: all 0.2s; text-decoration: none; display: inline-block;
-  }
-  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+    .nav-logo-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .hero-stats {
-    display: flex; gap: 32px; margin-top: 48px; padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-  }
-  .stat-item { text-align: left; }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 600; color: var(--gold-light);
-    line-height: 1;
-  }
-  .stat-label { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; margin-top: 4px; }
+    .nav-logo-icon img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
 
-  /* Hero image side */
-  .hero-visual { position: relative; }
-  .hero-img-frame {
-    position: relative;
-    width: 100%; aspect-ratio: 4/5;
-    border-radius: 4px; overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-  }
-  .hero-img-frame svg { width: 100%; height: 100%; display: block; }
+    .nav-logo-text {
+      line-height: 1.1;
+    }
 
-  /* Floating card */
-  .hero-card {
-    position: absolute; left: -40px; bottom: 40px;
-    background: var(--white); border-radius: 4px;
-    padding: 20px 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    min-width: 200px;
-  }
-  .hero-card-label { font-size: 10px; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
-  .hero-card-value { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--emerald); }
-  .hero-card-desc { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+    .nav-logo-text .school-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
 
-  /* ── SECTION STYLES ── */
-  section { padding: 90px 0; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+    .nav-logo-text .school-sub {
+      font-size: 10px;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-  .section-label {
-    font-size: 11px; color: var(--emerald); letter-spacing: 0.15em; text-transform: uppercase;
-    font-weight: 500; margin-bottom: 12px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-label::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--emerald); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
 
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 3.5vw, 48px); font-weight: 300;
-    line-height: 1.15; color: var(--emerald);
-    margin-bottom: 20px;
-  }
-  .section-title em { font-style: italic; color: var(--emerald-light); }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
 
-  /* ── ABOUT ── */
-  .about { background: var(--white); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .about-img-wrap {
-    position: relative;
-    border-radius: 4px; overflow: hidden;
-    aspect-ratio: 3/4; box-shadow: 0 20px 60px rgba(35, 53, 113, 0.15);
-  }
-  .about-img-wrap svg { width: 100%; height: 100%; display: block; }
-  .about-img-accent {
-    position: absolute; top: -16px; left: -16px;
-    width: 100px; height: 100px;
-    border: 2px solid var(--gold); border-radius: 2px;
-    z-index: -1;
-  }
-  .about-content p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 20px; }
-  .about-highlights { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
-  .highlight-item { display: flex; gap: 16px; align-items: flex-start; }
-  .highlight-icon {
-    width: 40px; height: 40px; flex-shrink: 0;
-    background: rgba(163, 18, 63, 0.08); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 18px;
-  }
-  .highlight-text h4 { font-size: 14px; font-weight: 600; color: var(--emerald-dark); margin-bottom: 3px; }
-  .highlight-text p { font-size: 13px; color: var(--text-light); line-height: 1.5; margin: 0; }
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
 
-  /* ── CURRICULUM ── */
-  .curriculum { background: var(--cream); }
-  .curriculum-intro { max-width: 620px; margin-bottom: 56px; }
-  .curriculum-intro p { font-size: 15px; color: var(--text-light); line-height: 1.8; }
-  .curriculum-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .curr-card {
-    border-radius: 4px; overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .curr-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
-  .curr-card-header {
-    padding: 36px 36px 24px;
-    position: relative; overflow: hidden;
-  }
-  .curr-card.cbse .curr-card-header { background: var(--emerald-dark); }
-  .curr-card.cambridge .curr-card-header { background: #034ea2; }
-  .curr-card-header::after {
-    content: ''; position: absolute; right: -30px; top: -30px;
-    width: 120px; height: 120px; border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-  .curr-board-tag {
-    display: inline-block; padding: 4px 12px; border-radius: 20px;
-    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
-    margin-bottom: 16px;
-  }
-  .cbse .curr-board-tag { background: rgba(35, 53, 113, 0.1); color: var(--emerald-dark); border: 1px solid rgba(35, 53, 113, 0.2); }
-  .cambridge .curr-board-tag { background: rgba(171, 13, 69, 0.1); color: var(--emerald); border: 1px solid rgba(171, 13, 69, 0.2); }
-  .curr-card-header h3 {
-    font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; color: var(--white);
-    line-height: 1.2; margin-bottom: 10px;
-  }
-  .curr-card-header p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
-  .curr-card-body { background: var(--white); padding: 28px 36px; }
-  .curr-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .curr-features li { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: var(--text-light); line-height: 1.5; }
-  .curr-features li::before { content: '✓'; color: var(--emerald); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .curr-cta {
-    margin-top: 24px; display: block; width: 100%; padding: 12px;
-    text-align: center; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em;
-    cursor: pointer; transition: all 0.2s; text-decoration: none;
-  }
-  .cbse .curr-cta { background: var(--emerald-dark); color: var(--white); border: none; }
-  .cbse .curr-cta:hover { background: var(--emerald-light); }
-  .cambridge .curr-cta { background: var(--emerald); color: var(--white); border: none; }
-  .cambridge .curr-cta:hover { opacity: 0.9; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
 
-  /* ── RESULTS ── */
-  .results { background: var(--emerald-dark); color: var(--white); }
-  .results .section-label { color: var(--gold-light); }
-  .results .section-label::after { background: var(--gold-light); }
-  .results .section-title { color: var(--white); }
-  .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); margin: 52px 0; border-radius: 4px; overflow: hidden; }
-  .result-card {
-    background: rgba(255,255,255,0.04); padding: 40px 28px; text-align: center;
-    transition: background 0.2s;
-  }
-  .result-card:hover { background: rgba(255,255,255,0.09); }
-  .result-number {
-    font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 400;
-    color: var(--gold); line-height: 1;
-  }
-  .result-number sup { font-size: 24px; vertical-align: super; }
-  .result-desc { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 10px; line-height: 1.5; letter-spacing: 0.02em; }
-  .result-desc strong { display: block; color: rgba(255,255,255,0.85); font-size: 15px; margin-bottom: 4px; }
+    .nav-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
 
-  .results-testimonial {
-    background: rgba(255,255,255,0.06); border-left: 3px solid var(--gold);
-    padding: 28px 36px; border-radius: 0 4px 4px 0; margin-top: 16px;
-  }
-  .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 16px; }
-  .testimonial-author { font-size: 12px; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 0;
+    }
 
-  /* ── FACILITIES ── */
-  .facilities { background: var(--cream); }
-  .facilities-intro { max-width: 580px; margin-bottom: 52px; }
-  .facilities-intro p { font-size: 15px; color: var(--text-light); line-height: 1.8; }
-  .facilities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .facility-card {
-    background: var(--white); border-radius: 4px; padding: 32px 28px;
-    border: 1px solid var(--border);
-    transition: all 0.3s;
-  }
-  .facility-card:hover { border-color: var(--emerald-light); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(163, 18, 63, 0.12); }
-  .facility-icon {
-    width: 52px; height: 52px; border-radius: 4px;
-    background: rgba(163, 18, 63, 0.08); display: flex; align-items: center; justify-content: center;
-    font-size: 24px; margin-bottom: 20px;
-  }
-  .facility-card h3 { font-size: 16px; font-weight: 600; color: var(--emerald-dark); margin-bottom: 10px; }
-  .facility-card p { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+    @media (min-width: 901px) {
+      .hero {
+        height: 100vh;
+        padding-top: 86px; /* Clears fixed nav height */
+      }
+      .hero-content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-items: center;
+        gap: 80px;
+      }
+      .hero-stats {
+        margin-top: 20px;
+        padding-top: 20px;
+      }
+      .hero-title {
+        font-size: clamp(38px, 4vw, 52px);
+      }
+      .hero-subtitle {
+        margin-bottom: 20px;
+      }
+      .hero-img-frame {
+        max-height: 50vh;
+        width: auto;
+        margin: 0 auto;
+      }
+      .hero-card {
+        top: auto;
+        bottom: 30px;
+        left: auto;
+        right: -20px;
+        padding: 12px 16px;
+        min-width: 140px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      }
+      .hero-card-value { font-size: 20px; }
+      .hero-card-label { font-size: 9px; }
+    }
 
-  /* ── INFRASTRUCTURE ── */
-  .infrastructure { background: var(--white); }
-  .infra-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .infra-text p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 24px; }
-  .infra-list { display: flex; flex-direction: column; gap: 12px; }
-  .infra-list-item {
-    display: flex; align-items: center; gap: 16px; padding: 14px 20px;
-    background: var(--cream); border-radius: 4px; border-left: 3px solid var(--emerald);
-    font-size: 14px; color: var(--text);
-  }
-  .infra-list-item span:first-child { font-size: 20px; }
-  .infra-visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .infra-img {
-    border-radius: 4px; overflow: hidden; aspect-ratio: 4/3;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  }
-  .infra-img.tall { aspect-ratio: 3/4; grid-row: span 2; }
-  .infra-img svg { width: 100%; height: 100%; display: block; }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(135deg, #233571 0%, #ab0d45 60%, #ab0d45 100%);
+    }
 
-  /* ── ADMISSION CTA ── */
-  .admission-cta {
-    background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
-    padding: 80px 0; text-align: center;
-  }
-  .admission-cta .section-label { justify-content: center; }
-  .admission-cta .section-label::after { display: none; }
-  .admission-cta .section-title { color: var(--white); text-align: center; }
-  .admission-cta p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 40px; max-width: 520px; margin-left: auto; margin-right: auto; }
-  .cta-form {
-    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-    max-width: 600px; margin: 0 auto;
-  }
-  .cta-input {
-    flex: 1; min-width: 200px; padding: 14px 20px;
-    border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
-    border-radius: 2px; color: var(--white);
-    font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none;
-    transition: border-color 0.2s;
-  }
-  .cta-input::placeholder { color: rgba(255,255,255,0.4); }
-  .cta-input:focus { border-color: var(--gold); }
-  .cta-form .btn-primary { white-space: nowrap; }
-  .cta-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 16px; }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--emerald-dark); border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 48px 0 24px;
-  }
-  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
-  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; margin-top: 16px; }
-  .footer-col h4 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: var(--white); }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; color: rgba(255,255,255,0.3);
-  }
-  .footer-bottom a { color: var(--gold-light); text-decoration: none; }
+    /* Decorative circle */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      right: -200px;
+      top: -200px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(243, 125, 31, 0.15) 0%, transparent 70%);
+    }
 
-  /* ── SCROLL ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate { animation: fadeUp 0.7s ease forwards; }
-  .delay-1 { animation-delay: 0.1s; opacity: 0; }
-  .delay-2 { animation-delay: 0.2s; opacity: 0; }
-  .delay-3 { animation-delay: 0.3s; opacity: 0; }
-  .delay-4 { animation-delay: 0.4s; opacity: 0; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 60px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hero-content { grid-template-columns: 1fr; padding: 100px 24px 60px; }
-    .hero-visual { display: none; }
-    .container { padding: 0 24px; }
-    .about-grid, .infra-content { grid-template-columns: 1fr; gap: 40px; }
-    .curriculum-cards { grid-template-columns: 1fr; }
-    .results-grid { grid-template-columns: 1fr 1fr; }
-    .facilities-grid { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .cta-form { flex-direction: column; }
-  }
-  @media (max-width: 600px) {
-    .results-grid { grid-template-columns: 1fr; }
-    .facilities-grid { grid-template-columns: 1fr; }
-  }
-</style>
+    .hero-text .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(243, 125, 31, 0.15);
+      border: 1px solid rgba(243, 125, 31, 0.4);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-text .badge::before {
+      content: '●';
+      font-size: 8px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-item {
+      text-align: left;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* Hero image side */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-img-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Floating card */
+    .hero-card {
+      position: absolute;
+      left: -40px;
+      bottom: 40px;
+      background: var(--white);
+      border-radius: 4px;
+      padding: 20px 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      min-width: 200px;
+    }
+
+    .hero-card-label {
+      font-size: 10px;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--emerald);
+    }
+
+    .hero-card-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ── SECTION STYLES ── */
+    section {
+      padding: 90px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      color: var(--emerald);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 0 0 32px;
+      height: 1px;
+      background: var(--emerald);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--emerald);
+      margin-bottom: 20px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--emerald-light);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 20px 60px rgba(35, 53, 113, 0.15);
+    }
+
+    .about-img-wrap svg,
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .about-img-wrap img {
+      transition: transform 0.5s ease;
+    }
+
+    .about-img-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-img-accent {
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 100px;
+      height: 100px;
+      border: 2px solid var(--gold);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .highlight-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .highlight-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background: rgba(163, 18, 63, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .highlight-text h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--emerald-dark);
+      margin-bottom: 3px;
+    }
+
+    .highlight-text p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── CURRICULUM ── */
+    .curriculum {
+      background: var(--cream);
+    }
+
+    .curriculum-intro {
+      max-width: 620px;
+      margin-bottom: 56px;
+    }
+
+    .curriculum-intro p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .curriculum-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .curr-card {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .curr-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .curr-card-header {
+      padding: 36px 36px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .curr-card.cbse .curr-card-header {
+      background: var(--emerald-dark);
+    }
+
+    .curr-card.cambridge .curr-card-header {
+      background: #034ea2;
+    }
+
+    .curr-card-header::after {
+      content: '';
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .curr-board-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .cbse .curr-board-tag {
+      background: rgba(35, 53, 113, 0.1);
+      color: var(--emerald-dark);
+      border: 1px solid rgba(35, 53, 113, 0.2);
+    }
+
+    .cambridge .curr-board-tag {
+      background: rgba(171, 13, 69, 0.1);
+      color: var(--emerald);
+      border: 1px solid rgba(171, 13, 69, 0.2);
+    }
+
+    .curr-card-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .curr-card-header p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+
+    .curr-card-body {
+      background: var(--white);
+      padding: 28px 36px;
+    }
+
+    .curr-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .curr-features li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .curr-features li::before {
+      content: '✓';
+      color: var(--emerald);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .curr-cta {
+      margin-top: 24px;
+      display: block;
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .cbse .curr-cta {
+      background: var(--emerald-dark);
+      color: var(--white);
+      border: none;
+    }
+
+    .cbse .curr-cta:hover {
+      background: var(--emerald-light);
+    }
+
+    .cambridge .curr-cta {
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+    }
+
+    .cambridge .curr-cta:hover {
+      opacity: 0.9;
+    }
+
+    /* ── RESULTS ── */
+    .results {
+      background: var(--emerald-dark);
+      color: var(--white);
+    }
+
+    .results .section-label {
+      color: var(--gold-light);
+    }
+
+    .results .section-label::after {
+      background: var(--gold-light);
+    }
+
+    .results .section-title {
+      color: var(--white);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 52px 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .result-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 40px 28px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .result-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .result-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .result-number sup {
+      font-size: 24px;
+      vertical-align: super;
+    }
+
+    .result-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 10px;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+    }
+
+    .result-desc strong {
+      display: block;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .results-testimonial {
+      background: rgba(255, 255, 255, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 28px 36px;
+      border-radius: 0 4px 4px 0;
+      margin-top: 16px;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-author {
+      font-size: 12px;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── FACILITIES ── */
+    .facilities {
+      background: var(--cream);
+    }
+
+    .facilities-intro {
+      max-width: 580px;
+      margin-bottom: 52px;
+    }
+
+    .facilities-intro p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .facility-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .facility-card:hover {
+      border-color: var(--emerald-light);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(163, 18, 63, 0.12);
+    }
+
+    .facility-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 4px;
+      background: rgba(163, 18, 63, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .facility-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--emerald-dark);
+      margin-bottom: 10px;
+    }
+
+    .facility-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ── INFRASTRUCTURE ── */
+    .infrastructure {
+      background: var(--white);
+    }
+
+    .infra-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .infra-text p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .infra-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .infra-list-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      background: var(--cream);
+      border-radius: 4px;
+      border-left: 3px solid var(--emerald);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .infra-list-item span:first-child {
+      font-size: 20px;
+    }
+
+    .infra-visual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .infra-img {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .infra-img.tall {
+      aspect-ratio: 3/4;
+      grid-row: span 2;
+    }
+
+    .infra-img svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ── ADMISSION CTA ── */
+    .admission-cta {
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .admission-cta .section-label {
+      justify-content: center;
+    }
+
+    .admission-cta .section-label::after {
+      display: none;
+    }
+
+    .admission-cta .section-title {
+      color: var(--white);
+      text-align: center;
+    }
+
+    .admission-cta p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 40px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .cta-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .cta-input:focus {
+      border-color: var(--gold);
+    }
+
+    .cta-form .btn-primary {
+      white-space: nowrap;
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--emerald-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 48px 0 24px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-bottom a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+      opacity: 0;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    .delay-4 {
+      animation-delay: 0.4s;
+      opacity: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        padding: 100px 24px 60px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .container {
+        padding: 0 24px;
+      }
+
+      .about-grid,
+      .infra-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .curriculum-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .facilities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-form {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facilities-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <div class="nav-logo-icon">🌱</div>
-    <div class="nav-logo-text">
-      <div class="school-name">Seedlings School</div>
-      <div class="school-sub">Jaipur, Rajasthan</div>
-    </div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#curriculum">Curriculum</a></li>
-    <li><a href="#results">Results</a></li>
-    <li><a href="#facilities">Facilities</a></li>
-    <li><a href="#infrastructure">Campus</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('admission').scrollIntoView({behavior:'smooth'})">Enquire Now</button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="badge animate delay-1">Admissions Open 2025–26</div>
-      <h1 class="hero-title animate delay-2">
-        Where Every <em>Seedling</em><br>Grows Into<br>Greatness
-      </h1>
-      <p class="hero-subtitle animate delay-3">
-        Jaipur's premier institution offering both CBSE and Cambridge International curricula — shaping confident, globally aware, and academically excellent young minds since 1992.
-      </p>
-      <div class="hero-actions animate delay-4">
-        <a href="#admission" class="btn-primary">Apply for Admission</a>
-        <a href="#about" class="btn-outline">Discover More</a>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">
+        <img src="images/logo-home.png" alt="Seedlings School Logo">
       </div>
-      <div class="hero-stats animate delay-4">
-        <div class="stat-item">
-          <div class="stat-num">30<sup>+</sup></div>
-          <div class="stat-label">Years of Excellence</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">5000<sup>+</sup></div>
-          <div class="stat-label">Students Enrolled</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Boards Offered</div>
-        </div>
+      <div class="nav-logo-text">
+        <div class="school-name">Seedlings School</div>
+        <div class="school-sub">Jaipur, Rajasthan</div>
       </div>
     </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#facilities">Facilities</a></li>
+      <li><a href="#infrastructure">Campus</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('admission').scrollIntoView({behavior:'smooth'})">Enquire
+      Now</button>
+  </nav>
 
-    <!-- Hero Illustration -->
-    <div class="hero-visual animate delay-3">
-      <div class="hero-img-frame">
-        <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#233571"/>
-              <stop offset="100%" stop-color="#ab0d45"/>
-            </linearGradient>
-          </defs>
-          <rect width="420" height="520" fill="url(#heroGrad)"/>
-          <!-- School Building -->
-          <rect x="60" y="220" width="300" height="200" fill="rgba(255,255,255,0.08)" rx="2"/>
-          <rect x="80" y="200" width="260" height="30" fill="rgba(255,255,255,0.1)" rx="2"/>
-          <!-- Windows -->
-          <rect x="90" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="160" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="230" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="300" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="90" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="160" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="230" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <rect x="300" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <!-- Door -->
-          <rect x="175" y="370" width="70" height="50" fill="rgba(255, 255, 255, 0.15)" rx="2"/>
-          <!-- Flag pole -->
-          <line x1="210" y1="50" x2="210" y2="200" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-          <rect x="212" y="60" width="60" height="30" fill="var(--accent-orange)" fill-opacity="0.8" rx="2"/>
-          <!-- Tree -->
-          <circle cx="80" cy="180" r="30" fill="rgba(255,255,255,0.1)"/>
-          <rect x="76" y="200" width="8" height="20" fill="rgba(255,255,255,0.2)"/>
-          <circle cx="340" cy="185" r="25" fill="rgba(255,255,255,0.1)"/>
-          <rect x="336" y="200" width="8" height="20" fill="rgba(255,255,255,0.2)"/>
-          <!-- Students silhouettes -->
-          <circle cx="150" cy="460" r="12" fill="rgba(255,255,255,0.15)"/>
-          <rect x="144" y="474" width="12" height="24" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <circle cx="210" cy="455" r="14" fill="rgba(255,255,255,0.18)"/>
-          <rect x="203" y="471" width="14" height="28" fill="rgba(255,255,255,0.15)" rx="2"/>
-          <circle cx="270" cy="460" r="12" fill="rgba(255,255,255,0.15)"/>
-          <rect x="264" y="474" width="12" height="24" fill="rgba(255,255,255,0.12)" rx="2"/>
-          <!-- Ground line -->
-          <rect x="0" y="450" width="420" height="70" fill="rgba(0,0,0,0.2)"/>
-          <!-- Sun rays -->
-          <circle cx="370" cy="60" r="30" fill="var(--accent-orange)" fill-opacity="0.1"/>
-          <circle cx="370" cy="60" r="20" fill="var(--accent-orange)" fill-opacity="0.2"/>
-          <circle cx="370" cy="60" r="10" fill="var(--accent-orange)" fill-opacity="0.4"/>
-          <!-- Text overlay -->
-          <text x="210" y="490" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" font-family="sans-serif" letter-spacing="2">SEEDLINGS SCHOOL · JAIPUR</text>
-        </svg>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="badge animate delay-1">Admissions Open 2025–26</div>
+        <h1 class="hero-title animate delay-2">
+          Where Every <em>Seedling</em><br>Grows Into Greatness
+        </h1>
+        <p class="hero-subtitle animate delay-3">
+          Jaipur's premier institution offering both CBSE and Cambridge International curricula — shaping confident,
+          globally aware, and academically excellent young minds since 1992.
+        </p>
+        <div class="hero-actions animate delay-4">
+          <a href="#admission" class="btn-primary">Apply for Admission</a>
+          <a href="#about" class="btn-outline">Discover More</a>
+        </div>
+        <div class="hero-stats animate delay-4">
+          <div class="stat-item">
+            <div class="stat-num">30<sup>+</sup></div>
+            <div class="stat-label">Years of Excellence</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5000<sup>+</sup></div>
+            <div class="stat-label">Students Enrolled</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Boards Offered</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Established</div>
-        <div class="hero-card-value">1992</div>
-        <div class="hero-card-desc">Jawahar Nagar, Jaipur</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div style="position:relative;">
-        <div class="about-img-accent"></div>
-        <div class="about-img-wrap">
-          <svg viewBox="0 0 380 500" xmlns="http://www.w3.org/2000/svg">
-            <rect width="380" height="500" fill="#fff0e5"/>
-            <!-- Classroom scene -->
-            <rect x="0" y="0" width="380" height="320" fill="#f5dfe3"/>
-            <!-- Blackboard -->
-            <rect x="40" y="40" width="300" height="160" fill="#233571" rx="4"/>
-            <text x="190" y="85" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="14" font-family="serif">Welcome to Seedlings</text>
-            <line x1="80" y1="110" x2="300" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-            <line x1="80" y1="130" x2="260" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-            <line x1="80" y1="150" x2="280" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-            <line x1="80" y1="170" x2="240" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-            <!-- Teacher -->
-            <circle cx="190" cy="250" r="18" fill="var(--accent-orange)"/>
-            <rect x="174" y="270" width="32" height="40" fill="var(--emerald)" rx="3"/>
-            <!-- Students row -->
-            <circle cx="80" cy="360" r="14" fill="#e8c49a"/>
-            <rect x="67" y="376" width="26" height="32" fill="var(--emerald-dark)" rx="2"/>
-            <circle cx="150" cy="360" r="14" fill="#d4a574"/>
-            <rect x="137" y="376" width="26" height="32" fill="var(--emerald)" rx="2"/>
-            <circle cx="220" cy="360" r="14" fill="#e8c49a"/>
-            <rect x="207" y="376" width="26" height="32" fill="var(--emerald-dark)" rx="2"/>
-            <circle cx="290" cy="360" r="14" fill="#d4a574"/>
-            <rect x="277" y="376" width="26" height="32" fill="var(--emerald)" rx="2"/>
-            <!-- Desks -->
-            <rect x="55" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
-            <rect x="125" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
-            <rect x="195" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
-            <rect x="265" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
-            <!-- Books on desks -->
-            <rect x="65" y="398" width="20" height="8" fill="var(--accent-orange)" rx="1"/>
-            <rect x="135" y="398" width="20" height="8" fill="var(--emerald)" rx="1"/>
-            <rect x="205" y="398" width="20" height="8" fill="var(--emerald-dark)" rx="1"/>
-            <rect x="275" y="398" width="20" height="8" fill="var(--accent-orange)" rx="1"/>
-            <!-- Floor -->
-            <rect x="0" y="430" width="380" height="70" fill="#e5d5d8"/>
+      <!-- Hero Illustration -->
+      <div class="hero-visual animate delay-3">
+        <div class="hero-img-frame">
+          <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#233571" />
+                <stop offset="100%" stop-color="#ab0d45" />
+              </linearGradient>
+            </defs>
+            <rect width="420" height="520" fill="url(#heroGrad)" />
+            <!-- School Building -->
+            <rect x="60" y="220" width="300" height="200" fill="rgba(255,255,255,0.08)" rx="2" />
+            <rect x="80" y="200" width="260" height="30" fill="rgba(255,255,255,0.1)" rx="2" />
+            <!-- Windows -->
+            <rect x="90" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="160" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="230" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="300" y="240" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="90" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="160" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="230" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <rect x="300" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2" />
+            <!-- Door -->
+            <rect x="175" y="370" width="70" height="50" fill="rgba(255, 255, 255, 0.15)" rx="2" />
+            <!-- Flag pole -->
+            <line x1="210" y1="50" x2="210" y2="200" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+            <rect x="212" y="60" width="60" height="30" fill="var(--accent-orange)" fill-opacity="0.8" rx="2" />
+            <!-- Tree -->
+            <circle cx="80" cy="180" r="30" fill="rgba(255,255,255,0.1)" />
+            <rect x="76" y="200" width="8" height="20" fill="rgba(255,255,255,0.2)" />
+            <circle cx="340" cy="185" r="25" fill="rgba(255,255,255,0.1)" />
+            <rect x="336" y="200" width="8" height="20" fill="rgba(255,255,255,0.2)" />
+            <!-- Students silhouettes -->
+            <circle cx="150" cy="460" r="12" fill="rgba(255,255,255,0.15)" />
+            <rect x="144" y="474" width="12" height="24" fill="rgba(255,255,255,0.12)" rx="2" />
+            <circle cx="210" cy="455" r="14" fill="rgba(255,255,255,0.18)" />
+            <rect x="203" y="471" width="14" height="28" fill="rgba(255,255,255,0.15)" rx="2" />
+            <circle cx="270" cy="460" r="12" fill="rgba(255,255,255,0.15)" />
+            <rect x="264" y="474" width="12" height="24" fill="rgba(255,255,255,0.12)" rx="2" />
+            <!-- Ground line -->
+            <rect x="0" y="450" width="420" height="70" fill="rgba(0,0,0,0.2)" />
+            <!-- Sun rays -->
+            <circle cx="370" cy="60" r="30" fill="var(--accent-orange)" fill-opacity="0.1" />
+            <circle cx="370" cy="60" r="20" fill="var(--accent-orange)" fill-opacity="0.2" />
+            <circle cx="370" cy="60" r="10" fill="var(--accent-orange)" fill-opacity="0.4" />
+            <!-- Text overlay -->
+            <text x="210" y="490" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11"
+              font-family="sans-serif" letter-spacing="2">SEEDLINGS SCHOOL · JAIPUR</text>
           </svg>
         </div>
-      </div>
-      <div class="about-content">
-        <div class="section-label">About Us</div>
-        <h2 class="section-title">A Legacy of <em>Learning</em> & Character</h2>
-        <p>Since 1992, Seedlings School Jaipur has been a beacon of academic excellence and holistic child development in Rajasthan. Part of the renowned Seedling Group of Schools, we are managed by Mahima Shiksha Samiti and have grown into one of Jaipur's most trusted educational institutions.</p>
-        <p>Our co-educational day school welcomes students from Nursery (Play Group) right through to Class XII, offering a seamless educational journey in a nurturing, values-driven environment. With campuses in Jawahar Nagar and Durgapura, we serve thousands of families across Jaipur.</p>
-        <p>We believe every child is a unique seedling — with the right environment, mentorship, and resources, each one grows into a confident, compassionate, and globally aware leader.</p>
-        <div class="about-highlights">
-          <div class="highlight-item">
-            <div class="highlight-icon">🏫</div>
-            <div class="highlight-text">
-              <h4>Co-Educational Day School</h4>
-              <p>English medium, Nursery to Class XII — a complete K-12 journey in one institution.</p>
-            </div>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">👩‍🏫</div>
-            <div class="highlight-text">
-              <h4>Expert Faculty</h4>
-              <p>Experienced, qualified educators dedicated to personalised attention and holistic growth.</p>
-            </div>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">🌍</div>
-            <div class="highlight-text">
-              <h4>Globally Aligned, Locally Grounded</h4>
-              <p>NEP-aligned curriculum combined with international standards to prepare future-ready students.</p>
-            </div>
-          </div>
+        <div class="hero-card">
+          <div class="hero-card-label">Established</div>
+          <div class="hero-card-value">1992</div>
+          <div class="hero-card-desc">Jawahar Nagar, Jaipur</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CURRICULUM -->
-<section class="curriculum" id="curriculum">
-  <div class="container">
-    <div class="curriculum-intro">
-      <div class="section-label">Our Programmes</div>
-      <h2 class="section-title">Two World-Class <em>Curricula</em>, One School</h2>
-      <p>Seedlings is uniquely positioned to offer parents a choice between two internationally respected educational pathways — each designed to bring out the best in your child, aligned with their strengths and aspirations.</p>
-    </div>
-    <div class="curriculum-cards">
-      <!-- CBSE -->
-      <div class="curr-card cbse">
-        <div class="curr-card-header">
-          <div class="curr-board-tag">National Board</div>
-          <h3>CBSE Curriculum</h3>
-          <p>Central Board of Secondary Education — India's most recognised national curriculum, combining academic rigour with broad-based learning.</p>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div style="position:relative;">
+          <div class="about-img-accent"></div>
+          <div class="about-img-wrap">
+            <img src="images/about-school.png" alt="Seedlings School Campus">
+          </div>
         </div>
-        <div class="curr-card-body">
-          <ul class="curr-features">
-            <li>Nursery / Play Group through Class XII</li>
-            <li>Consistently ranked among Top 10 CBSE schools in Jaipur</li>
-            <li>Strong academic foundation aligned with NEP 2020</li>
-            <li>Proven track record of excellent Board results</li>
-            <li>Affordable, structured pathway with all-India recognition</li>
-            <li>Project-based, experiential learning methodology</li>
-            <li>Scouts, Guides, NCC & diverse co-curricular clubs</li>
+        <div class="about-content">
+          <div class="section-label">About Us</div>
+          <h2 class="section-title">A Legacy of <em>Learning</em> & Character</h2>
+          <p>Since 1992, Seedlings School Jaipur has been a beacon of academic excellence and holistic child development
+            in Rajasthan. Part of the renowned Seedling Group of Schools, we are managed by Mahima Shiksha Samiti and
+            have grown into one of Jaipur's most trusted educational institutions.</p>
+          <p>Our co-educational day school welcomes students from Nursery (Play Group) right through to Class XII,
+            offering a seamless educational journey in a nurturing, values-driven environment. With campuses in Jawahar
+            Nagar and Durgapura, we serve thousands of families across Jaipur.</p>
+          <p>We believe every child is a unique seedling — with the right environment, mentorship, and resources, each
+            one grows into a confident, compassionate, and globally aware leader.</p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">🏫</div>
+              <div class="highlight-text">
+                <h4>Co-Educational Day School</h4>
+                <p>English medium, Nursery to Class XII — a complete K-12 journey in one institution.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">👩‍🏫</div>
+              <div class="highlight-text">
+                <h4>Expert Faculty</h4>
+                <p>Experienced, qualified educators dedicated to personalised attention and holistic growth.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">🌍</div>
+              <div class="highlight-text">
+                <h4>Globally Aligned, Locally Grounded</h4>
+                <p>NEP-aligned curriculum combined with international standards to prepare future-ready students.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum" id="curriculum">
+    <div class="container">
+      <div class="curriculum-intro">
+        <div class="section-label">Our Programmes</div>
+        <h2 class="section-title">Two World-Class <em>Curricula</em>, One School</h2>
+        <p>Seedlings is uniquely positioned to offer parents a choice between two internationally respected educational
+          pathways — each designed to bring out the best in your child, aligned with their strengths and aspirations.
+        </p>
+      </div>
+      <div class="curriculum-cards">
+        <!-- CBSE -->
+        <div class="curr-card cbse">
+          <div class="curr-card-header">
+            <div class="curr-board-tag">National Board</div>
+            <h3>CBSE Curriculum</h3>
+            <p>Central Board of Secondary Education — India's most recognised national curriculum, combining academic
+              rigour with broad-based learning.</p>
+          </div>
+          <div class="curr-card-body">
+            <ul class="curr-features">
+              <li>Nursery / Play Group through Class XII</li>
+              <li>Consistently ranked among Top 10 CBSE schools in Jaipur</li>
+              <li>Strong academic foundation aligned with NEP 2020</li>
+              <li>Proven track record of excellent Board results</li>
+              <li>Affordable, structured pathway with all-India recognition</li>
+              <li>Project-based, experiential learning methodology</li>
+              <li>Scouts, Guides, NCC & diverse co-curricular clubs</li>
+            </ul>
+            <a class="curr-cta" href="#admission">Enquire About CBSE →</a>
+          </div>
+        </div>
+        <!-- Cambridge -->
+        <div class="curr-card cambridge">
+          <div class="curr-card-header">
+            <div class="curr-board-tag">International Board</div>
+            <h3>Cambridge International</h3>
+            <p>Cambridge Assessment International Education (CAIE) — the globally trusted curriculum of the University
+              of Cambridge, UK.</p>
+          </div>
+          <div class="curr-card-body">
+            <ul class="curr-features">
+              <li>K2 (Kindergarten) through A-Levels (Class XII)</li>
+              <li>CAIE affiliated — globally recognised qualification</li>
+              <li>Develops critical thinking, research & independent learning</li>
+              <li>Opens pathways to top universities in India and abroad</li>
+              <li>Cambridge IGCSE with subject-wise flexible choices</li>
+              <li>Emphasis on inquiry, creativity & global perspectives</li>
+              <li>Preferred choice for internationally mobile families</li>
+            </ul>
+            <a class="curr-cta" href="#admission">Enquire About Cambridge →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results" id="results">
+    <div class="container">
+      <div class="section-label">Academic Excellence</div>
+      <h2 class="section-title">Results That <em>Speak</em> for Themselves</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">100<sup>%</sup></div>
+          <div class="result-desc"><strong>Pass Rate</strong>CBSE Class X & XII Board Examinations</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">95<sup>+</sup></div>
+          <div class="result-desc"><strong>Top Scorers</strong>Students achieving 90%+ in CBSE Boards annually</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">Top 10</div>
+          <div class="result-desc"><strong>City Ranking</strong>Consistently ranked among Jaipur's best CBSE schools
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">500<sup>+</sup></div>
+          <div class="result-desc"><strong>University Placements</strong>Students placed in top Indian & global
+            universities</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;">
+        <div class="results-testimonial">
+          <p class="testimonial-text">"Seedling's teaching methods are different from other schools — well-planned,
+            thoughtful, and designed to make children think beyond prescribed textbooks."</p>
+          <div class="testimonial-author">— Parent of Kiyansh Gupta, Prep B</div>
+        </div>
+        <div class="results-testimonial">
+          <p class="testimonial-text">"The school is setting new benchmarks in education. The hard work of qualified
+            teachers has resulted in all-round development — in personality, language and reasoning."</p>
+          <div class="testimonial-author">— Parent, Seedling Modern High School</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section class="facilities" id="facilities">
+    <div class="container">
+      <div class="facilities-intro">
+        <div class="section-label">Student Life</div>
+        <h2 class="section-title">Facilities That <em>Inspire</em></h2>
+        <p>We have invested in creating a stimulating, safe, and engaging learning environment where every student has
+          access to the tools, spaces, and experiences that help them discover their potential.</p>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card">
+          <div class="facility-icon">🔬</div>
+          <h3>Science Laboratories</h3>
+          <p>Modern, well-equipped labs for Physics, Chemistry, and Biology — enabling hands-on, practical learning that
+            brings textbooks to life.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">💻</div>
+          <h3>Technology & IT Labs</h3>
+          <p>Digital classrooms with interactive whiteboards and dedicated computer labs. Students develop essential
+            digital literacy from an early age.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">📚</div>
+          <h3>Library & Resource Centre</h3>
+          <p>A well-stocked library with books, journals, and digital resources to encourage a love of reading and
+            independent research.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">⚽</div>
+          <h3>Sports & Athletics</h3>
+          <p>Dedicated courts and fields for cricket, basketball, football, volleyball and more — guided by professional
+            coaches to build teamwork and resilience.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">🎨</div>
+          <h3>Arts & Culture</h3>
+          <p>Dedicated spaces for visual arts, music, dance and drama. Cultural programmes celebrate diversity and
+            develop creativity in every student.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">🚌</div>
+          <h3>Safe Transport</h3>
+          <p>GPS-tracked school buses with trained staff covering key areas of Jaipur — ensuring every child travels
+            safely to and from school.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">🌿</div>
+          <h3>Eco-Friendly Campus</h3>
+          <p>Green, eco-conscious campus environment designed to connect children with nature and instil environmental
+            responsibility.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">🎭</div>
+          <h3>Student Clubs & Societies</h3>
+          <p>A rich variety of clubs — Scouts, NCC, Guides, debate, robotics and more — to explore interests and develop
+            new passions beyond academics.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">🍽️</div>
+          <h3>Cafeteria</h3>
+          <p>Clean, hygienic cafeteria serving nutritious meals and snacks — supporting the health and energy levels of
+            growing students throughout the day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFRASTRUCTURE -->
+  <section class="infrastructure" id="infrastructure">
+    <div class="container">
+      <div class="infra-content">
+        <div class="infra-text">
+          <div class="section-label">Our Campus</div>
+          <h2 class="section-title">A Campus Built for <em>Discovery</em></h2>
+          <p>Our campuses at Jawahar Nagar and Durgapura, Jaipur span thousands of square metres of thoughtfully
+            designed educational space. Every corner of the campus is conceived to spark curiosity, encourage movement,
+            and support learning in all its forms.</p>
+          <p>From spacious, well-ventilated classrooms to open outdoor areas for play and exploration — Seedlings
+            provides the physical environment that great education requires.</p>
+          <div class="infra-list">
+            <div class="infra-list-item"><span>🏢</span> Spacious, air-ventilated classrooms with natural light</div>
+            <div class="infra-list-item"><span>🖥️</span> Smart boards and interactive digital displays in each class
+            </div>
+            <div class="infra-list-item"><span>🏟️</span> Large outdoor sports grounds and play areas</div>
+            <div class="infra-list-item"><span>🎓</span> Dedicated halls for assemblies, events & examinations</div>
+            <div class="infra-list-item"><span>🛡️</span> CCTV surveillance for round-the-clock campus safety</div>
+            <div class="infra-list-item"><span>♿</span> Accessible infrastructure for differently-abled students</div>
+            <div class="infra-list-item"><span>🌱</span> Green zones & garden spaces for outdoor education</div>
+          </div>
+        </div>
+        <div class="infra-visual-grid">
+          <div class="infra-img tall">
+            <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="280" fill="#a3123f" />
+              <rect x="20" y="60" width="160" height="160" fill="rgba(255,255,255,0.1)" rx="3" />
+              <rect x="30" y="30" width="140" height="40" fill="rgba(255,255,255,0.08)" rx="2" />
+              <rect x="40" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
+              <rect x="110" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
+              <rect x="40" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
+              <rect x="110" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
+              <rect x="80" y="200" width="40" height="20" fill="rgba(243, 125, 31, 0.4)" rx="1" />
+              <text x="100" y="260" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9"
+                font-family="sans-serif">MAIN BUILDING</text>
+            </svg>
+          </div>
+          <div class="infra-img">
+            <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="130" fill="#fff0e5" />
+              <circle cx="40" cy="70" r="30" fill="#034ea2" />
+              <rect x="36" y="90" width="8" height="20" fill="#8b6340" />
+              <circle cx="160" cy="65" r="25" fill="#034ea2" />
+              <rect x="156" y="82" width="8" height="18" fill="#8b6340" />
+              <circle cx="100" cy="75" r="35" fill="#a3123f" />
+              <rect x="96" y="98" width="8" height="22" fill="#8b6340" />
+              <rect x="0" y="108" width="200" height="22" fill="#f5dfe3" />
+              <text x="100" y="122" text-anchor="middle" fill="rgba(0,0,0,0.4)" font-size="8"
+                font-family="sans-serif">GREEN CAMPUS</text>
+            </svg>
+          </div>
+          <div class="infra-img">
+            <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="130" fill="#233571" />
+              <!-- Lab equipment -->
+              <rect x="20" y="50" width="160" height="60" fill="rgba(255,255,255,0.06)" rx="3" />
+              <circle cx="60" cy="70" r="18" fill="none" stroke="rgba(243, 125, 31, 0.5)" stroke-width="2" />
+              <line x1="60" y1="52" x2="60" y2="88" stroke="rgba(243, 125, 31, 0.4)" stroke-width="1.5" />
+              <rect x="90" y="55" width="10" height="35" fill="rgba(126,165,228,0.4)" rx="2" />
+              <rect x="108" y="60" width="10" height="30" fill="rgba(126,165,228,0.3)" rx="2" />
+              <rect x="126" y="50" width="10" height="40" fill="rgba(126,165,228,0.4)" rx="2" />
+              <rect x="144" y="65" width="10" height="25" fill="rgba(126,165,228,0.3)" rx="2" />
+              <text x="100" y="122" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8"
+                font-family="sans-serif">SCIENCE LABORATORY</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSION CTA -->
+  <section class="admission-cta" id="admission">
+    <div class="container">
+      <div class="section-label" style="justify-content:center;">
+        <span>Admissions 2025–26</span>
+      </div>
+      <h2 class="section-title" style="text-align:center;">Begin Your Child's <em>Journey</em> With Us</h2>
+      <p>Seats are limited. Submit your enquiry today and our admissions team will personally guide you through the
+        process — from choosing the right curriculum to completing the application.</p>
+      <div class="cta-form">
+        <input class="cta-input" type="text" placeholder="Parent's Name">
+        <input class="cta-input" type="tel" placeholder="Mobile Number">
+        <button class="btn-primary"
+          onclick="alert('Thank you for your enquiry! Our admissions team will contact you within 24 hours.')">Request
+          Callback</button>
+      </div>
+      <p class="cta-note">📍 Jawahar Nagar & Durgapura, Jaipur &nbsp;|&nbsp; 📞 Available Mon–Sat, 9 AM – 4 PM</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-icon">
+              <img src="images/logo-home.png" alt="Seedlings School Logo">
+            </div>
+            <div class="nav-logo-text">
+              <div class="school-name">Seedlings School</div>
+              <div class="school-sub">Jaipur, Rajasthan</div>
+            </div>
+          </div>
+          <p style="margin-top:16px;">Part of the Seedling Group of Schools. Managed by Mahima Shiksha Samiti. Nurturing
+            young minds since 1992.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#about">About School</a></li>
+            <li><a href="#curriculum">CBSE Programme</a></li>
+            <li><a href="#curriculum">Cambridge Programme</a></li>
+            <li><a href="#results">Academic Results</a></li>
+            <li><a href="#facilities">Facilities</a></li>
           </ul>
-          <a class="curr-cta" href="#admission">Enquire About CBSE →</a>
         </div>
-      </div>
-      <!-- Cambridge -->
-      <div class="curr-card cambridge">
-        <div class="curr-card-header">
-          <div class="curr-board-tag">International Board</div>
-          <h3>Cambridge International</h3>
-          <p>Cambridge Assessment International Education (CAIE) — the globally trusted curriculum of the University of Cambridge, UK.</p>
-        </div>
-        <div class="curr-card-body">
-          <ul class="curr-features">
-            <li>K2 (Kindergarten) through A-Levels (Class XII)</li>
-            <li>CAIE affiliated — globally recognised qualification</li>
-            <li>Develops critical thinking, research & independent learning</li>
-            <li>Opens pathways to top universities in India and abroad</li>
-            <li>Cambridge IGCSE with subject-wise flexible choices</li>
-            <li>Emphasis on inquiry, creativity & global perspectives</li>
-            <li>Preferred choice for internationally mobile families</li>
+        <div class="footer-col">
+          <h4>Admissions</h4>
+          <ul>
+            <li><a href="#admission">Apply Online</a></li>
+            <li><a href="#admission">Admission Process</a></li>
+            <li><a href="#admission">Fee Structure</a></li>
+            <li><a href="#admission">Important Dates</a></li>
+            <li><a href="#admission">Contact Admissions</a></li>
           </ul>
-          <a class="curr-cta" href="#admission">Enquire About Cambridge →</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">Jawahar Nagar Campus</a></li>
+            <li><a href="#">Durgapura Campus</a></li>
+            <li><a href="#">www.seedlingschools.com</a></li>
+            <li><a href="#">admissions@seedlingschools.com</a></li>
+          </ul>
         </div>
       </div>
+      <div class="footer-bottom">
+        <span>© 2025 Seedlings School, Jaipur. All rights reserved.</span>
+        <span>Designed with ❤ for every parent seeking the best for their child</span>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- RESULTS -->
-<section class="results" id="results">
-  <div class="container">
-    <div class="section-label">Academic Excellence</div>
-    <h2 class="section-title">Results That <em>Speak</em> for Themselves</h2>
-    <div class="results-grid">
-      <div class="result-card">
-        <div class="result-number">100<sup>%</sup></div>
-        <div class="result-desc"><strong>Pass Rate</strong>CBSE Class X & XII Board Examinations</div>
-      </div>
-      <div class="result-card">
-        <div class="result-number">95<sup>+</sup></div>
-        <div class="result-desc"><strong>Top Scorers</strong>Students achieving 90%+ in CBSE Boards annually</div>
-      </div>
-      <div class="result-card">
-        <div class="result-number">Top 10</div>
-        <div class="result-desc"><strong>City Ranking</strong>Consistently ranked among Jaipur's best CBSE schools</div>
-      </div>
-      <div class="result-card">
-        <div class="result-number">500<sup>+</sup></div>
-        <div class="result-desc"><strong>University Placements</strong>Students placed in top Indian & global universities</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;">
-      <div class="results-testimonial">
-        <p class="testimonial-text">"Seedling's teaching methods are different from other schools — well-planned, thoughtful, and designed to make children think beyond prescribed textbooks."</p>
-        <div class="testimonial-author">— Parent of Kiyansh Gupta, Prep B</div>
-      </div>
-      <div class="results-testimonial">
-        <p class="testimonial-text">"The school is setting new benchmarks in education. The hard work of qualified teachers has resulted in all-round development — in personality, language and reasoning."</p>
-        <div class="testimonial-author">— Parent, Seedling Modern High School</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FACILITIES -->
-<section class="facilities" id="facilities">
-  <div class="container">
-    <div class="facilities-intro">
-      <div class="section-label">Student Life</div>
-      <h2 class="section-title">Facilities That <em>Inspire</em></h2>
-      <p>We have invested in creating a stimulating, safe, and engaging learning environment where every student has access to the tools, spaces, and experiences that help them discover their potential.</p>
-    </div>
-    <div class="facilities-grid">
-      <div class="facility-card">
-        <div class="facility-icon">🔬</div>
-        <h3>Science Laboratories</h3>
-        <p>Modern, well-equipped labs for Physics, Chemistry, and Biology — enabling hands-on, practical learning that brings textbooks to life.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">💻</div>
-        <h3>Technology & IT Labs</h3>
-        <p>Digital classrooms with interactive whiteboards and dedicated computer labs. Students develop essential digital literacy from an early age.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">📚</div>
-        <h3>Library & Resource Centre</h3>
-        <p>A well-stocked library with books, journals, and digital resources to encourage a love of reading and independent research.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">⚽</div>
-        <h3>Sports & Athletics</h3>
-        <p>Dedicated courts and fields for cricket, basketball, football, volleyball and more — guided by professional coaches to build teamwork and resilience.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">🎨</div>
-        <h3>Arts & Culture</h3>
-        <p>Dedicated spaces for visual arts, music, dance and drama. Cultural programmes celebrate diversity and develop creativity in every student.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">🚌</div>
-        <h3>Safe Transport</h3>
-        <p>GPS-tracked school buses with trained staff covering key areas of Jaipur — ensuring every child travels safely to and from school.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">🌿</div>
-        <h3>Eco-Friendly Campus</h3>
-        <p>Green, eco-conscious campus environment designed to connect children with nature and instil environmental responsibility.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">🎭</div>
-        <h3>Student Clubs & Societies</h3>
-        <p>A rich variety of clubs — Scouts, NCC, Guides, debate, robotics and more — to explore interests and develop new passions beyond academics.</p>
-      </div>
-      <div class="facility-card">
-        <div class="facility-icon">🍽️</div>
-        <h3>Cafeteria</h3>
-        <p>Clean, hygienic cafeteria serving nutritious meals and snacks — supporting the health and energy levels of growing students throughout the day.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INFRASTRUCTURE -->
-<section class="infrastructure" id="infrastructure">
-  <div class="container">
-    <div class="infra-content">
-      <div class="infra-text">
-        <div class="section-label">Our Campus</div>
-        <h2 class="section-title">A Campus Built for <em>Discovery</em></h2>
-        <p>Our campuses at Jawahar Nagar and Durgapura, Jaipur span thousands of square metres of thoughtfully designed educational space. Every corner of the campus is conceived to spark curiosity, encourage movement, and support learning in all its forms.</p>
-        <p>From spacious, well-ventilated classrooms to open outdoor areas for play and exploration — Seedlings provides the physical environment that great education requires.</p>
-        <div class="infra-list">
-          <div class="infra-list-item"><span>🏢</span> Spacious, air-ventilated classrooms with natural light</div>
-          <div class="infra-list-item"><span>🖥️</span> Smart boards and interactive digital displays in each class</div>
-          <div class="infra-list-item"><span>🏟️</span> Large outdoor sports grounds and play areas</div>
-          <div class="infra-list-item"><span>🎓</span> Dedicated halls for assemblies, events & examinations</div>
-          <div class="infra-list-item"><span>🛡️</span> CCTV surveillance for round-the-clock campus safety</div>
-          <div class="infra-list-item"><span>♿</span> Accessible infrastructure for differently-abled students</div>
-          <div class="infra-list-item"><span>🌱</span> Green zones & garden spaces for outdoor education</div>
-        </div>
-      </div>
-      <div class="infra-visual-grid">
-        <div class="infra-img tall">
-          <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="280" fill="#a3123f"/>
-            <rect x="20" y="60" width="160" height="160" fill="rgba(255,255,255,0.1)" rx="3"/>
-            <rect x="30" y="30" width="140" height="40" fill="rgba(255,255,255,0.08)" rx="2"/>
-            <rect x="40" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
-            <rect x="110" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
-            <rect x="40" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
-            <rect x="110" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
-            <rect x="80" y="200" width="40" height="20" fill="rgba(243, 125, 31, 0.4)" rx="1"/>
-            <text x="100" y="260" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="sans-serif">MAIN BUILDING</text>
-          </svg>
-        </div>
-        <div class="infra-img">
-          <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="130" fill="#fff0e5"/>
-            <circle cx="40" cy="70" r="30" fill="#034ea2"/>
-            <rect x="36" y="90" width="8" height="20" fill="#8b6340"/>
-            <circle cx="160" cy="65" r="25" fill="#034ea2"/>
-            <rect x="156" y="82" width="8" height="18" fill="#8b6340"/>
-            <circle cx="100" cy="75" r="35" fill="#a3123f"/>
-            <rect x="96" y="98" width="8" height="22" fill="#8b6340"/>
-            <rect x="0" y="108" width="200" height="22" fill="#f5dfe3"/>
-            <text x="100" y="122" text-anchor="middle" fill="rgba(0,0,0,0.4)" font-size="8" font-family="sans-serif">GREEN CAMPUS</text>
-          </svg>
-        </div>
-        <div class="infra-img">
-          <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="130" fill="#233571"/>
-            <!-- Lab equipment -->
-            <rect x="20" y="50" width="160" height="60" fill="rgba(255,255,255,0.06)" rx="3"/>
-            <circle cx="60" cy="70" r="18" fill="none" stroke="rgba(243, 125, 31, 0.5)" stroke-width="2"/>
-            <line x1="60" y1="52" x2="60" y2="88" stroke="rgba(243, 125, 31, 0.4)" stroke-width="1.5"/>
-            <rect x="90" y="55" width="10" height="35" fill="rgba(126,165,228,0.4)" rx="2"/>
-            <rect x="108" y="60" width="10" height="30" fill="rgba(126,165,228,0.3)" rx="2"/>
-            <rect x="126" y="50" width="10" height="40" fill="rgba(126,165,228,0.4)" rx="2"/>
-            <rect x="144" y="65" width="10" height="25" fill="rgba(126,165,228,0.3)" rx="2"/>
-            <text x="100" y="122" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8" font-family="sans-serif">SCIENCE LABORATORY</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ADMISSION CTA -->
-<section class="admission-cta" id="admission">
-  <div class="container">
-    <div class="section-label" style="justify-content:center;">
-      <span>Admissions 2025–26</span>
-    </div>
-    <h2 class="section-title" style="text-align:center;">Begin Your Child's <em>Journey</em> With Us</h2>
-    <p>Seats are limited. Submit your enquiry today and our admissions team will personally guide you through the process — from choosing the right curriculum to completing the application.</p>
-    <div class="cta-form">
-      <input class="cta-input" type="text" placeholder="Parent's Name">
-      <input class="cta-input" type="tel" placeholder="Mobile Number">
-      <button class="btn-primary" onclick="alert('Thank you for your enquiry! Our admissions team will contact you within 24 hours.')">Request Callback</button>
-    </div>
-    <p class="cta-note">📍 Jawahar Nagar & Durgapura, Jaipur &nbsp;|&nbsp; 📞 Available Mon–Sat, 9 AM – 4 PM</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">
-          <div class="nav-logo-icon">🌱</div>
-          <div class="nav-logo-text">
-            <div class="school-name">Seedlings School</div>
-            <div class="school-sub">Jaipur, Rajasthan</div>
-          </div>
-        </div>
-        <p style="margin-top:16px;">Part of the Seedling Group of Schools. Managed by Mahima Shiksha Samiti. Nurturing young minds since 1992.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#about">About School</a></li>
-          <li><a href="#curriculum">CBSE Programme</a></li>
-          <li><a href="#curriculum">Cambridge Programme</a></li>
-          <li><a href="#results">Academic Results</a></li>
-          <li><a href="#facilities">Facilities</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Admissions</h4>
-        <ul>
-          <li><a href="#admission">Apply Online</a></li>
-          <li><a href="#admission">Admission Process</a></li>
-          <li><a href="#admission">Fee Structure</a></li>
-          <li><a href="#admission">Important Dates</a></li>
-          <li><a href="#admission">Contact Admissions</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="#">Jawahar Nagar Campus</a></li>
-          <li><a href="#">Durgapura Campus</a></li>
-          <li><a href="#">www.seedlingschools.com</a></li>
-          <li><a href="#">admissions@seedlingschools.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Seedlings School, Jaipur. All rights reserved.</span>
-      <span>Designed with ❤ for every parent seeking the best for their child</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Smooth scroll for nav links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
     });
-  });
 
-  // Intersection observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        entry.target.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-      }
+    // Intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.facility-card, .curr-card, .result-card, .infra-list-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      observer.observe(el);
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.facility-card, .curr-card, .result-card, .infra-list-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    observer.observe(el);
-  });
-</script>
+  </script>
 </body>
+
 </html>
