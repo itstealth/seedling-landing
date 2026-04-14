@@ -992,10 +992,16 @@
       grid-row: span 2;
     }
 
-    .infra-img svg {
+    .infra-img img {
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .infra-img:hover img {
+      transform: scale(1.05);
     }
 
     /* ── ADMISSION CTA ── */
@@ -1652,47 +1658,13 @@
         </div>
         <div class="infra-visual-grid">
           <div class="infra-img tall">
-            <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-              <rect width="200" height="280" fill="#a3123f" />
-              <rect x="20" y="60" width="160" height="160" fill="rgba(255,255,255,0.1)" rx="3" />
-              <rect x="30" y="30" width="140" height="40" fill="rgba(255,255,255,0.08)" rx="2" />
-              <rect x="40" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
-              <rect x="110" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
-              <rect x="40" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
-              <rect x="110" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2" />
-              <rect x="80" y="200" width="40" height="20" fill="rgba(243, 125, 31, 0.4)" rx="1" />
-              <text x="100" y="260" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9"
-                font-family="sans-serif">MAIN BUILDING</text>
-            </svg>
+            <img src="images/infra-campus.jpg" alt="Seedlings Campus Infrastructure">
           </div>
           <div class="infra-img">
-            <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-              <rect width="200" height="130" fill="#fff0e5" />
-              <circle cx="40" cy="70" r="30" fill="#034ea2" />
-              <rect x="36" y="90" width="8" height="20" fill="#8b6340" />
-              <circle cx="160" cy="65" r="25" fill="#034ea2" />
-              <rect x="156" y="82" width="8" height="18" fill="#8b6340" />
-              <circle cx="100" cy="75" r="35" fill="#a3123f" />
-              <rect x="96" y="98" width="8" height="22" fill="#8b6340" />
-              <rect x="0" y="108" width="200" height="22" fill="#f5dfe3" />
-              <text x="100" y="122" text-anchor="middle" fill="rgba(0,0,0,0.4)" font-size="8"
-                font-family="sans-serif">GREEN CAMPUS</text>
-            </svg>
+            <img src="images/infra-lab.jpg" alt="Science and Technology Lab">
           </div>
           <div class="infra-img">
-            <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-              <rect width="200" height="130" fill="#233571" />
-              <!-- Lab equipment -->
-              <rect x="20" y="50" width="160" height="60" fill="rgba(255,255,255,0.06)" rx="3" />
-              <circle cx="60" cy="70" r="18" fill="none" stroke="rgba(243, 125, 31, 0.5)" stroke-width="2" />
-              <line x1="60" y1="52" x2="60" y2="88" stroke="rgba(243, 125, 31, 0.4)" stroke-width="1.5" />
-              <rect x="90" y="55" width="10" height="35" fill="rgba(126,165,228,0.4)" rx="2" />
-              <rect x="108" y="60" width="10" height="30" fill="rgba(126,165,228,0.3)" rx="2" />
-              <rect x="126" y="50" width="10" height="40" fill="rgba(126,165,228,0.4)" rx="2" />
-              <rect x="144" y="65" width="10" height="25" fill="rgba(126,165,228,0.3)" rx="2" />
-              <text x="100" y="122" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8"
-                font-family="sans-serif">SCIENCE LABORATORY</text>
-            </svg>
+            <img src="images/infra-library.jpg" alt="School Library and Resource Centre">
           </div>
         </div>
       </div>
