@@ -8,12 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --emerald: #1a5c45;
-    --emerald-dark: #0f3a2b;
-    --emerald-light: #2e8b68;
-    --gold: #c9a84c;
-    --gold-light: #e4c97e;
-    --cream: #faf7f2;
+    --emerald: #ab0d45;
+    --emerald-dark: #233571;
+    --emerald-light: #445691;
+    --gold: #233571;
+    --gold-light: #ab0d45;
+    --accent-orange: rgb(247, 148, 30);
+    --cream: #fcf7f7;
     --white: #ffffff;
     --text: #2c2c2c;
     --text-light: #666666;
@@ -36,9 +37,9 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 60px;
-    background: rgba(15,58,43,0.97);
+    background: rgba(35, 53, 113, 0.97);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(201,168,76,0.3);
+    border-bottom: 1px solid rgba(163, 18, 63, 0.3);
   }
   .nav-logo {
     display: flex; align-items: center; gap: 12px;
@@ -66,7 +67,7 @@
   }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-cta {
-    background: var(--gold); color: var(--emerald-dark);
+    background: var(--gold); color: var(--white);
     border: none; padding: 10px 24px; border-radius: 2px;
     font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
     letter-spacing: 0.05em; cursor: pointer;
@@ -82,7 +83,7 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(135deg, #0f3a2b 0%, #1a5c45 40%, #2e8b68 100%);
+    background: linear-gradient(135deg, #233571 0%, #ab0d45 60%, #ab0d45 100%);
   }
   .hero-bg::before {
     content: '';
@@ -95,7 +96,7 @@
     position: absolute; right: -200px; top: -200px;
     width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(243, 125, 31, 0.15) 0%, transparent 70%);
   }
 
   .hero-content {
@@ -105,7 +106,7 @@
   }
   .hero-text .badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+    background: rgba(243, 125, 31, 0.15); border: 1px solid rgba(243, 125, 31, 0.4);
     padding: 6px 16px; border-radius: 20px;
     font-size: 11px; color: var(--gold-light); letter-spacing: 0.12em; text-transform: uppercase;
     margin-bottom: 24px;
@@ -124,13 +125,13 @@
   }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--gold); color: var(--emerald-dark);
+    background: var(--gold); color: var(--white);
     border: none; padding: 14px 32px; border-radius: 2px;
     font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
     letter-spacing: 0.05em; cursor: pointer;
     transition: all 0.2s; text-decoration: none; display: inline-block;
   }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
   .btn-outline {
     background: transparent; color: var(--white);
     border: 1px solid rgba(255,255,255,0.4);
@@ -148,7 +149,7 @@
   .stat-item { text-align: left; }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 600; color: var(--gold);
+    font-size: 36px; font-weight: 600; color: var(--gold-light);
     line-height: 1;
   }
   .stat-label { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; margin-top: 4px; }
@@ -179,16 +180,16 @@
   .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
 
   .section-label {
-    font-size: 11px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 11px; color: var(--emerald); letter-spacing: 0.15em; text-transform: uppercase;
     font-weight: 500; margin-bottom: 12px;
     display: flex; align-items: center; gap: 10px;
   }
-  .section-label::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--gold); }
+  .section-label::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--emerald); }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(32px, 3.5vw, 48px); font-weight: 300;
-    line-height: 1.15; color: var(--emerald-dark);
+    line-height: 1.15; color: var(--emerald);
     margin-bottom: 20px;
   }
   .section-title em { font-style: italic; color: var(--emerald-light); }
@@ -199,7 +200,7 @@
   .about-img-wrap {
     position: relative;
     border-radius: 4px; overflow: hidden;
-    aspect-ratio: 3/4; box-shadow: 0 20px 60px rgba(15,58,43,0.15);
+    aspect-ratio: 3/4; box-shadow: 0 20px 60px rgba(35, 53, 113, 0.15);
   }
   .about-img-wrap svg { width: 100%; height: 100%; display: block; }
   .about-img-accent {
@@ -213,7 +214,7 @@
   .highlight-item { display: flex; gap: 16px; align-items: flex-start; }
   .highlight-icon {
     width: 40px; height: 40px; flex-shrink: 0;
-    background: rgba(26,92,69,0.08); border-radius: 50%;
+    background: rgba(163, 18, 63, 0.08); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; font-size: 18px;
   }
   .highlight-text h4 { font-size: 14px; font-weight: 600; color: var(--emerald-dark); margin-bottom: 3px; }
@@ -235,7 +236,7 @@
     position: relative; overflow: hidden;
   }
   .curr-card.cbse .curr-card-header { background: var(--emerald-dark); }
-  .curr-card.cambridge .curr-card-header { background: #1a2c5c; }
+  .curr-card.cambridge .curr-card-header { background: #034ea2; }
   .curr-card-header::after {
     content: ''; position: absolute; right: -30px; top: -30px;
     width: 120px; height: 120px; border-radius: 50%;
@@ -246,8 +247,8 @@
     font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
     margin-bottom: 16px;
   }
-  .cbse .curr-board-tag { background: rgba(201,168,76,0.2); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.4); }
-  .cambridge .curr-board-tag { background: rgba(126,165,228,0.2); color: #a8c8f0; border: 1px solid rgba(126,165,228,0.3); }
+  .cbse .curr-board-tag { background: rgba(35, 53, 113, 0.1); color: var(--emerald-dark); border: 1px solid rgba(35, 53, 113, 0.2); }
+  .cambridge .curr-board-tag { background: rgba(171, 13, 69, 0.1); color: var(--emerald); border: 1px solid rgba(171, 13, 69, 0.2); }
   .curr-card-header h3 {
     font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; color: var(--white);
     line-height: 1.2; margin-bottom: 10px;
@@ -262,10 +263,10 @@
     text-align: center; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em;
     cursor: pointer; transition: all 0.2s; text-decoration: none;
   }
-  .cbse .curr-cta { background: var(--emerald); color: var(--white); border: none; }
+  .cbse .curr-cta { background: var(--emerald-dark); color: var(--white); border: none; }
   .cbse .curr-cta:hover { background: var(--emerald-light); }
-  .cambridge .curr-cta { background: #1a2c5c; color: var(--white); border: none; }
-  .cambridge .curr-cta:hover { background: #243d80; }
+  .cambridge .curr-cta { background: var(--emerald); color: var(--white); border: none; }
+  .cambridge .curr-cta:hover { opacity: 0.9; }
 
   /* ── RESULTS ── */
   .results { background: var(--emerald-dark); color: var(--white); }
@@ -303,10 +304,10 @@
     border: 1px solid var(--border);
     transition: all 0.3s;
   }
-  .facility-card:hover { border-color: var(--emerald-light); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,92,69,0.12); }
+  .facility-card:hover { border-color: var(--emerald-light); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(163, 18, 63, 0.12); }
   .facility-icon {
     width: 52px; height: 52px; border-radius: 4px;
-    background: rgba(26,92,69,0.08); display: flex; align-items: center; justify-content: center;
+    background: rgba(163, 18, 63, 0.08); display: flex; align-items: center; justify-content: center;
     font-size: 24px; margin-bottom: 20px;
   }
   .facility-card h3 { font-size: 16px; font-weight: 600; color: var(--emerald-dark); margin-bottom: 10px; }
@@ -333,7 +334,7 @@
 
   /* ── ADMISSION CTA ── */
   .admission-cta {
-    background: linear-gradient(135deg, var(--emerald-dark) 0%, #1e6b4f 100%);
+    background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
     padding: 80px 0; text-align: center;
   }
   .admission-cta .section-label { justify-content: center; }
@@ -465,8 +466,8 @@
         <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1a5c45"/>
-              <stop offset="100%" stop-color="#0f3a2b"/>
+              <stop offset="0%" stop-color="#233571"/>
+              <stop offset="100%" stop-color="#ab0d45"/>
             </linearGradient>
           </defs>
           <rect width="420" height="520" fill="url(#heroGrad)"/>
@@ -483,14 +484,14 @@
           <rect x="230" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
           <rect x="300" y="300" width="50" height="40" fill="rgba(255,255,255,0.12)" rx="2"/>
           <!-- Door -->
-          <rect x="175" y="370" width="70" height="50" fill="rgba(201,168,76,0.25)" rx="2"/>
+          <rect x="175" y="370" width="70" height="50" fill="rgba(255, 255, 255, 0.15)" rx="2"/>
           <!-- Flag pole -->
           <line x1="210" y1="50" x2="210" y2="200" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-          <rect x="212" y="60" width="60" height="30" fill="rgba(201,168,76,0.6)" rx="2"/>
+          <rect x="212" y="60" width="60" height="30" fill="var(--accent-orange)" fill-opacity="0.8" rx="2"/>
           <!-- Tree -->
-          <circle cx="80" cy="180" r="30" fill="rgba(46,139,104,0.5)"/>
+          <circle cx="80" cy="180" r="30" fill="rgba(255,255,255,0.1)"/>
           <rect x="76" y="200" width="8" height="20" fill="rgba(255,255,255,0.2)"/>
-          <circle cx="340" cy="185" r="25" fill="rgba(46,139,104,0.5)"/>
+          <circle cx="340" cy="185" r="25" fill="rgba(255,255,255,0.1)"/>
           <rect x="336" y="200" width="8" height="20" fill="rgba(255,255,255,0.2)"/>
           <!-- Students silhouettes -->
           <circle cx="150" cy="460" r="12" fill="rgba(255,255,255,0.15)"/>
@@ -502,9 +503,9 @@
           <!-- Ground line -->
           <rect x="0" y="450" width="420" height="70" fill="rgba(0,0,0,0.2)"/>
           <!-- Sun rays -->
-          <circle cx="370" cy="60" r="30" fill="rgba(201,168,76,0.2)"/>
-          <circle cx="370" cy="60" r="20" fill="rgba(201,168,76,0.3)"/>
-          <circle cx="370" cy="60" r="10" fill="rgba(201,168,76,0.5)"/>
+          <circle cx="370" cy="60" r="30" fill="var(--accent-orange)" fill-opacity="0.1"/>
+          <circle cx="370" cy="60" r="20" fill="var(--accent-orange)" fill-opacity="0.2"/>
+          <circle cx="370" cy="60" r="10" fill="var(--accent-orange)" fill-opacity="0.4"/>
           <!-- Text overlay -->
           <text x="210" y="490" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" font-family="sans-serif" letter-spacing="2">SEEDLINGS SCHOOL · JAIPUR</text>
         </svg>
@@ -526,40 +527,40 @@
         <div class="about-img-accent"></div>
         <div class="about-img-wrap">
           <svg viewBox="0 0 380 500" xmlns="http://www.w3.org/2000/svg">
-            <rect width="380" height="500" fill="#e8f0ec"/>
+            <rect width="380" height="500" fill="#fff0e5"/>
             <!-- Classroom scene -->
-            <rect x="0" y="0" width="380" height="320" fill="#d4e8da"/>
+            <rect x="0" y="0" width="380" height="320" fill="#f5dfe3"/>
             <!-- Blackboard -->
-            <rect x="40" y="40" width="300" height="160" fill="#1a5c45" rx="4"/>
+            <rect x="40" y="40" width="300" height="160" fill="#233571" rx="4"/>
             <text x="190" y="85" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="14" font-family="serif">Welcome to Seedlings</text>
             <line x1="80" y1="110" x2="300" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
             <line x1="80" y1="130" x2="260" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
             <line x1="80" y1="150" x2="280" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
             <line x1="80" y1="170" x2="240" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
             <!-- Teacher -->
-            <circle cx="190" cy="250" r="18" fill="#c9a84c"/>
-            <rect x="174" y="270" width="32" height="40" fill="#1a5c45" rx="3"/>
+            <circle cx="190" cy="250" r="18" fill="var(--accent-orange)"/>
+            <rect x="174" y="270" width="32" height="40" fill="var(--emerald)" rx="3"/>
             <!-- Students row -->
             <circle cx="80" cy="360" r="14" fill="#e8c49a"/>
-            <rect x="67" y="376" width="26" height="32" fill="#2e8b68" rx="2"/>
+            <rect x="67" y="376" width="26" height="32" fill="var(--emerald-dark)" rx="2"/>
             <circle cx="150" cy="360" r="14" fill="#d4a574"/>
-            <rect x="137" y="376" width="26" height="32" fill="#1a2c5c" rx="2"/>
+            <rect x="137" y="376" width="26" height="32" fill="var(--emerald)" rx="2"/>
             <circle cx="220" cy="360" r="14" fill="#e8c49a"/>
-            <rect x="207" y="376" width="26" height="32" fill="#c9a84c" rx="2"/>
+            <rect x="207" y="376" width="26" height="32" fill="var(--emerald-dark)" rx="2"/>
             <circle cx="290" cy="360" r="14" fill="#d4a574"/>
-            <rect x="277" y="376" width="26" height="32" fill="#1a5c45" rx="2"/>
+            <rect x="277" y="376" width="26" height="32" fill="var(--emerald)" rx="2"/>
             <!-- Desks -->
             <rect x="55" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
             <rect x="125" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
             <rect x="195" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
             <rect x="265" y="406" width="50" height="8" fill="#b8a88a" rx="1"/>
             <!-- Books on desks -->
-            <rect x="65" y="398" width="20" height="8" fill="#c9a84c" rx="1"/>
-            <rect x="135" y="398" width="20" height="8" fill="#1a5c45" rx="1"/>
-            <rect x="205" y="398" width="20" height="8" fill="#1a2c5c" rx="1"/>
-            <rect x="275" y="398" width="20" height="8" fill="#c9a84c" rx="1"/>
+            <rect x="65" y="398" width="20" height="8" fill="var(--accent-orange)" rx="1"/>
+            <rect x="135" y="398" width="20" height="8" fill="var(--emerald)" rx="1"/>
+            <rect x="205" y="398" width="20" height="8" fill="var(--emerald-dark)" rx="1"/>
+            <rect x="275" y="398" width="20" height="8" fill="var(--accent-orange)" rx="1"/>
             <!-- Floor -->
-            <rect x="0" y="430" width="380" height="70" fill="#c8d8cc"/>
+            <rect x="0" y="430" width="380" height="70" fill="#e5d5d8"/>
           </svg>
         </div>
       </div>
@@ -766,37 +767,37 @@
       <div class="infra-visual-grid">
         <div class="infra-img tall">
           <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="280" fill="#1a5c45"/>
+            <rect width="200" height="280" fill="#a3123f"/>
             <rect x="20" y="60" width="160" height="160" fill="rgba(255,255,255,0.1)" rx="3"/>
             <rect x="30" y="30" width="140" height="40" fill="rgba(255,255,255,0.08)" rx="2"/>
             <rect x="40" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
             <rect x="110" y="80" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
             <rect x="40" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
             <rect x="110" y="140" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="2"/>
-            <rect x="80" y="200" width="40" height="20" fill="rgba(201,168,76,0.4)" rx="1"/>
+            <rect x="80" y="200" width="40" height="20" fill="rgba(243, 125, 31, 0.4)" rx="1"/>
             <text x="100" y="260" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="sans-serif">MAIN BUILDING</text>
           </svg>
         </div>
         <div class="infra-img">
           <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="130" fill="#d4e8da"/>
-            <circle cx="40" cy="70" r="30" fill="#2e8b68"/>
+            <rect width="200" height="130" fill="#fff0e5"/>
+            <circle cx="40" cy="70" r="30" fill="#034ea2"/>
             <rect x="36" y="90" width="8" height="20" fill="#8b6340"/>
-            <circle cx="160" cy="65" r="25" fill="#2e8b68"/>
+            <circle cx="160" cy="65" r="25" fill="#034ea2"/>
             <rect x="156" y="82" width="8" height="18" fill="#8b6340"/>
-            <circle cx="100" cy="75" r="35" fill="#1a5c45"/>
+            <circle cx="100" cy="75" r="35" fill="#a3123f"/>
             <rect x="96" y="98" width="8" height="22" fill="#8b6340"/>
-            <rect x="0" y="108" width="200" height="22" fill="#8fbc8f"/>
+            <rect x="0" y="108" width="200" height="22" fill="#f5dfe3"/>
             <text x="100" y="122" text-anchor="middle" fill="rgba(0,0,0,0.4)" font-size="8" font-family="sans-serif">GREEN CAMPUS</text>
           </svg>
         </div>
         <div class="infra-img">
           <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="130" fill="#1a2c5c"/>
+            <rect width="200" height="130" fill="#233571"/>
             <!-- Lab equipment -->
             <rect x="20" y="50" width="160" height="60" fill="rgba(255,255,255,0.06)" rx="3"/>
-            <circle cx="60" cy="70" r="18" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="2"/>
-            <line x1="60" y1="52" x2="60" y2="88" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+            <circle cx="60" cy="70" r="18" fill="none" stroke="rgba(243, 125, 31, 0.5)" stroke-width="2"/>
+            <line x1="60" y1="52" x2="60" y2="88" stroke="rgba(243, 125, 31, 0.4)" stroke-width="1.5"/>
             <rect x="90" y="55" width="10" height="35" fill="rgba(126,165,228,0.4)" rx="2"/>
             <rect x="108" y="60" width="10" height="30" fill="rgba(126,165,228,0.3)" rx="2"/>
             <rect x="126" y="50" width="10" height="40" fill="rgba(126,165,228,0.4)" rx="2"/>
