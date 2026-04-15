@@ -115,7 +115,7 @@
     }
 
     .nav-cta {
-      background: var(--gold);
+      background: var(--gold-light);
       color: var(--white);
       border: none;
       padding: 10px 24px;
@@ -225,11 +225,11 @@
       align-items: center;
       gap: 8px;
       background: rgba(243, 125, 31, 0.15);
-      border: 1px solid rgba(243, 125, 31, 0.4);
+      border: 1px solid rgba(243, 125, 31, 0.5);
       padding: 6px 16px;
       border-radius: 20px;
       font-size: 11px;
-      color: var(--gold-light);
+      color: #ffffff;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 24px;
@@ -250,16 +250,17 @@
     }
 
     .hero-title span {
-      color: var(--gold);
+      color: #ffb84d;
       font-style: italic;
     }
 
     .hero-subtitle {
       font-size: 16px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.7;
       margin-bottom: 36px;
       max-width: 460px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
     .hero-actions {
@@ -269,7 +270,7 @@
     }
 
     .btn-primary {
-      background: var(--gold);
+      background: #ab0d45;
       color: var(--white);
       border: none;
       padding: 14px 32px;
@@ -282,11 +283,13 @@
       transition: all 0.2s;
       text-decoration: none;
       display: inline-block;
+      box-shadow: 0 4px 15px rgba(171, 13, 69, 0.4);
     }
 
     .btn-primary:hover {
-      opacity: 0.9;
+      background: #8a0a37;
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(171, 13, 69, 0.5);
     }
 
     .btn-outline {
@@ -325,13 +328,14 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 36px;
       font-weight: 600;
-      color: var(--gold-light);
+      color: #ffb84d;
       line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
     .stat-label {
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.85);
       letter-spacing: 0.06em;
       margin-top: 4px;
     }
@@ -364,13 +368,13 @@
       background: var(--white);
       border-radius: 4px;
       padding: 20px 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.1);
       min-width: 200px;
     }
 
     .hero-card-label {
       font-size: 10px;
-      color: var(--text-light);
+      color: #666666;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 4px;
@@ -380,18 +384,18 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px;
       font-weight: 600;
-      color: var(--emerald);
+      color: var(--emerald-dark);
     }
 
     .hero-card-desc {
       font-size: 12px;
-      color: var(--text-light);
+      color: #444444;
       margin-top: 4px;
     }
 
     /* ── SECTION STYLES ── */
     section {
-      padding: 90px 0;
+      padding: 60px 0;
     }
 
     .container {
@@ -872,6 +876,19 @@
       text-transform: uppercase;
     }
 
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── FACILITIES ── */
     .facilities {
       background: var(--cream);
@@ -1007,7 +1024,7 @@
     /* ── ADMISSION CTA ── */
     .admission-cta {
       background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
-      padding: 80px 0;
+      padding: 60px 0;
       text-align: center;
     }
 
@@ -1027,7 +1044,6 @@
     .admission-cta p {
       font-size: 16px;
       color: rgba(255, 255, 255, 0.65);
-      margin-bottom: 40px;
       max-width: 520px;
       margin-left: auto;
       margin-right: auto;
@@ -1084,7 +1100,7 @@
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 60px;
+      /* padding: 0 60px; */
     }
 
     .footer-grid {
@@ -1129,7 +1145,7 @@
 
     .footer-bottom {
       /* border-top: 1px solid rgba(255, 255, 255, 0.08); */
-      padding-top: 24px;
+      padding: 24px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1241,6 +1257,12 @@
       .facilities-grid {
         grid-template-columns: 1fr;
       }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -1253,10 +1275,10 @@
       <div class="nav-logo-icon">
         <img src="images/logo-home.png" alt="Seedlings School Logo">
       </div>
-      <div class="nav-logo-text">
+      <!-- <div class="nav-logo-text">
         <div class="school-name">Seedlings School</div>
         <div class="school-sub">Jaipur, Rajasthan</div>
-      </div>
+      </div> -->
     </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -1550,7 +1572,7 @@
           <div class="result-desc"><strong>University Placements</strong>Students placed in top Indian & global universities</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;">
+      <div class="testimonials-grid">
         <div class="results-testimonial">
           <p class="testimonial-text">"Seedling's teaching methods are different from other schools — well-planned,
             thoughtful, and designed to make children think beyond prescribed textbooks."</p>
