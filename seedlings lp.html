@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seedlings School Jaipur — Admissions Open 2025–26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson: #8B1A4A;
+  --crimson-light: #B82D6A;
+  --crimson-pale: #fdf0f5;
+  --gold: #C9922A;
+  --gold-light: #F2C46D;
+  --ink: #0f0810;
+  --ink-mid: #2e1a28;
+  --muted: #7a6070;
+  --soft: #f7f3f5;
+  --white: #ffffff;
+  --border: #e8d8e2;
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ff-body);
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 48px;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo img { height: 44px; display: block; }
+.nav-logo-text {
+  font-family: var(--ff-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--crimson);
+  letter-spacing: 0.3px;
+}
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--ink-mid);
+  text-decoration: none; letter-spacing: 0.5px;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--crimson); }
+.nav-cta {
+  padding: 10px 26px;
+  background: var(--crimson);
+  color: #fff;
+  font-family: var(--ff-body);
+  font-size: 13px; font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  transition: background .2s, transform .15s;
+}
+.nav-cta:hover { background: var(--crimson-light); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 100px 48px 60px;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(139,26,74,0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 80% at 10% 20%, rgba(201,146,42,0.12) 0%, transparent 60%),
+    linear-gradient(160deg, #0f0810 0%, #1c0c18 40%, #0d0610 100%);
+}
+
+.hero-grid-overlay {
+  position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,146,42,0.15);
+  border: 1px solid rgba(201,146,42,0.35);
+  border-radius: 100px;
+  padding: 7px 18px;
+  margin-bottom: 32px;
+}
+.hero-badge-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold-light);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero-badge span {
+  font-size: 12px; font-weight: 500; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--gold-light);
+}
+
+.hero h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-sub {
+  font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.6);
+  line-height: 1.8; max-width: 540px; margin-bottom: 44px;
+}
+
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
+
+.btn-gold {
+  padding: 15px 36px;
+  background: linear-gradient(135deg, var(--gold), #E8A830);
+  color: var(--ink);
+  font-weight: 700; font-size: 14px;
+  border-radius: 100px; border: none; cursor: pointer;
+  text-decoration: none; letter-spacing: 0.3px;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 24px rgba(201,146,42,0.35);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,146,42,0.45); }
+
+.btn-outline-white {
+  padding: 15px 36px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; font-weight: 500; font-size: 14px;
+  border-radius: 100px; cursor: pointer;
+  text-decoration: none; letter-spacing: 0.3px;
+  transition: border-color .2s, background .2s;
+}
+.btn-outline-white:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
+
+.hero-stats {
+  display: flex; gap: 48px; flex-wrap: wrap;
+}
+.hero-stat-num {
+  font-family: var(--ff-display);
+  font-size: 36px; font-weight: 700; color: #fff; line-height: 1;
+}
+.hero-stat-num span { color: var(--gold-light); }
+.hero-stat-label {
+  font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.45);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+}
+
+.hero-visual {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 42%;
+  overflow: hidden;
+}
+.hero-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.35;
+}
+.hero-visual::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--ink) 0%, transparent 40%);
+}
+.hero-visual::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(0deg, var(--ink) 0%, transparent 30%);
+}
+
+/* ── SECTION COMMON ── */
+section { padding: 96px 48px; }
+.container { max-width: 1120px; margin: 0 auto; }
+
+.eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.eyebrow-line { width: 32px; height: 2px; background: var(--crimson); }
+.eyebrow-text {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--crimson);
+}
+
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700; color: var(--ink);
+  line-height: 1.15; margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--crimson); }
+
+.section-subtitle {
+  font-size: 16px; color: var(--muted); line-height: 1.8;
+  max-width: 640px; margin-bottom: 56px; font-weight: 300;
+}
+
+/* ── ABOUT ── */
+.about-section { background: var(--soft); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.about-body p {
+  font-size: 15.5px; color: #3d2a35; line-height: 1.9;
+  font-weight: 300; margin-bottom: 20px;
+}
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { color: var(--ink); font-weight: 500; }
+
+.about-cards { display: flex; flex-direction: column; gap: 16px; }
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex; gap: 18px; align-items: flex-start;
+}
+.about-card-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--crimson-pale);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.about-card-title {
+  font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px;
+}
+.about-card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.since-strip {
+  display: flex; gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  margin-bottom: 40px;
+  background: var(--white);
+}
+.since-item {
+  flex: 1; padding: 20px 18px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.since-item:last-child { border-right: none; }
+.since-num {
+  font-family: var(--ff-display);
+  font-size: 28px; font-weight: 700; color: var(--crimson); line-height: 1;
+  margin-bottom: 4px;
+}
+.since-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ── CURRICULUM ── */
+.curriculum-section { background: var(--white); }
+.curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+.curr-card {
+  border-radius: 24px; overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+  transition: transform .25s, box-shadow .25s;
+}
+.curr-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(139,26,74,0.12); }
+
+.curr-card-header {
+  padding: 36px 36px 28px;
+}
+.curr-card.cbse .curr-card-header { background: linear-gradient(135deg, #8B1A4A, #C94080); }
+.curr-card.cambridge .curr-card-header { background: linear-gradient(135deg, #1a3d6b, #2563B0); }
+
+.curr-badge {
+  display: inline-block; padding: 5px 14px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 100px; font-size: 11px;
+  font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+}
+.curr-card-title {
+  font-family: var(--ff-display);
+  font-size: 30px; font-weight: 700; color: #fff;
+  line-height: 1.2; margin-bottom: 10px;
+}
+.curr-card-sub { font-size: 13.5px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+.curr-card-body { padding: 28px 36px 32px; background: var(--white); }
+.curr-features { list-style: none; margin-bottom: 28px; }
+.curr-features li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 13.5px; color: #3d2a35; line-height: 1.6;
+  padding: 7px 0; border-bottom: 1px solid #f5edf1;
+}
+.curr-features li:last-child { border-bottom: none; }
+.curr-check {
+  width: 18px; height: 18px; flex-shrink: 0;
+  border-radius: 50%; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: #fff; font-weight: 700;
+}
+.cbse .curr-check { background: var(--crimson); }
+.cambridge .curr-check { background: #2563B0; }
+
+.curr-cta {
+  display: block; text-align: center;
+  padding: 13px; border-radius: 12px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.curr-cta:hover { opacity: 0.85; }
+.cbse .curr-cta { background: var(--crimson-pale); color: var(--crimson); }
+.cambridge .curr-cta { background: #EFF4FC; color: #1a3d6b; }
+
+/* ── NETWORK ── */
+.network-section { background: var(--ink); }
+.network-section .section-title { color: #fff; }
+.network-section .section-subtitle { color: rgba(255,255,255,0.45); }
+.network-section .eyebrow-line { background: var(--gold); }
+.network-section .eyebrow-text { color: var(--gold-light); }
+
+.schools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.school-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; overflow: hidden;
+  transition: background .25s, transform .25s;
+}
+.school-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-3px); }
+.school-card-img {
+  width: 100%; height: 160px; object-fit: cover;
+  display: block; opacity: 0.7;
+}
+.school-card-img-placeholder {
+  width: 100%; height: 160px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+}
+.school-card-body { padding: 18px 20px 22px; }
+.school-card-location {
+  font-size: 11px; color: var(--gold-light); letter-spacing: 1px;
+  text-transform: uppercase; font-weight: 500; margin-bottom: 8px;
+}
+.school-card-name {
+  font-family: var(--ff-display);
+  font-size: 18px; font-weight: 600; color: #fff; line-height: 1.3;
+}
+
+/* ── RESULTS ── */
+.results-section { background: var(--soft); }
+.results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 56px; }
+.result-card {
+  background: var(--white); padding: 36px 24px; text-align: center;
+  border: 1px solid var(--border);
+}
+.result-card:first-child { border-radius: 20px 0 0 20px; }
+.result-card:last-child { border-radius: 0 20px 20px 0; }
+.result-num {
+  font-family: var(--ff-display);
+  font-size: 52px; font-weight: 700;
+  color: var(--crimson); line-height: 1; margin-bottom: 6px;
+}
+.result-num sup { font-size: 24px; }
+.result-label { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.result-desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+.testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.testimonial {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 28px 30px;
+  position: relative;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute; top: 16px; right: 22px;
+  font-family: var(--ff-display);
+  font-size: 80px; color: var(--border);
+  line-height: 1;
+}
+.testimonial p {
+  font-family: var(--ff-display);
+  font-size: 17px; font-style: italic;
+  color: #3d2a35; line-height: 1.7; margin-bottom: 16px;
+}
+.testimonial cite {
+  font-size: 12px; font-weight: 500; color: var(--muted);
+  letter-spacing: 0.5px; font-style: normal;
+}
+
+/* ── FACILITIES ── */
+.facilities-section { background: var(--white); }
+.facilities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.facility-card {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 28px 26px;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.facility-card:hover {
+  background: var(--white); transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(139,26,74,0.08);
+}
+.facility-icon { font-size: 30px; margin-bottom: 14px; display: block; }
+.facility-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.facility-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── CAMPUS ── */
+.campus-section { background: var(--soft); }
+.campus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.campus-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.campus-feature {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 20px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 14px; color: #3d2a35; line-height: 1.5;
+}
+.campus-feature-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.campus-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.campus-img {
+  border-radius: 18px; overflow: hidden;
+}
+.campus-img img {
+  width: 100%; display: block; object-fit: cover; height: 200px;
+}
+.campus-img.tall img { height: 416px; }
+.campus-img.tall { grid-row: span 2; }
+
+/* ── ADMISSION CTA ── */
+.admission-section {
+  background: linear-gradient(135deg, var(--crimson) 0%, #C94080 50%, #9B2360 100%);
+  padding: 96px 48px;
+  position: relative; overflow: hidden;
+}
+.admission-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.admission-section::after {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.admission-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.admission-content .eyebrow-line { background: var(--gold-light); }
+.admission-content .eyebrow-text { color: var(--gold-light); }
+.admission-title {
+  font-family: var(--ff-display);
+  font-size: clamp(36px, 4vw, 52px); font-weight: 700;
+  color: #fff; line-height: 1.1; margin-bottom: 20px;
+}
+.admission-title em { font-style: italic; color: var(--gold-light); }
+.admission-desc { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 32px; }
+.admission-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 16px; }
+.admission-meta span { display: block; margin-bottom: 6px; }
+
+.admission-form {
+  background: #fff;
+  border-radius: 24px; padding: 36px;
+}
+.form-title {
+  font-family: var(--ff-display);
+  font-size: 22px; font-weight: 700; color: var(--ink);
+  margin-bottom: 6px;
+}
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+.form-group { margin-bottom: 16px; }
+.form-label { display: block; font-size: 12px; font-weight: 500; color: var(--ink-mid); margin-bottom: 6px; letter-spacing: 0.3px; }
+.form-input {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: 12px;
+  font-family: var(--ff-body); font-size: 14px; color: var(--ink);
+  background: var(--soft);
+  outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.form-input:focus { border-color: var(--crimson); box-shadow: 0 0 0 3px rgba(139,26,74,0.1); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-select {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: 12px;
+  font-family: var(--ff-body); font-size: 14px; color: var(--ink);
+  background: var(--soft); outline: none;
+  transition: border-color .2s;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%237a6070' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-select:focus { border-color: var(--crimson); }
+
+.btn-submit {
+  width: 100%; padding: 15px;
+  background: linear-gradient(135deg, var(--crimson), #C94080);
+  color: #fff; font-family: var(--ff-body);
+  font-size: 15px; font-weight: 600;
+  border: none; border-radius: 12px; cursor: pointer;
+  margin-top: 8px; letter-spacing: 0.3px;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 20px rgba(139,26,74,0.35);
+}
+.btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 64px 48px 32px;
+  color: rgba(255,255,255,0.5);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand-name {
+  font-family: var(--ff-display);
+  font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 12px;
+}
+.footer-tagline { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+.footer-col-title {
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  font-size: 13.5px; color: rgba(255,255,255,0.45);
+  text-decoration: none; transition: color .2s;
+}
+.footer-links a:hover { color: #fff; }
+.footer-contact-item { font-size: 13px; line-height: 1.6; margin-bottom: 12px; }
+.footer-contact-item strong { color: rgba(255,255,255,0.75); display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12.5px;
+}
+.footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * {
+  opacity: 0;
+  animation: fadeInUp .7s ease forwards;
+}
+.hero-badge { animation-delay: .1s; }
+.hero h1 { animation-delay: .25s; }
+.hero-sub { animation-delay: .4s; }
+.hero-actions { animation-delay: .55s; }
+.hero-stats { animation-delay: .7s; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  nav .nav-links { display: none; }
+  section { padding: 64px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-visual { display: none; }
+  .about-grid, .curriculum-grid, .campus-grid, .admission-inner { grid-template-columns: 1fr; gap: 36px; }
+  .schools-grid { grid-template-columns: 1fr 1fr; }
+  .results-grid { grid-template-columns: 1fr 1fr; }
+  .result-card:nth-child(2) { border-radius: 0 20px 0 0; }
+  .result-card:nth-child(3) { border-radius: 0 0 0 20px; }
+  .facilities-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .campus-imgs { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo-text">Seedlings</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#campus">Campus</a></li>
+  </ul>
+  <a href="#admission" class="nav-cta">Enquire Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-visual">
+    <img src="https://seedling-landing-two.vercel.app/images/about-school.png" alt="Seedlings Campus" onerror="this.style.opacity=0">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Admissions Open 2025–26</span>
+    </div>
+    <h1>Where Every <em>Seedling</em><br>Grows Into<br>Greatness</h1>
+    <p class="hero-sub">Jaipur's premier institution offering both CBSE and Cambridge International curricula — shaping confident, globally aware, and academically excellent young minds since 1992.</p>
+    <div class="hero-actions">
+      <a href="#admission" class="btn-gold">Apply for Admission</a>
+      <a href="#about" class="btn-outline-white">Discover More</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">30<span>+</span></div>
+        <div class="hero-stat-label">Years of Excellence</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5000<span>+</span></div>
+        <div class="hero-stat-label">Students Enrolled</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Boards Offered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">About Us</span></div>
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title">A Legacy of <em>Learning</em> &amp; Character</h2>
+        <div class="since-strip">
+          <div class="since-item"><div class="since-num">1992</div><div class="since-label">Founded</div></div>
+          <div class="since-item"><div class="since-num">5000+</div><div class="since-label">Students</div></div>
+          <div class="since-item"><div class="since-num">5</div><div class="since-label">Schools</div></div>
+          <div class="since-item"><div class="since-num">100%</div><div class="since-label">Results</div></div>
+        </div>
+        <div class="about-body">
+          <p>Since <strong>1992</strong>, Seedlings School Jaipur has been a beacon of academic excellence and holistic child development in Rajasthan. Part of the renowned Seedling Group of Schools, we are managed by <strong>Mahima Shiksha Samiti</strong> and have grown into one of Jaipur's most trusted educational institutions.</p>
+          <p>Our co-educational day school welcomes students from <strong>Nursery (Play Group)</strong> right through to <strong>Class XII</strong> — offering a seamless educational journey in a nurturing, values-driven environment. With campuses in Jawahar Nagar and Durgapura, we serve thousands of families across Jaipur.</p>
+          <p>We believe every child is a unique seedling — with the right environment, mentorship, and resources, each one grows into a confident, compassionate, and globally aware leader.</p>
+        </div>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-icon">🏫</div>
+          <div>
+            <div class="about-card-title">Co-Educational Day School</div>
+            <div class="about-card-desc">English medium, Nursery to Class XII — a complete K-12 journey in one institution.</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">👩‍🏫</div>
+          <div>
+            <div class="about-card-title">Expert Faculty</div>
+            <div class="about-card-desc">Experienced, qualified educators dedicated to personalised attention and holistic growth.</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🌍</div>
+          <div>
+            <div class="about-card-title">Globally Aligned, Locally Grounded</div>
+            <div class="about-card-desc">NEP-aligned curriculum combined with international standards to prepare future-ready students.</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🏆</div>
+          <div>
+            <div class="about-card-title">Top 10 CBSE School in Jaipur</div>
+            <div class="about-card-desc">Consistently recognised among the best CBSE schools in Jaipur for academic excellence.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum-section" id="curriculum">
+  <div class="container">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Programmes</span></div>
+    <h2 class="section-title">Two World-Class <em>Curricula</em>, One School</h2>
+    <p class="section-subtitle">Seedlings is uniquely positioned to offer parents a choice between two internationally respected educational pathways — each designed to bring out the best in your child.</p>
+    <div class="curriculum-grid">
+      <div class="curr-card cbse">
+        <div class="curr-card-header">
+          <div class="curr-badge">National Board</div>
+          <div class="curr-card-title">CBSE Curriculum</div>
+          <div class="curr-card-sub">Central Board of Secondary Education — India's most recognised national curriculum, combining academic rigour with broad-based learning.</div>
+        </div>
+        <div class="curr-card-body">
+          <ul class="curr-features">
+            <li><span class="curr-check">✓</span> Nursery / Play Group through Class XII</li>
+            <li><span class="curr-check">✓</span> Consistently ranked among Top 10 CBSE schools in Jaipur</li>
+            <li><span class="curr-check">✓</span> Strong academic foundation aligned with NEP 2020</li>
+            <li><span class="curr-check">✓</span> Proven track record of excellent Board results</li>
+            <li><span class="curr-check">✓</span> Project-based, experiential learning methodology</li>
+            <li><span class="curr-check">✓</span> Scouts, Guides, NCC &amp; diverse co-curricular clubs</li>
+          </ul>
+          <a href="#admission" class="curr-cta">Enquire About CBSE →</a>
+        </div>
+      </div>
+      <div class="curr-card cambridge">
+        <div class="curr-card-header">
+          <div class="curr-badge">International Board</div>
+          <div class="curr-card-title">Cambridge International</div>
+          <div class="curr-card-sub">Cambridge Assessment International Education (CAIE) — the globally trusted curriculum of the University of Cambridge, UK.</div>
+        </div>
+        <div class="curr-card-body">
+          <ul class="curr-features">
+            <li><span class="curr-check">✓</span> K2 (Kindergarten) through A-Levels (Class XII)</li>
+            <li><span class="curr-check">✓</span> CAIE affiliated — globally recognised qualification</li>
+            <li><span class="curr-check">✓</span> Develops critical thinking, research &amp; independent learning</li>
+            <li><span class="curr-check">✓</span> Opens pathways to top universities in India and abroad</li>
+            <li><span class="curr-check">✓</span> Cambridge IGCSE with flexible subject choices</li>
+            <li><span class="curr-check">✓</span> Preferred choice for internationally mobile families</li>
+          </ul>
+          <a href="#admission" class="curr-cta">Enquire About Cambridge →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="network-section" id="network">
+  <div class="container">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Institutions</span></div>
+    <h2 class="section-title">The Seedling <em>Network</em> of Excellence</h2>
+    <p class="section-subtitle" style="color:rgba(255,255,255,0.45);">Five schools, two locations across Jaipur — each offering exceptional education tailored to your child's stage and pathway.</p>
+    <div class="schools-grid">
+      <div class="school-card">
+        <img src="https://seedling-landing-two.vercel.app/images/school-public.png" alt="Seedling Public School" class="school-card-img" onerror="this.style.display='none'">
+        <div class="school-card-body">
+          <div class="school-card-location">Jawahar Nagar, Jaipur</div>
+          <div class="school-card-name">Seedling Public School</div>
+        </div>
+      </div>
+      <div class="school-card">
+        <img src="https://seedling-landing-two.vercel.app/images/school-modern-high.png" alt="Seedling Modern High School" class="school-card-img" onerror="this.style.display='none'">
+        <div class="school-card-body">
+          <div class="school-card-location">Durgapura, Jaipur</div>
+          <div class="school-card-name">Seedling Modern High School</div>
+        </div>
+      </div>
+      <div class="school-card">
+        <img src="https://seedling-landing-two.vercel.app/images/school-intl-academy.png" alt="Seedling International Academy" class="school-card-img" onerror="this.style.display='none'">
+        <div class="school-card-body">
+          <div class="school-card-location">Cambridge International Centre</div>
+          <div class="school-card-name">Seedling International Academy</div>
+        </div>
+      </div>
+      <div class="school-card">
+        <img src="https://seedling-landing-two.vercel.app/images/school-modern-intl.png" alt="Seedling Modern International Academy" class="school-card-img" onerror="this.style.display='none'">
+        <div class="school-card-body">
+          <div class="school-card-location">Global Learning Campus</div>
+          <div class="school-card-name">Seedling Modern International Academy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section" id="results">
+  <div class="container">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Academic Excellence</span></div>
+    <h2 class="section-title">Results That <em>Speak</em> for Themselves</h2>
+    <p class="section-subtitle">Our numbers reflect years of dedication, expert teaching, and an unwavering commitment to every student's success.</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-num">100<sup>%</sup></div>
+        <div class="result-label">Pass Rate</div>
+        <div class="result-desc">CBSE Class X &amp; XII Board Examinations</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">500<sup>+</sup></div>
+        <div class="result-label">Top Scorers</div>
+        <div class="result-desc">Students achieving 90%+ in CBSE Boards annually</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">Top 10</div>
+        <div class="result-label">City Ranking</div>
+        <div class="result-desc">Consistently ranked among Jaipur's best CBSE schools</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">1000<sup>+</sup></div>
+        <div class="result-label">University Placements</div>
+        <div class="result-desc">Students placed in top Indian &amp; global universities</div>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p>"Seedling's teaching methods are different from other schools — well-planned, thoughtful, and designed to make children think beyond prescribed textbooks."</p>
+        <cite>— Parent of Kiyansh Gupta, Prep B</cite>
+      </div>
+      <div class="testimonial">
+        <p>"The school is setting new benchmarks in education. The hard work of qualified teachers has resulted in all-round development — in personality, language and reasoning."</p>
+        <cite>— Parent, Seedling Modern High School</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities-section" id="facilities">
+  <div class="container">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Student Life</span></div>
+    <h2 class="section-title">Facilities That <em>Inspire</em></h2>
+    <p class="section-subtitle">We have invested in creating a stimulating, safe, and engaging learning environment where every student has access to the tools, spaces, and experiences they need.</p>
+    <div class="facilities-grid">
+      <div class="facility-card">
+        <span class="facility-icon">🔬</span>
+        <div class="facility-title">Science Laboratories</div>
+        <div class="facility-desc">Modern, well-equipped labs for Physics, Chemistry, and Biology — enabling hands-on, practical learning that brings textbooks to life.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">💻</span>
+        <div class="facility-title">Technology &amp; IT Labs</div>
+        <div class="facility-desc">Digital classrooms with interactive whiteboards and dedicated computer labs. Students develop essential digital literacy from an early age.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">📚</span>
+        <div class="facility-title">Library &amp; Resource Centre</div>
+        <div class="facility-desc">A well-stocked library with books, journals, and digital resources to encourage a love of reading and independent research.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">⚽</span>
+        <div class="facility-title">Sports &amp; Athletics</div>
+        <div class="facility-desc">Dedicated courts and fields for cricket, basketball, football, volleyball and more — guided by professional coaches.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">🎨</span>
+        <div class="facility-title">Arts &amp; Culture</div>
+        <div class="facility-desc">Dedicated spaces for visual arts, music, dance and drama. Cultural programmes celebrate diversity and develop creativity.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">🚌</span>
+        <div class="facility-title">Safe Transport</div>
+        <div class="facility-desc">GPS-tracked school buses with trained staff covering key areas of Jaipur — ensuring every child travels safely.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">🌿</span>
+        <div class="facility-title">Eco-Friendly Campus</div>
+        <div class="facility-desc">Green, eco-conscious campus environment designed to connect children with nature and instil environmental responsibility.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">🎭</span>
+        <div class="facility-title">Student Clubs &amp; Societies</div>
+        <div class="facility-desc">A rich variety of clubs — Scouts, NCC, Guides, debate, robotics and more — to explore interests beyond academics.</div>
+      </div>
+      <div class="facility-card">
+        <span class="facility-icon">🍽️</span>
+        <div class="facility-title">Cafeteria</div>
+        <div class="facility-desc">Clean, hygienic cafeteria serving nutritious meals and snacks — supporting the health and energy of growing students.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS -->
+<section class="campus-section" id="campus">
+  <div class="container">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Campus</span></div>
+    <h2 class="section-title">A Campus Built for <em>Discovery</em></h2>
+    <p class="section-subtitle">Our campuses at Jawahar Nagar and Durgapura span thousands of square metres of thoughtfully designed educational space.</p>
+    <div class="campus-grid">
+      <ul class="campus-features">
+        <li class="campus-feature"><span class="campus-feature-icon">🏢</span> Spacious, air-ventilated classrooms with natural light</li>
+        <li class="campus-feature"><span class="campus-feature-icon">🖥️</span> Smart boards and interactive digital displays in each class</li>
+        <li class="campus-feature"><span class="campus-feature-icon">🏟️</span> Large outdoor sports grounds and play areas</li>
+        <li class="campus-feature"><span class="campus-feature-icon">🎓</span> Dedicated halls for assemblies, events &amp; examinations</li>
+        <li class="campus-feature"><span class="campus-feature-icon">🛡️</span> CCTV surveillance for round-the-clock campus safety</li>
+        <li class="campus-feature"><span class="campus-feature-icon">♿</span> Accessible infrastructure for differently-abled students</li>
+        <li class="campus-feature"><span class="campus-feature-icon">🌱</span> Green zones &amp; garden spaces for outdoor education</li>
+      </ul>
+      <div class="campus-imgs">
+        <div class="campus-img tall">
+          <img src="https://seedling-landing-two.vercel.app/images/infra-campus.jpg" alt="Campus" onerror="this.parentElement.style.background='#f0e4ec'">
+        </div>
+        <div class="campus-img">
+          <img src="https://seedling-landing-two.vercel.app/images/infra-lab.jpg" alt="Lab" onerror="this.parentElement.style.background='#e8f0f8'">
+        </div>
+        <div class="campus-img">
+          <img src="https://seedling-landing-two.vercel.app/images/infra-library.jpg" alt="Library" onerror="this.parentElement.style.background='#e8f5ee'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION CTA -->
+<section class="admission-section" id="admission">
+  <div class="admission-inner">
+    <div class="admission-content">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Admissions 2025–26</span></div>
+      <h2 class="admission-title">Begin Your Child's <em>Journey</em> With Us</h2>
+      <p class="admission-desc">Seats are limited. Submit your enquiry today and our admissions team will personally guide you through the process — from choosing the right curriculum to completing the application.</p>
+      <div class="admission-meta">
+        <span>📍 Jawahar Nagar &amp; Durgapura, Jaipur</span>
+        <span>📞 Available Mon–Sat, 9 AM – 4 PM</span>
+        <span>☎ SPS: +91 74130 12351 &nbsp;|&nbsp; SMHS: +91 95877 72837</span>
+      </div>
+    </div>
+    <div class="admission-form">
+      <div class="form-title">Request a Callback</div>
+      <div class="form-sub">We'll get back to you within one working day.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Parent Name</label>
+          <input type="text" class="form-input" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Child's Name</label>
+          <input type="text" class="form-input" placeholder="Child's name">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Mobile Number</label>
+          <input type="tel" class="form-input" placeholder="+91 00000 00000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="you@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Select School</label>
+        <select class="form-select">
+          <option value="">Choose a school...</option>
+          <option>Seedling Public School (CBSE), Jawahar Nagar</option>
+          <option>Seedling International Academy (Cambridge), Jawahar Nagar</option>
+          <option>Seedling Modern High School (CBSE), Durgapura</option>
+          <option>Seedling Modern International Academy (Cambridge), Durgapura</option>
+          <option>Seedling Wonderland Kids League</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Admission For Class</label>
+        <select class="form-select">
+          <option value="">Select class / grade...</option>
+          <option>Nursery / Play Group</option>
+          <option>Kindergarten (KG)</option>
+          <option>Class I – III</option>
+          <option>Class IV – VI</option>
+          <option>Class VII – IX</option>
+          <option>Class X – XII</option>
+        </select>
+      </div>
+      <button class="btn-submit">Submit Enquiry — Admissions Open Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Seedlings School</div>
+      <p class="footer-tagline">Jaipur's trusted institution for academic excellence and holistic child development since 1992. Two boards, five schools, one vision — nurturing tomorrow's leaders.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#curriculum">Curriculum</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#admission">Admissions</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Schools</div>
+      <ul class="footer-links">
+        <li><a href="https://seedlingschools.com/sps.php">SPS</a></li>
+        <li><a href="https://seedlingschools.com/smhs.php">SMHS</a></li>
+        <li><a href="https://seedlingschools.com/sia.php">SIA</a></li>
+        <li><a href="https://seedlingschools.com/smia.php">SMIA</a></li>
+        <li><a href="https://seedlingschools.com/swkl.php">SWKL</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><strong>SPS &amp; SIA — Jawahar Nagar</strong>Bank St, Sector 4, Jaipur 302004<br>📞 +91 74130 12351</div>
+      <div class="footer-contact-item"><strong>SMHS &amp; SMIA — Durgapura</strong>Ashok Marg, Mahaveer Nagar II, Jaipur 302018<br>📞 +91 95877 72837</div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <span>© 2025 Seedlings School, Jaipur. All rights reserved.</span>
+    <span>Designed with ❤ for every parent seeking the best for their child</span>
+  </div>
+</footer>
+
+</body>
+</html>
