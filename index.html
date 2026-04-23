@@ -1688,6 +1688,548 @@
     </div>
   </section>
 
+  <style>
+    /* =========================================
+   SCOPED CONTAINER
+   ========================================= */
+    #seedling-explore-section {
+      /* Colors — exactly from reference screenshots */
+      --clr-bg: #f0eeeb;
+      /* warm off-white page background */
+      --clr-white: #ffffff;
+      --clr-maroon: #8b1a4a;
+      /* the deep maroon/burgundy */
+      --clr-maroon-dark: #6e1239;
+      /* hover state */
+      --clr-text: #2e2e2e;
+      --clr-body: #4a4a4a;
+      --clr-heading: #2c2c2c;
+      --clr-nav-text: #2c2c2c;
+      --clr-border: #ddd;
+      --clr-logo-blue: #1a2a6c;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Lato', sans-serif;
+
+      --nav-height: 80px;
+      --max-w: 1200px;
+
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow: visible; /* ensure sticky works */
+    }
+
+    #seedling-explore-section *,
+    #seedling-explore-section *::before,
+    #seedling-explore-section *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    #seedling-explore-section a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    #seedling-explore-section img {
+      display: block;
+      max-width: 100%;
+    }
+
+    #seedling-explore-section ul {
+      list-style: none;
+    }
+
+    /* =========================================
+   PAGE SECTION TITLE ("Also Explore")
+   ========================================= */
+    #seedling-explore-section .page-title-wrap {
+      text-align: center;
+      padding: 72px 24px 0;
+      background: var(--clr-bg);
+    }
+
+    #seedling-explore-section .page-title {
+      font-family: var(--font-serif);
+      font-size: 42px;
+      font-weight: 400;
+      color: var(--clr-heading);
+      letter-spacing: 0.01em;
+    }
+
+    /* =========================================
+   STACKING WRAPPER
+   ========================================= */
+    #seedling-explore-section .explore-wrapper {
+      position: relative;
+      padding-bottom: 80px;
+    }
+
+    /* =========================================
+   EACH PANEL — sticky stacking
+   ========================================= */
+    #seedling-explore-section .explore-panel {
+      position: sticky;
+      top: var(--nav-height);
+      background: var(--clr-bg);
+      padding: 72px 0 80px;
+      transform-origin: top center;
+      will-change: transform, filter;
+      transition: transform 0.08s linear, filter 0.08s linear;
+    }
+
+    /* Z-index layering for stacking depth */
+    #seedling-explore-section .explore-panel[data-index="1"] {
+      z-index: 10;
+    }
+
+    #seedling-explore-section .explore-panel[data-index="2"] {
+      z-index: 20;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    #seedling-explore-section .explore-panel[data-index="3"] {
+      z-index: 30;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.09);
+    }
+
+    #seedling-explore-section .explore-panel[data-index="4"] {
+      z-index: 40;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.11);
+    }
+
+    #seedling-explore-section .explore-panel[data-index="5"] {
+      z-index: 50;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.13);
+    }
+
+    #seedling-explore-section .explore-panel[data-index="6"] {
+      z-index: 60;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Subtle divider between stacked panels */
+    #seedling-explore-section .explore-panel[data-index="2"]::before,
+    #seedling-explore-section .explore-panel[data-index="3"]::before,
+    #seedling-explore-section .explore-panel[data-index="4"]::before,
+    #seedling-explore-section .explore-panel[data-index="5"]::before,
+    #seedling-explore-section .explore-panel[data-index="6"]::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--clr-border);
+    }
+
+    /* =========================================
+   INNER LAYOUT — 50/50 split
+   ========================================= */
+    #seedling-explore-section .explore-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px;
+      align-items: center;
+    }
+
+    /* Image always on the left side of the grid */
+    #seedling-explore-section .img-left .img-col {
+      order: 1;
+    }
+
+    #seedling-explore-section .img-left .content-col {
+      order: 2;
+    }
+
+    /* Content on the left side */
+    #seedling-explore-section .content-left .content-col {
+      order: 1;
+    }
+
+    #seedling-explore-section .content-left .img-col {
+      order: 2;
+    }
+
+    /* =========================================
+   IMAGE COLUMN
+   ========================================= */
+    #seedling-explore-section .img-col {
+      display: flex;
+      align-items: center;
+    }
+
+    #seedling-explore-section .img-left .img-col {
+      padding-right: 64px;
+    }
+
+    #seedling-explore-section .content-left .img-col {
+      padding-left: 24px;
+    }
+
+    #seedling-explore-section .explore-img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.5s ease;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Image on the right (content-left layout) is larger/full bleed style */
+    #seedling-explore-section .content-left .explore-img {
+      height: 400px;
+    }
+
+    #seedling-explore-section .explore-img:hover {
+      transform: scale(1.015);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+    }
+
+    /* =========================================
+   CONTENT COLUMN
+   ========================================= */
+    #seedling-explore-section .content-col {
+      padding-left: 24px;
+    }
+
+    /* Center-aligned text for content-left layout (matching screenshot) */
+
+    #seedling-explore-section .explore-heading {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--clr-heading);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+
+    #seedling-explore-section .explore-body {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--clr-body);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    /* =========================================
+   CTA BUTTON — exactly matching reference
+   (maroon/burgundy filled, white text, no radius)
+   ========================================= */
+    #seedling-explore-section .explore-btn {
+      display: inline-block;
+      background-color: var(--clr-maroon);
+      color: var(--clr-white);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border: 2px solid var(--clr-maroon);
+      cursor: pointer;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    #seedling-explore-section .explore-btn:hover {
+      background-color: transparent;
+      color: var(--clr-maroon);
+      border-color: var(--clr-maroon);
+    }
+
+    /* =========================================
+   ENTRANCE ANIMATIONS (scroll-triggered)
+   ========================================= */
+    #seedling-explore-section .img-col,
+    #seedling-explore-section .content-col {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #seedling-explore-section .content-col {
+      transition-delay: 0.12s;
+    }
+
+    #seedling-explore-section .explore-panel.in-view .img-col,
+    #seedling-explore-section .explore-panel.in-view .content-col {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================
+   RESPONSIVE
+   ========================================= */
+    @media (max-width: 900px) {
+      #seedling-explore-section .explore-inner {
+        grid-template-columns: 1fr;
+        padding: 0 32px;
+        gap: 36px;
+      }
+
+      /* All layouts → image on top, content below */
+      #seedling-explore-section .img-left .img-col,
+      #seedling-explore-section .content-left .img-col {
+        order: 1;
+        padding: 0;
+      }
+
+      #seedling-explore-section .img-left .content-col,
+      #seedling-explore-section .content-left .content-col {
+        order: 2;
+        padding: 0;
+      }
+
+      #seedling-explore-section .content-centered {
+        text-align: left;
+        align-items: flex-start;
+        padding: 0;
+      }
+
+      #seedling-explore-section .explore-img,
+      #seedling-explore-section .content-left .explore-img {
+        height: 260px;
+      }
+
+      #seedling-explore-section .explore-panel {
+        position: relative;
+        top: auto;
+      }
+
+      #seedling-explore-section .navbar {
+        padding: 0 24px;
+      }
+
+      #seedling-explore-section .nav-links {
+        gap: 20px;
+      }
+
+      #seedling-explore-section .nav-links a {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #seedling-explore-section .page-title {
+        font-size: 32px;
+      }
+
+      #seedling-explore-section .explore-heading {
+        font-size: 28px;
+      }
+
+      #seedling-explore-section .explore-inner {
+        padding: 0 20px;
+      }
+
+      #seedling-explore-section .nav-links {
+        display: none;
+        /* collapse on very small screens */
+      }
+    }
+  </style>
+
+  <!-- SCOPED WRAPPER -->
+  <div id="seedling-explore-section">
+
+    <!-- SECTION TITLE -->
+    <div class="page-title-wrap">
+      <h2 class="page-title">What Makes us so Special</h2>
+    </div>
+
+    <!-- STACKING SECTIONS -->
+    <main class="explore-wrapper">
+
+      <!-- 1: Image Left, Content Right -->
+      <section class="explore-panel" data-index="1">
+        <div class="explore-inner img-left">
+          <div class="img-col">
+            <img src="images/feature-1.jpg" alt="National Education Policy" class="explore-img" />
+          </div>
+          <div class="content-col">
+            <h3 class="explore-heading">Aligned With National Education Policy (NEP)</h3>
+            <p class="explore-body">Our curriculum is thoughtfully designed to align with the latest educational standards
+              and practices outlined by the NEP, ensuring our students receive a relevant and future-ready education.</p>
+            <a href="#" class="explore-btn">EXPLORE</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2: Content Left, Image Right -->
+      <section class="explore-panel" data-index="2">
+        <div class="explore-inner content-left">
+          <div class="content-col content-centered">
+            <h3 class="explore-heading">State Of The Art Facilities</h3>
+            <p class="explore-body">Our school boasts state-of-the-art facilities that inspire learning and exploration.
+              From modern classrooms to well-equipped science labs and engaging outdoor spaces, we provide an environment
+              that enhances the learning experience and encourages curiosity.</p>
+            <a href="#" class="explore-btn">LEARN MORE</a>
+          </div>
+          <div class="img-col">
+            <img src="images/feature-2.jpg" alt="State Of The Art Facilities" class="explore-img" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 3: Image Left, Content Right -->
+      <section class="explore-panel" data-index="3">
+        <div class="explore-inner img-left">
+          <div class="img-col">
+            <img src="images/feature-3.jpg" alt="Technology Integrated Innovative Education" class="explore-img" />
+          </div>
+          <div class="content-col">
+            <h3 class="explore-heading">Technology Integrated Innovative Education</h3>
+            <p class="explore-body">We embrace the power of technology in education. Our classrooms are equipped with
+              interactive whiteboards, and we integrate educational apps and online resources to create an engaging and
+              dynamic learning experience for our students.</p>
+            <a href="#" class="explore-btn">EXPLORE</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4: Content Left, Image Right -->
+      <section class="explore-panel" data-index="4">
+        <div class="explore-inner content-left">
+          <div class="content-col content-centered">
+            <h3 class="explore-heading">Thrust On Experiential Learning</h3>
+            <p class="explore-body">We believe that learning should be immersive and hands-on. Through experiential
+              learning activities, such as practical experiments, outdoor excursions, and interactive projects, we foster
+              critical thinking, problem-solving skills, and a love for learning in our students.</p>
+            <a href="#" class="explore-btn">LEARN MORE</a>
+          </div>
+          <div class="img-col">
+            <img src="images/feature-4.jpg" alt="Thrust On Experiential Learning" class="explore-img" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 5: Image Left, Content Right -->
+      <section class="explore-panel" data-index="5">
+        <div class="explore-inner img-left">
+          <div class="img-col">
+            <img src="images/feature-5.jpg" alt="Effective Feedback Mechanism" class="explore-img" />
+          </div>
+          <div class="content-col">
+            <h3 class="explore-heading">Effective Feedback Mechanism</h3>
+            <p class="explore-body">We believe in the power of feedback. Our teachers provide timely and constructive
+              feedback to students and maintain open communication with parents, ensuring the continuous growth and
+              development of each child.</p>
+            <a href="#" class="explore-btn">EXPLORE</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6: Content Left, Image Right -->
+      <section class="explore-panel" data-index="6">
+        <div class="explore-inner content-left">
+          <div class="content-col content-centered">
+            <h3 class="explore-heading">Holistic well-being of all Stakeholders</h3>
+            <p class="explore-body">At Seedling School, we prioritize the holistic well-being of our students, parents,
+              and staff. We create a supportive environment that nurtures not only academic growth but also emotional,
+              social, and physical well-being.</p>
+            <a href="#" class="explore-btn">LEARN MORE</a>
+          </div>
+          <div class="img-col">
+            <img src="images/feature-6.jpg" alt="Holistic well-being" class="explore-img" />
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const section = document.querySelector('#seedling-explore-section');
+      if (!section) return;
+
+      const panels = section.querySelectorAll('.explore-panel');
+      const isMobile = () => window.innerWidth <= 900;
+
+      /* ─── Entrance animations ─── */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      panels.forEach((p) => observer.observe(p));
+
+      /* ─── Stacking scale-down effect ─── */
+      function updateStack() {
+        if (isMobile()) {
+          panels.forEach((p) => {
+            p.style.transform = '';
+            p.style.filter = '';
+          });
+          return;
+        }
+
+        const scrollY = window.scrollY;
+        const vh = window.innerHeight;
+
+        panels.forEach((panel) => {
+          const rect = panel.getBoundingClientRect();
+          const panelTop = rect.top + scrollY;
+          const offset = scrollY - panelTop;
+
+          if (offset > 0) {
+            const progress = Math.min(offset / (vh * 0.85), 1);
+            const scale = 1 - progress * 0.035;         /* subtle: 96.5% min */
+            const ty = -progress * 16;                  /* slight upward push */
+            const brightness = 1 - progress * 0.08;     /* slight dim */
+            panel.style.transform = `scale(${scale}) translateY(${ty}px)`;
+            panel.style.filter = `brightness(${brightness})`;
+          } else {
+            panel.style.transform = '';
+            panel.style.filter = '';
+          }
+        });
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateStack();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', updateStack);
+      updateStack();
+    })();
+
+  </script>
+
   <!-- CURRICULUM -->
   <section class="curriculum" id="curriculum">
     <div class="container">
@@ -1752,7 +2294,7 @@
       <h2 class="section-title">The Seedling <em>Network</em> of Excellence</h2>
       <div class="schools-grid">
         <div class="school-card">
-          <img src="images/school-public.png" alt="Seedling Public School">
+          <img src="images/school-public.jpg" alt="Seedling Public School">
           <div class="school-overlay">
             <div class="school-info">
               <p>Jawahar Nagar, Jaipur</p>
@@ -1761,7 +2303,7 @@
           </div>
         </div>
         <div class="school-card">
-          <img src="images/school-modern-high.png" alt="Seedling Modern High School">
+          <img src="images/school-modern-high.jpg" alt="Seedling Modern High School">
           <div class="school-overlay">
             <div class="school-info">
               <p>Durgapura, Jaipur</p>
@@ -1770,7 +2312,7 @@
           </div>
         </div>
         <div class="school-card">
-          <img src="images/school-intl-academy.png" alt="Seedling International Academy">
+          <img src="images/school-intl-academy.jpg" alt="Seedling International Academy">
           <div class="school-overlay">
             <div class="school-info">
               <p>Cambridge International Centre</p>
@@ -1779,7 +2321,7 @@
           </div>
         </div>
         <div class="school-card">
-          <img src="images/school-modern-intl.png" alt="Seedling Modern International Academy">
+          <img src="images/school-modern-intl.jpg" alt="Seedling Modern International Academy">
           <div class="school-overlay">
             <div class="school-info">
               <p>Global Learning Campus</p>
