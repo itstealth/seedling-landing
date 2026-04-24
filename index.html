@@ -431,14 +431,19 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
+      align-items: start;
+    }
+
+    .about-visual-col {
+      position: sticky;
+      top: 120px;
     }
 
     .about-img-wrap {
       position: relative;
       border-radius: 4px;
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 1/1;
       box-shadow: 0 20px 60px rgba(35, 53, 113, 0.15);
     }
 
@@ -1214,6 +1219,11 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
+      
+      .about-visual-col {
+        position: relative;
+        top: 0;
+      }
 
       .infra-visual-grid {
         position: static;
@@ -1587,65 +1597,52 @@
       </div>
     </div>
   </section>
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="bg-monogram">S</div>
 
-    <div class="about-inner">
-
-      <div class="eyebrow">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text">About Us</span>
-      </div>
-
-      <div class="since-badge">
-        <div class="badge-dot">&#10003;</div>
-        <span class="badge-text">Trusted by Jaipur families since 1992</span>
-      </div>
-
-      <h2 class="main-heading">A Legacy of <em>Learning</em> &amp; Character</h2>
-      <div class="heading-accent"></div>
-
-      <div class="content-grid">
-        <div class="content-col">
-          <p>Since <strong>1992</strong>, Seedling School Jaipur has been a beacon of academic excellence and holistic
-            child development in Rajasthan. Part of the renowned Seedling Group of Schools, we are managed by
-            <strong>Mahima Shiksha Samiti</strong> and have grown into one of Jaipur's most trusted educational
-            institutions.
-          </p>
-          <p>Our co-educational day school welcomes students from <strong>Nursery (Play Group)</strong> right through to
-            <strong>Class XII</strong>, offering a seamless educational journey in a nurturing, values-driven
-            environment. With campuses in Jawahar Nagar and Durgapura, we serve thousands of families across Jaipur.
-          </p>
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual-col">
+          <div class="about-img-accent"></div>
+          <div class="about-img-wrap">
+            <img src="images/about-school.png" alt="Seedlings School Campus">
+          </div>
         </div>
-        <div class="content-col">
-          <div class="pull-quote">
-            <p>We believe every child is a unique seedling — with the right environment, mentorship, and resources, each
-              one grows into a confident, compassionate, and globally aware leader.</p>
-            <cite>— Seedling Philosophy</cite>
+        <div class="about-content">
+          <div class="section-label">About Us</div>
+          <h2 class="section-title">A Legacy of <em>Learning</em> & Character</h2>
+          <p>Since 1992, Seedlings School Jaipur has been a beacon of academic excellence and holistic child development
+            in Rajasthan. Part of the renowned Seedling Group of Schools, we are managed by Mahima Shiksha Samiti and
+            have grown into one of Jaipur's most trusted educational institutions.</p>
+          <p>Our co-educational day school welcomes students from Nursery (Play Group) right through to Class XII,
+            offering a seamless educational journey in a nurturing, values-driven environment. With campuses in Jawahar
+            Nagar and Durgapura, we serve thousands of families across Jaipur.</p>
+          <p>We believe every child is a unique seedling — with the right environment, mentorship, and resources, each
+            one grows into a confident, compassionate, and globally aware leader.</p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">🏫</div>
+              <div class="highlight-text">
+                <h4>Co-Educational Day School</h4>
+                <p>English medium, Nursery to Class XII — a complete K-12 journey in one institution.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">👩‍🏫</div>
+              <div class="highlight-text">
+                <h4>Expert Faculty</h4>
+                <p>Experienced, qualified educators dedicated to personalised attention and holistic growth.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">🌍</div>
+              <div class="highlight-text">
+                <h4>Globally Aligned, Locally Grounded</h4>
+                <p>NEP-aligned curriculum combined with international standards to prepare future-ready students.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="stats-row">
-        <div class="stat-item">
-          <div class="stat-num">1992</div>
-          <div class="stat-label">Established</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">20K+</div>
-          <div class="stat-label">Students</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">5</div>
-          <div class="stat-label">Campuses</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Results</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
