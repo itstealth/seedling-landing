@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seedling School – Admissions Open 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ─────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────── */
+    :root {
+      --navy:        #102269;
+      --navy-mid:    #1a2f7a;
+      --navy-light:  #29355E;
+      --blue:        #1B50EC;
+      --blue-dark:   #1340CC;
+      --blue-glow:   rgba(27,80,236,0.35);
+      --red:         #DC2626;
+      --bg:          #D5E7FF;
+      --white:       #ffffff;
+      --form-bg:     #f7f9ff;
+      --border:      #dde8ff;
+      --text-muted:  #5a6a9a;
+
+      --card-shadow: 0 32px 80px rgba(16,34,105,0.18), 0 8px 24px rgba(16,34,105,0.10);
+      --form-shadow: 0 24px 64px rgba(16,34,105,0.15);
+
+      --ease: cubic-bezier(0.22,1,0.36,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────────────────────────────────────
+       HERO WRAPPER
+    ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ─────────────────────────────────────────
+       LEFT PANEL — deep navy authority
+    ───────────────────────────────────────── */
+    .panel-left {
+      background: linear-gradient(155deg, var(--navy) 0%, #0c1a55 55%, #091444 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 52px 64px 6vw;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Geometric decoration — large circle */
+    .panel-left::before {
+      content: '';
+      position: absolute;
+      top: -160px; right: -160px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+    .panel-left::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      border: 1px solid rgba(27,80,236,0.2);
+      pointer-events: none;
+    }
+
+    /* Mesh gradient blobs */
+    .blob-1 {
+      position: absolute;
+      top: 10%; right: -5%;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,80,236,0.22) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .blob-2 {
+      position: absolute;
+      bottom: 15%; left: -8%;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,80,236,0.18) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    /* Subtle grid lines */
+    .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 52px 52px;
+      pointer-events: none;
+    }
+
+    .left-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Live badge */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 8px 20px;
+      width: fit-content;
+      margin-bottom: 28px;
+      animation: fadeDown 0.6s var(--ease) both;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,0.5);
+      animation: livePulse 2s ease infinite;
+    }
+    @keyframes livePulse {
+      0%   { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+      70%  { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+      100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+    }
+    .live-badge span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* Programme tag */
+    .programme-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(27,80,236,0.3);
+      border: 1px solid rgba(27,80,236,0.5);
+      border-radius: 6px;
+      padding: 5px 14px;
+      width: fit-content;
+      margin-bottom: 18px;
+      animation: fadeDown 0.6s 0.08s var(--ease) both;
+    }
+    .programme-tag span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #93c5fd;
+      letter-spacing: 0.04em;
+    }
+
+    /* Main heading */
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.3rem, 3.6vw, 3.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.13;
+      letter-spacing: -0.01em;
+      margin-bottom: 22px;
+      animation: fadeUp 0.7s 0.12s var(--ease) both;
+    }
+    .hero-h1 .hl {
+      font-style: italic;
+      background: linear-gradient(90deg, #93c5fd 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Subtext */
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 36px;
+      animation: fadeUp 0.7s 0.2s var(--ease) both;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    /* ── Stat counters ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 36px;
+      border-radius: 16px;
+      overflow: hidden;
+      animation: fadeUp 0.7s 0.28s var(--ease) both;
+    }
+    .stat-cell {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s ease;
+    }
+    .stat-cell:hover { background: rgba(255,255,255,0.09); }
+    .stat-cell::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--blue);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .stat-cell:hover::before { opacity: 1; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-num .unit {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #93c5fd;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .stat-emoji {
+      position: absolute;
+      top: 14px; right: 16px;
+      font-size: 1.25rem;
+      opacity: 0.5;
+    }
+
+    /* ── Trust row ── */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 0.7s 0.36s var(--ease) both;
+    }
+    .trust-avatars {
+      display: flex;
+    }
+    .av {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.25);
+      margin-left: -10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      background: var(--blue);
+    }
+    .av:first-child { margin-left: 0; background: #1a3fb5; }
+    .av:nth-child(2) { background: #2152d0; }
+    .av:nth-child(3) { background: #2e62e8; }
+    .av:nth-child(4) { background: #4a7af5; font-size: 0.65rem; }
+
+    .trust-copy {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+    .trust-copy strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* Ratings stars */
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-top: 2px;
+    }
+    .star {
+      width: 13px; height: 13px;
+      fill: #fbbf24;
+    }
+    .stars-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      margin-left: 4px;
+    }
+
+    /* ─────────────────────────────────────────
+       RIGHT PANEL — light + form
+    ───────────────────────────────────────── */
+    .panel-right {
+      background:
+        radial-gradient(ellipse 90% 70% at 60% 30%, #c0d8ff 0%, transparent 65%),
+        radial-gradient(ellipse 60% 80% at 90% 80%, #b8d4ff 0%, transparent 60%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 5vw 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative circles in right panel */
+    .panel-right::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(27,80,236,0.1);
+      pointer-events: none;
+    }
+    .panel-right::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 10%;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(27,80,236,0.08);
+      pointer-events: none;
+    }
+
+    /* ── Form card ── */
+    .form-card {
+      background: var(--white);
+      border-radius: 28px;
+      box-shadow: var(--form-shadow);
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      animation: slideLeft 0.8s 0.1s var(--ease) both;
+      border: 1.5px solid rgba(27,80,236,0.08);
+      overflow: hidden;
+    }
+
+    /* Rainbow top accent bar */
+    .form-accent-bar {
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 50%, #60a5fa 100%);
+    }
+
+    .form-card-inner {
+      padding: 32px 32px 24px;
+    }
+
+    /* Urgency banner */
+    .urgency-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff7ed;
+      border: 1.5px solid #fed7aa;
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-bottom: 22px;
+    }
+    .urgency-icon { font-size: 1rem; flex-shrink: 0; }
+    .urgency-text {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #92400e;
+      line-height: 1.4;
+    }
+    .urgency-text span { color: var(--red); }
+
+    /* Form header */
+    .form-hd {
+      margin-bottom: 24px;
+    }
+    .form-hd h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .form-hd p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Form fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--navy-light);
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .req { color: var(--red); margin-left: 2px; }
+
+    .input-wrap { position: relative; }
+    .input-wrap .ico {
+      position: absolute;
+      left: 13px; top: 50%;
+      transform: translateY(-50%);
+      width: 16px; height: 16px;
+      color: #94a3b8;
+      pointer-events: none;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .input-wrap.textarea-wrap .ico { top: 16px; transform: none; }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px 12px 40px;
+      background: var(--form-bg);
+      border: 1.8px solid var(--border);
+      border-radius: 11px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      color: var(--navy);
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 82px;
+      padding-top: 12px;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #b0bec5; font-size: 0.85rem; }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(27,80,236,0.10);
+      background: var(--white);
+    }
+    .form-group input:focus + .ico,
+    .input-wrap:focus-within .ico { color: var(--blue); }
+
+    .form-group input.is-error,
+    .form-group textarea.is-error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(220,38,38,0.09);
+    }
+    .err-msg {
+      font-size: 0.72rem;
+      color: var(--red);
+      margin-top: 4px;
+      font-weight: 500;
+      display: none;
+    }
+    .err-msg.show { display: block; }
+
+    /* CTA button */
+    .cta-btn {
+      width: 100%;
+      padding: 15px 20px;
+      background: linear-gradient(135deg, var(--blue) 0%, #1340CC 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(27,80,236,0.38), 0 2px 6px rgba(27,80,236,0.2);
+      transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease), background 0.2s;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(27,80,236,0.44), 0 4px 12px rgba(27,80,236,0.24);
+    }
+    .cta-btn:active:not(:disabled) { transform: translateY(0); }
+    .cta-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+    .cta-arrow {
+      font-size: 1.15rem;
+      transition: transform 0.2s var(--ease);
+    }
+    .cta-btn:hover .cta-arrow { transform: translateX(4px); }
+
+    /* Spinner */
+    .spinner {
+      display: none;
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    .cta-btn.loading .btn-label,
+    .cta-btn.loading .cta-arrow { display: none; }
+    .cta-btn.loading .spinner { display: inline-block; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Micro-copy below button */
+    .microcopy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+    .microcopy svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+    /* Trust badges below form */
+    .form-trust {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 14px 32px 18px;
+      border-top: 1px solid #f0f4ff;
+    }
+    .form-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .form-trust-item svg { width: 14px; height: 14px; color: #22c55e; }
+
+    /* Success screen */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 36px 28px 28px;
+    }
+    .success-screen.show { display: block; }
+    .success-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 2rem;
+      box-shadow: 0 8px 24px rgba(34,197,94,0.3);
+    }
+    .success-screen h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .success-screen p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .panel-left {
+        padding: 52px 6vw 44px;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+      }
+      .stat-num { font-size: 1.6rem; }
+      .panel-right {
+        padding: 40px 5vw 52px;
+      }
+      .form-card { max-width: 540px; }
+    }
+
+    @media (max-width: 640px) {
+      .panel-left { padding: 44px 5vw 36px; }
+      .hero-h1 { font-size: clamp(2rem, 7vw, 2.8rem); }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card-inner { padding: 24px 20px 18px; }
+      .form-trust { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    }
+
+    @media (max-width: 380px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .stat-cell { padding: 14px; }
+      .form-hd h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero" role="main" aria-label="Seedling School Hero Section">
+
+  <!-- ══════════════════════════════════════════
+       LEFT PANEL
+  ══════════════════════════════════════════ -->
+  <div class="panel-left">
+    <div class="blob-1" aria-hidden="true"></div>
+    <div class="blob-2" aria-hidden="true"></div>
+    <div class="grid-lines" aria-hidden="true"></div>
+
+    <div class="left-inner">
+
+      <!-- Live admissions badge -->
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span>Admissions Open — 2026</span>
+      </div>
+
+      <!-- Programme tag -->
+      <div class="programme-tag">
+        <span>📚 Pre Nursery — Class XI &nbsp;|&nbsp; All Streams</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-h1">
+        Because the <span class="hl">right guidance</span><br>shapes every future.
+      </h1>
+
+      <!-- Supporting copy -->
+      <p class="hero-sub">
+        Join one of Delhi's most trusted schools — <strong>34 years</strong> of shaping confident, high-achieving students with personalised attention and expert faculty.
+      </p>
+
+      <!-- Stats 2×2 grid -->
+      <div class="stats-grid" role="list" aria-label="School highlights">
+        <div class="stat-cell" role="listitem">
+          <div class="stat-emoji" aria-hidden="true">🏆</div>
+          <div class="stat-num"><span class="count" data-target="100">0</span><span class="unit">%</span></div>
+          <div class="stat-label">Board Results</div>
+        </div>
+        <div class="stat-cell" role="listitem">
+          <div class="stat-emoji" aria-hidden="true">👨‍🏫</div>
+          <div class="stat-num"><span class="count" data-target="15">0</span><span class="unit">:1</span></div>
+          <div class="stat-label">Student-Teacher Ratio</div>
+        </div>
+        <div class="stat-cell" role="listitem">
+          <div class="stat-emoji" aria-hidden="true">🎓</div>
+          <div class="stat-num"><span class="count" data-target="50">0</span><span class="unit">+</span></div>
+          <div class="stat-label">Expert Faculties</div>
+        </div>
+        <div class="stat-cell" role="listitem">
+          <div class="stat-emoji" aria-hidden="true">🕰️</div>
+          <div class="stat-num"><span class="count" data-target="34">0</span><span class="unit"> Yrs</span></div>
+          <div class="stat-label">Trusted Legacy</div>
+        </div>
+      </div>
+
+      <!-- Trust row with avatars + stars -->
+      <div class="trust-row">
+        <div class="trust-avatars" aria-label="Parent avatars">
+          <div class="av">R</div>
+          <div class="av">P</div>
+          <div class="av">A</div>
+          <div class="av">+</div>
+        </div>
+        <div>
+          <div class="trust-copy">
+            <strong>2,000+ families</strong> trust us every year
+          </div>
+          <div class="stars" aria-label="4.9 star rating">
+            <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="stars-label">4.9 · Top-rated school</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       RIGHT PANEL — FORM
+  ══════════════════════════════════════════ -->
+  <div class="panel-right">
+    <div class="form-card" role="complementary" aria-label="Admissions Enquiry Form">
+
+      <div class="form-accent-bar"></div>
+
+      <div class="form-card-inner">
+
+        <!-- Urgency banner -->
+        <div class="urgency-banner" role="alert" aria-live="polite">
+          <span class="urgency-icon">⚡</span>
+          <p class="urgency-text">Limited seats for 2026 — <span>filling fast.</span> Enquire now to secure your spot.</p>
+        </div>
+
+        <!-- Header -->
+        <div class="form-hd">
+          <h2>Book a Free Counselling Call</h2>
+          <p>Our admissions counsellor will reach out within <strong style="color:var(--navy)">24 hours</strong>. No obligation whatsoever.</p>
+        </div>
+
+        <!-- Success message -->
+        <div class="success-screen" id="successScreen" role="status">
+          <div class="success-circle">✓</div>
+          <h3>You're all set!</h3>
+          <p>Thank you for reaching out. Our admissions team will call you within 24 hours to discuss the next steps.</p>
+        </div>
+
+        <!-- Form -->
+        <form id="leadForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="fname" name="name" placeholder="Rahul Sharma" autocomplete="name"/>
+                <svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              </div>
+              <span class="err-msg" id="nameErr">Letters and spaces only.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="fphone">Mobile <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="tel" id="fphone" name="phone" placeholder="9XXXXXXXXX" autocomplete="tel" maxlength="10"/>
+                <svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
+              </div>
+              <span class="err-msg" id="phoneErr">10-digit number starting 6–9.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="femail">Email Address <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input type="email" id="femail" name="email" placeholder="you@example.com" autocomplete="email"/>
+              <svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            </div>
+            <span class="err-msg" id="emailErr">Please enter a valid email.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="fschool">Current School <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="fschool" name="school" placeholder="Name of current school"/>
+              <svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/><path d="M3 21h18"/></svg>
+            </div>
+            <span class="err-msg" id="schoolErr">Please enter the school name.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="fmessage">Message <span class="req">*</span></label>
+            <div class="input-wrap textarea-wrap">
+              <textarea id="fmessage" name="message" placeholder="Child's current grade, desired stream, or any questions…"></textarea>
+              <svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span class="err-msg" id="messageErr">Please enter your message.</span>
+          </div>
+
+          <button type="submit" class="cta-btn" id="submitBtn" aria-label="Submit enquiry form">
+            <span class="btn-label">Enquire Now — It's Free</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="microcopy">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            No spam. Your details are 100% private &amp; secure.
+          </p>
+
+        </form>
+      </div>
+
+      <!-- Trust strip at bottom of card -->
+      <div class="form-trust" role="list" aria-label="Trust indicators">
+        <div class="form-trust-item" role="listitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          100% Free Counselling
+        </div>
+        <div class="form-trust-item" role="listitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          24-hr Response
+        </div>
+        <div class="form-trust-item" role="listitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          No Obligation
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+  /* ── Config ── */
+  const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  const LEAD_TOKEN      = 'seedling-lead-forwarding-token-v1';
+
+  /* ── Helpers ── */
+  const $  = id => document.getElementById(id);
+  const ok = cl => cl.remove('is-error');
+  const er = (el, msg) => { el.classList.add('is-error'); msg.classList.add('show'); };
+  const cl = (el, msg) => { el.classList.remove('is-error'); msg.classList.remove('show'); };
+
+  const validName  = v => /^[a-zA-Z\s]{2,}$/.test(v.trim());
+  const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  const validPhone = v => /^[6-9]\d{9}$/.test(v.trim());
+  const notEmpty   = v => v.trim().length > 0;
+
+  /* ── Live validation ── */
+  [
+    ['fname',    'nameErr',    v => validName(v)],
+    ['femail',   'emailErr',   v => validEmail(v)],
+    ['fphone',   'phoneErr',   v => validPhone(v)],
+    ['fschool',  'schoolErr',  v => notEmpty(v)],
+    ['fmessage', 'messageErr', v => notEmpty(v)],
+  ].forEach(([id, errId, test]) => {
+    const input = $(id), msg = $(errId);
+    input.addEventListener('input', () =>
+      test(input.value) ? cl(input, msg) : er(input, msg)
+    );
+    input.addEventListener('blur', () => {
+      if (!input.value) return;
+      test(input.value) ? cl(input, msg) : er(input, msg);
+    });
+  });
+
+  /* ── Submit ── */
+  $('leadForm').addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const fields = [
+      [$('fname'),    $('nameErr'),    validName],
+      [$('femail'),   $('emailErr'),   validEmail],
+      [$('fphone'),   $('phoneErr'),   validPhone],
+      [$('fschool'),  $('schoolErr'),  notEmpty],
+      [$('fmessage'), $('messageErr'), notEmpty],
+    ];
+
+    let ok = true;
+    fields.forEach(([inp, msg, test]) => {
+      if (!test(inp.value)) { er(inp, msg); ok = false; }
+      else cl(inp, msg);
+    });
+    if (!ok) { fields.find(([i]) => i.classList.contains('is-error'))?.[0]?.focus(); return; }
+
+    const btn = $('submitBtn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    const params = new URLSearchParams({
+      token:   LEAD_TOKEN,
+      Name:    $('fname').value.trim(),
+      Email:   $('femail').value.trim(),
+      Phone:   $('fphone').value.trim(),
+      School:  $('fschool').value.trim(),
+      Message: $('fmessage').value.trim(),
+      Page:    window.location.href,
+    });
+
+    try {
+      await fetch(`${APPS_SCRIPT_URL}?${params}`, { method: 'GET', mode: 'no-cors' });
+      $('leadForm').style.display   = 'none';
+      $('successScreen').classList.add('show');
+    } catch {
+      alert('Something went wrong. Please try again or call us directly.');
+    } finally {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+    }
+  });
+
+  /* ── Animated counters ── */
+  const counters = document.querySelectorAll('.count');
+  const animate = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const dur    = 1400;
+    const start  = performance.now();
+    const step   = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(ease * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  };
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(animate);
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (counters.length) io.observe(counters[0].closest('.stats-grid'));
+</script>
+</body>
+</html>

@@ -25,6 +25,17 @@
       --text: #2c2c2c;
       --text-light: #666666;
       --border: #e8e0d4;
+      --sky:    #D5E7FF;
+      --navy:   #102269;
+      --deep:   #29355E;
+      --blue:   #1B50EC;
+      --red:    #DC2626;
+      --white:  #FFFFFF;
+      --grey:   #F4F7FF;
+      --text:   #1a1a2e;
+      --muted:  #5a6379;
+      --radius: 16px;
+      --shadow: 0 8px 40px rgba(16,34,105,.10);
     }
 
     * {
@@ -136,153 +147,87 @@
       transform: translateY(-1px);
     }
 
+
     /* ── HERO ── */
     .hero {
+      background: linear-gradient(105deg, var(--navy) 0%, rgba(16, 34, 105, 0.85) 45%, rgba(16, 34, 105, 0.1) 100%), url('images/banner.png') center right / cover no-repeat;
       min-height: 100vh;
-      position: relative;
       display: flex;
       align-items: center;
-      overflow: hidden;
-      padding-top: 0;
+      padding: 80px 72px;
+      position: relative;
     }
 
-    @media (min-width: 901px) {
-      .hero {
-        height: 100vh;
-        padding-top: 86px;
-        /* Clears fixed nav height */
-      }
-
-      .hero-content {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        align-items: center;
-        gap: 80px;
-      }
-
-      .hero-stats {
-        margin-top: 20px;
-        padding-top: 20px;
-      }
-
-      .hero-title {
-        font-size: clamp(38px, 4vw, 52px);
-      }
-
-      .hero-subtitle {
-        margin-bottom: 20px;
-      }
-
-      .hero-img-frame {
-        max-height: 50vh;
-        width: auto;
-        margin: 0 auto;
-      }
-
-      .hero-card {
-        top: auto;
-        bottom: 30px;
-        left: auto;
-        right: -20px;
-        padding: 12px 16px;
-        min-width: 140px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .hero-card-value {
-        font-size: 20px;
-      }
-
-      .hero-card-label {
-        font-size: 9px;
-      }
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(to right, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.1) 100%), url('images/banner.png') center center / cover no-repeat;
-    }
-
-    /* Decorative circle */
-    .hero-bg::after {
+    .hero::before {
       content: '';
       position: absolute;
-      right: -200px;
-      top: -200px;
-      width: 700px;
-      height: 700px;
+      top: -120px;
+      right: -120px;
+      width: 600px;
+      height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(243, 125, 31, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, #1B50EC44 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 30%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #D5E7FF0F 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 120px 60px 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      max-width: 680px;
+      width: 100%;
     }
 
-    .hero-text .badge {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(243, 125, 31, 0.15);
-      border: 1px solid rgba(243, 125, 31, 0.5);
+      background: rgba(213, 231, 255, .12);
+      border: 1px solid rgba(213, 231, 255, .25);
+      color: var(--sky);
       padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 11px;
-      color: #ffffff;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
     }
 
-    .hero-text .badge::before {
-      content: '●';
-      font-size: 8px;
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
     }
 
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 300;
+    .hero h1 {
+      font-size: clamp(36px, 3vw, 40px);
+      color: var(--white);
       line-height: 1.1;
-      color: #ffffff;
       margin-bottom: 20px;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 4px 18px rgba(0, 0, 0, 0.6);
     }
 
-    .hero-title em {
-      color: #FFD447;
-      font-style: italic;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8), 0 4px 18px rgba(0, 0, 0, 0.5);
+    .hero h1 em {
+      color: var(--sky);
+      font-style: normal;
     }
 
-    .hero-title span {
-      color: #FFD447;
-      font-style: italic;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: #ffffff;
+    .hero-sub {
+      color: rgba(213, 231, 255, .8);
+      font-size: 17px;
       line-height: 1.7;
+      max-width: 520px;
       margin-bottom: 36px;
-      max-width: 460px;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 3px 12px rgba(0, 0, 0, 0.7);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
     }
 
     .btn-primary {
@@ -329,87 +274,109 @@
       background: rgba(255, 255, 255, 0.07);
     }
 
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     .hero-stats {
       display: flex;
-      gap: 32px;
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.55);
+      gap: 40px;
+      margin-top: 52px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(213, 231, 255, .15);
     }
 
-    .stat-item {
-      text-align: left;
-    }
-
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
+    .stat-item .num {
+      font-family: 'Playfair Display', serif;
       font-size: 36px;
-      font-weight: 600;
-      color: #FFD447;
-      line-height: 1;
-      /* text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 4px 14px rgba(0, 0, 0, 0.7); */
+      font-weight: 900;
+      color: var(--white);
     }
 
-    .stat-label {
-      font-size: 12px;
-      color: #ffffff;
-      letter-spacing: 0.06em;
-      margin-top: 4px;
-      /* text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 3px 10px rgba(0, 0, 0, 0.65); */
+    .stat-item .lbl {
+      font-size: 13px;
+      color: rgba(213, 231, 255, .7);
+      margin-top: 2px;
     }
 
-    /* Hero image side */
     .hero-visual {
       position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-left: 40px;
     }
 
-    .hero-img-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-    }
-
-    .hero-img-frame svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Floating card */
     .hero-card {
-      position: absolute;
-      left: -40px;
-      bottom: 40px;
-      background: var(--white);
-      border-radius: 4px;
+      background: rgba(255, 255, 255, .07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(213, 231, 255, .15);
+      border-radius: var(--radius);
       padding: 20px 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
-      min-width: 200px;
+      transition: transform .3s;
     }
 
-    .hero-card-label {
-      font-size: 10px;
-      color: #666666;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .hero-card:hover {
+      transform: translateX(-6px);
+    }
+
+    .hero-card-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h4 {
+      color: var(--white);
+      font-size: 15px;
       margin-bottom: 4px;
-    }
-
-    .hero-card-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 600;
-      color: var(--emerald-dark);
     }
 
-    .hero-card-desc {
-      font-size: 12px;
-      color: #444444;
-      margin-top: 4px;
+    .hero-card p {
+      color: rgba(213, 231, 255, .7);
+      font-size: 13px;
+      line-height: 1.5;
     }
+
+    .hero-card.accent {
+      border-color: rgba(220, 38, 38, .4);
+      background: rgba(220, 38, 38, .1);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--sky);
+      padding: 20px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .trust-item .icon {
+      font-size: 20px;
+    }
+
+    .trust-sep {
+      width: 1px;
+      height: 32px;
+      background: rgba(16, 34, 105, .2);
+    }
+
 
     /* ── SECTION STYLES ── */
     section {
@@ -1225,9 +1192,13 @@
         display: none;
       }
 
-      .hero-content {
-        grid-template-columns: 1fr;
+      .hero {
         padding: 100px 24px 60px;
+        background: linear-gradient(105deg, var(--navy) 0%, rgba(16, 34, 105, 0.9) 60%, rgba(16, 34, 105, 0.4) 100%), url('images/banner.png') center right / cover no-repeat;
+      }
+      
+      .hero-content {
+        padding: 0;
       }
 
       .hero-visual {
@@ -1588,41 +1559,34 @@
       Now</button>
   </nav>
 
-  <!-- HERO -->
+  <!-- ── HERO ── -->
   <section class="hero">
-    <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-text">
-        <div class="badge animate delay-1">Admissions Open 2025–26</div>
-        <h1 class="hero-title animate delay-2">
-          Where Every <em>Seedling</em><br>Grows Into Greatness
-        </h1>
-        <!-- <p class="hero-subtitle animate delay-3">
-          Jaipur's premier institution offering both CBSE and Cambridge International curricula — shaping confident,
-          globally aware, and academically excellent young minds since 1992.
-        </p>
-        <div class="hero-actions animate delay-4">
-          <a href="#admission" class="btn-primary">Apply for Admission</a>
-          <a href="#about" class="btn-outline">Discover More</a>
-        </div> -->
-        <div class="hero-stats animate delay-4">
-          <div class="stat-item">
-            <div class="stat-num">30<sup>+</sup></div>
-            <div class="stat-label">Years of Excellence</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">5000<sup>+</sup></div>
-            <div class="stat-label">Students Enrolled</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Boards Offered</div>
-          </div>
+      <div class="hero-badge"><span class="dot"></span> Admissions Open 2026</div>
+      <h1>Because the right <em>guidance</em><br />shapes the future.</h1>
+      <p class="hero-sub">
+        Classes Pre Nur - XI
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="num">100%</div>
+          <div class="lbl">Result</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">15:1</div>
+          <div class="lbl">Student-Teacher Ratio</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">50+</div>
+          <div class="lbl">Expert Faculties</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">34</div>
+          <div class="lbl">Years Legacy</div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- ABOUT -->
   <section class="about-section" id="about">
     <div class="bg-monogram">S</div>

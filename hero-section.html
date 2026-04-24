@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seedling School – Admissions Open 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── BRAND PALETTE ── */
+      --sky:        #D5E7FF;
+      --navy:       #102269;
+      --navy-mid:   #29355E;
+      --blue:       #1B50EC;
+      --red:        #DC2626;
+      --white:      #ffffff;
+      --off-white:  #F4F8FF;
+      --ink:        #0A1540;
+      --ink-soft:   #3D4F7C;
+      --ink-muted:  #6B7FAD;
+      --border:     rgba(27,80,236,.15);
+      --border-sky: rgba(213,231,255,.6);
+      /* ── SHADOWS ── */
+      --sh-xs:  0 1px 4px rgba(16,34,105,.06);
+      --sh-sm:  0 2px 12px rgba(16,34,105,.09);
+      --sh-md:  0 8px 28px rgba(16,34,105,.13);
+      --sh-lg:  0 20px 56px rgba(16,34,105,.18);
+      --sh-xl:  0 32px 80px rgba(16,34,105,.22);
+      /* ── RADII ── */
+      --r-sm: 8px;
+      --r:    14px;
+      --r-lg: 20px;
+      --r-xl: 28px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--navy);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ════════════════════════════
+       HERO WRAPPER
+    ════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      overflow: hidden;
+    }
+
+    /* ── left panel dark bg ── */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, var(--navy) 0%, #0d1e5e 60%, #1a2f7a 100%);
+      z-index: 0;
+    }
+
+    /* ── decorative geometric shapes ── */
+    .hero__bg-shapes {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    }
+
+    .shape {
+      position: absolute; border-radius: 50%; filter: blur(1px);
+    }
+
+    .shape-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(27,80,236,.18) 0%, transparent 70%);
+      top: -140px; left: -100px;
+    }
+
+    .shape-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(213,231,255,.07) 0%, transparent 70%);
+      bottom: -80px; left: 200px;
+    }
+
+    .shape-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(27,80,236,.12) 0%, transparent 70%);
+      top: 50%; right: 38%; transform: translateY(-50%);
+    }
+
+    /* diagonal divider */
+    .hero__divider {
+      position: absolute;
+      top: 0; right: 45%; bottom: 0;
+      width: 80px;
+      z-index: 1;
+      background: linear-gradient(to right, transparent, rgba(213,231,255,.04), transparent);
+      pointer-events: none;
+    }
+
+    /* ── right panel light bg ── */
+    .hero__right-bg {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 45%;
+      background: var(--off-white);
+      z-index: 0;
+    }
+
+    .hero__right-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 80% 10%, rgba(27,80,236,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 90%, rgba(213,231,255,.5) 0%, transparent 60%);
+    }
+
+    /* ════════════════════════════
+       LEFT – CONTENT PANEL
+    ════════════════════════════ */
+    .hero__left {
+      position: relative; z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 56px 72px 68px;
+      color: var(--white);
+    }
+
+    /* ── top badge row ── */
+    .top-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      animation: fadeUp .5s ease both;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(220,38,38,.15);
+      border: 1px solid rgba(220,38,38,.4);
+      border-radius: 100px;
+      padding: 5px 14px 5px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #ff6b6b;
+    }
+
+    .live-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 0 rgba(220,38,38,.5);
+      animation: ripple 1.8s infinite;
+    }
+
+    @keyframes ripple {
+      0%   { box-shadow: 0 0 0 0 rgba(220,38,38,.5); }
+      70%  { box-shadow: 0 0 0 7px rgba(220,38,38,0); }
+      100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+    }
+
+    .programs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(213,231,255,.1);
+      border: 1px solid rgba(213,231,255,.2);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
+
+    /* ── main headline ── */
+    .hero__kicker {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: .75;
+      margin-bottom: 14px;
+      animation: fadeUp .55s .05s ease both;
+    }
+
+    .hero__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 3.6vw, 54px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 22px;
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    .hero__heading .hl-italic {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .hero__heading .hl-red {
+      color: #ff6b6b;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* underline squiggle on "future" */
+    .hero__heading .hl-red::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), #ff8c8c, var(--red));
+      border-radius: 2px;
+      animation: lineIn .6s .7s ease both;
+      transform-origin: left;
+    }
+
+    @keyframes lineIn {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .hero__sub {
+      font-size: 15.5px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(213,231,255,.75);
+      max-width: 440px;
+      margin-bottom: 38px;
+      animation: fadeUp .6s .15s ease both;
+    }
+
+    /* ── USP PILLS ROW ── */
+    .usp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 44px;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .usp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(213,231,255,.18);
+      border-radius: 100px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      transition: background .2s, border-color .2s, transform .2s;
+      cursor: default;
+    }
+
+    .usp-pill:hover {
+      background: rgba(27,80,236,.25);
+      border-color: rgba(27,80,236,.5);
+      transform: translateY(-1px);
+    }
+
+    .usp-pill .icon {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .usp-pill .val {
+      color: var(--sky);
+      font-weight: 700;
+    }
+
+    /* ── TRUST ROW ── */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(213,231,255,.12);
+      animation: fadeUp .6s .3s ease both;
+    }
+
+    .trust-avatars {
+      display: flex;
+    }
+
+    .trust-avatars span {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      margin-left: -10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      background: linear-gradient(135deg, var(--blue) 0%, #3a6fff 100%);
+      color: white;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .trust-avatars span:first-child { margin-left: 0; }
+
+    .trust-text {
+      font-size: 13px;
+      color: rgba(213,231,255,.7);
+      line-height: 1.4;
+    }
+
+    .trust-text strong {
+      color: var(--white);
+      font-weight: 700;
+      display: block;
+    }
+
+    .trust-stars {
+      display: flex;
+      gap: 2px;
+      font-size: 13px;
+    }
+
+    .trust-sep {
+      width: 1px; height: 32px;
+      background: rgba(213,231,255,.15);
+    }
+
+    .trust-rating {
+      text-align: center;
+    }
+
+    .trust-rating .score {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .trust-rating .label {
+      font-size: 11px;
+      color: rgba(213,231,255,.6);
+      margin-top: 2px;
+    }
+
+    /* ════════════════════════════
+       RIGHT – FORM PANEL
+    ════════════════════════════ */
+    .hero__right {
+      position: relative; z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 56px 52px 44px;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--white);
+      border-radius: var(--r-xl);
+      box-shadow: var(--sh-xl);
+      overflow: hidden;
+      animation: slideInRight .7s .1s cubic-bezier(.22,.68,0,1.2) both;
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px) scale(.98); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    /* coloured top stripe */
+    .form-stripe {
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 60%, #4a7fff 100%);
+      padding: 22px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-stripe::after {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+
+    .form-stripe__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(213,231,255,.75);
+      margin-bottom: 4px;
+    }
+
+    .form-stripe__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    .form-stripe__sub {
+      font-size: 12.5px;
+      color: rgba(213,231,255,.7);
+      margin-top: 5px;
+    }
+
+    /* urgency bar */
+    .urgency-bar {
+      background: #fff8f0;
+      border-bottom: 1px solid #fde8c8;
+      padding: 9px 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #92400e;
+    }
+
+    .urgency-bar .icon { font-size: 14px; }
+
+    /* form body */
+    .form-body-wrap {
+      padding: 24px 28px 28px;
+    }
+
+    /* success overlay */
+    .success-overlay {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 14px;
+      padding: 48px 32px 44px;
+    }
+
+    .success-overlay.show { display: flex; }
+    .form-body-wrap.hidden { display: none; }
+
+    .success-icon-wrap {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), #4a7fff);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 8px 28px rgba(27,80,236,.35);
+      animation: popIn .5s cubic-bezier(.34,1.56,.64,1) both;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .success-overlay h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px; font-weight: 700;
+      color: var(--ink);
+    }
+
+    .success-overlay p {
+      font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .success-cta {
+      background: var(--navy);
+      color: var(--white);
+      border: none; border-radius: var(--r);
+      padding: 11px 24px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 600;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background .2s;
+    }
+
+    .success-cta:hover { background: var(--blue); }
+
+    /* ── FIELD ── */
+    .field {
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .field label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+
+    .field label .req { color: var(--red); font-size: 13px; line-height: 1; }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 12px 14px 12px 40px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--off-white);
+      border: 1.5px solid #dde6f8;
+      border-radius: var(--r-sm);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+
+    .field textarea { padding-left: 14px; min-height: 80px; resize: vertical; }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: #a0b2d4; }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(27,80,236,.1);
+    }
+
+    .field input.error { border-color: var(--red); background: #fff8f8; }
+    .field input.valid { border-color: #16a34a; }
+
+    /* field icon */
+    .field-icon {
+      position: absolute;
+      left: 13px;
+      bottom: calc(22px + 16px); /* above error line */
+      font-size: 15px;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .field-err {
+      font-size: 11px;
+      color: var(--red);
+      margin-top: 4px;
+      min-height: 15px;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* two-col row */
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* ── SUBMIT BTN ── */
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--blue) 0%, #3a6aff 100%);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      border: none;
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      box-shadow: 0 6px 24px rgba(27,80,236,.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15), transparent);
+      pointer-events: none;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(27,80,236,.5);
+    }
+
+    .btn-submit:active:not(:disabled) { transform: translateY(0); }
+    .btn-submit:disabled { opacity: .7; cursor: not-allowed; }
+
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+
+    .btn-submit.loading .btn-text { display: none; }
+    .btn-submit.loading .spinner { display: block; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* microcopy + trust below btn */
+    .form-footer {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .privacy-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .privacy-note .lock { font-size: 12px; }
+
+    .trust-chips {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      background: var(--off-white);
+      border: 1px solid #dde6f8;
+      border-radius: 100px;
+      padding: 4px 10px;
+    }
+
+    .trust-chip .icon { font-size: 12px; }
+
+    /* ════════════════════════════
+       ANIMATIONS
+    ════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero__right-bg { width: 100%; }
+
+      .hero__before { display: none; }
+
+      .hero__left {
+        padding: 56px 24px 40px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero__sub { text-align: center; }
+
+      .usp-row { justify-content: center; }
+
+      .trust-row { justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+      .hero__right {
+        padding: 0 20px 56px;
+        background: var(--off-white);
+      }
+
+      .hero__right-bg { display: none; }
+
+      .form-card {
+        max-width: 480px;
+        animation: fadeUp .6s .1s ease both;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero__heading { font-size: 30px; }
+      .field-row { grid-template-columns: 1fr; }
+      .form-body-wrap { padding: 20px 20px 24px; }
+      .form-stripe { padding: 20px 20px; }
+      .trust-chips { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+
+  <!-- bg layers -->
+  <div class="hero__bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero__right-bg"></div>
+  <div class="hero__divider"></div>
+
+  <!-- ══════════════ LEFT PANEL ══════════════ -->
+  <div class="hero__left">
+
+    <!-- top badges -->
+    <div class="top-row">
+      <div class="live-badge">
+        <span class="dot"></span>
+        Admissions Open 2026
+      </div>
+      <div class="programs-badge">
+        📚 Pre Nur – XI
+      </div>
+    </div>
+
+    <!-- kicker -->
+    <p class="hero__kicker">Seedling School · Est. 1990</p>
+
+    <!-- headline -->
+    <h1 class="hero__heading">
+      Because the <span class="hl-italic">right guidance</span><br>
+      shapes the <span class="hl-red">future.</span>
+    </h1>
+
+    <!-- subtext -->
+    <p class="hero__sub">
+      Join thousands of families who trust Seedling School for exceptional academics, holistic development, and a legacy of 100% results — shaping India's next generation of leaders.
+    </p>
+
+    <!-- USP pills -->
+    <div class="usp-row">
+      <div class="usp-pill">
+        <span class="icon">🏆</span>
+        <span class="val">100%</span> Result
+      </div>
+      <div class="usp-pill">
+        <span class="icon">👩‍🏫</span>
+        <span class="val">15:1</span> Ratio
+      </div>
+      <div class="usp-pill">
+        <span class="icon">🎓</span>
+        <span class="val">50+</span> Faculties
+      </div>
+      <div class="usp-pill">
+        <span class="icon">🏛️</span>
+        <span class="val">34 Yrs</span> Legacy
+      </div>
+    </div>
+
+    <!-- trust row -->
+    <div class="trust-row">
+      <div class="trust-avatars">
+        <span>RK</span>
+        <span>PS</span>
+        <span>AM</span>
+        <span>+</span>
+      </div>
+      <div class="trust-text">
+        <strong>Trusted by 1,000+ Parents</strong>
+        across Jaipur & beyond
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-rating">
+        <div class="score">4.9</div>
+        <div class="trust-stars">⭐⭐⭐⭐⭐</div>
+        <div class="label">Parent Rating</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════ RIGHT PANEL ══════════════ -->
+  <div class="hero__right">
+    <div class="form-card">
+
+      <!-- coloured stripe header -->
+      <div class="form-stripe">
+        <div class="form-stripe__label">Free Admission Counselling</div>
+        <div class="form-stripe__title">Book Your Seat Today</div>
+        <div class="form-stripe__sub">Our team calls back within 2 hours ⚡</div>
+      </div>
+
+      <!-- urgency bar -->
+      <div class="urgency-bar">
+        <span class="icon">🔥</span>
+        Limited seats available — Enrol before they fill up
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-overlay" id="successOverlay">
+        <div class="success-icon-wrap">✓</div>
+        <h3>You're all set!</h3>
+        <p>Our admissions counsellor will call you within 2 hours. Check your inbox for a confirmation.</p>
+        <button class="success-cta" onclick="window.location.reload()">Submit Another Enquiry</button>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-body-wrap" id="formBody">
+        <form id="leadForm" novalidate autocomplete="off">
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name <span class="req">*</span></label>
+              <span class="field-icon">👤</span>
+              <input type="text" id="f-name" name="Name" placeholder="Full name" />
+              <span class="field-err" id="err-name"></span>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone <span class="req">*</span></label>
+              <span class="field-icon">📱</span>
+              <input type="tel" id="f-phone" name="Phone" placeholder="10-digit mobile" maxlength="10" />
+              <span class="field-err" id="err-phone"></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-email">Email <span class="req">*</span></label>
+            <span class="field-icon">✉️</span>
+            <input type="email" id="f-email" name="Email" placeholder="you@example.com" />
+            <span class="field-err" id="err-email"></span>
+          </div>
+
+          <div class="field">
+            <label for="f-school">Current School <span class="req">*</span></label>
+            <span class="field-icon">🏫</span>
+            <input type="text" id="f-school" name="School" placeholder="Child's current school" />
+            <span class="field-err" id="err-school"></span>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Message <span class="req">*</span></label>
+            <textarea id="f-message" name="Message" placeholder="E.g. Class interested in, child's age, any queries..."></textarea>
+            <span class="field-err" id="err-message"></span>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-text">🚀 &nbsp;Enquire Now — It's Free</span>
+            <div class="spinner"></div>
+          </button>
+
+          <div class="form-footer">
+            <div class="privacy-note">
+              <span class="lock">🔒</span>
+              No spam. We respect your privacy. 100% confidential.
+            </div>
+            <div class="trust-chips">
+              <div class="trust-chip"><span class="icon">✅</span> CBSE Affiliated</div>
+              <div class="trust-chip"><span class="icon">⭐</span> Top-Rated School</div>
+              <div class="trust-chip"><span class="icon">🏆</span> 34 Yrs Legacy</div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+  /* ── CONFIG ── */
+  const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // ← paste your deployed URL here
+  const LEAD_TOKEN = 'seedling-lead-forwarding-token-v1';
+
+  const $ = id => document.getElementById(id);
+
+  /* ── LIVE VALIDATION FEEDBACK ── */
+  function setErr(id, msg) {
+    $('err-' + id).textContent = msg;
+    const inp = $('f-' + id);
+    inp.classList.toggle('error', !!msg);
+    if (!msg && inp.value.trim()) inp.classList.add('valid');
+    else inp.classList.remove('valid');
+  }
+
+  function clearErr(id) { setErr(id, ''); }
+
+  ['name','email','phone','school','message'].forEach(id => {
+    $('f-' + id).addEventListener('input', () => clearErr(id));
+  });
+
+  /* ── VALIDATION ── */
+  function validate() {
+    let ok = true;
+
+    const name = $('f-name').value.trim();
+    if (!name)                         { setErr('name', 'Full name is required.'); ok = false; }
+    else if (!/^[A-Za-z\s]+$/.test(name)) { setErr('name', 'Letters and spaces only.'); ok = false; }
+    else clearErr('name');
+
+    const email = $('f-email').value.trim();
+    if (!email)                                       { setErr('email', 'Email is required.'); ok = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('email', 'Enter a valid email address.'); ok = false; }
+    else clearErr('email');
+
+    const phone = $('f-phone').value.trim();
+    if (!phone)                       { setErr('phone', 'Phone number is required.'); ok = false; }
+    else if (!/^[6-9]\d{9}$/.test(phone)) { setErr('phone', 'Enter a valid 10-digit Indian number.'); ok = false; }
+    else clearErr('phone');
+
+    const school = $('f-school').value.trim();
+    if (!school) { setErr('school', 'School name is required.'); ok = false; }
+    else clearErr('school');
+
+    const message = $('f-message').value.trim();
+    if (!message) { setErr('message', 'Please add a brief message.'); ok = false; }
+    else clearErr('message');
+
+    return ok;
+  }
+
+  /* ── SUBMIT ── */
+  $('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const btn = $('submitBtn');
+    btn.disabled = true;
+    btn.classList.add('loading');
+
+    const params = new URLSearchParams({
+      token:   LEAD_TOKEN,
+      Name:    $('f-name').value.trim(),
+      Email:   $('f-email').value.trim(),
+      Phone:   $('f-phone').value.trim(),
+      School:  $('f-school').value.trim(),
+      Message: $('f-message').value.trim(),
+      Page:    window.location.href
+    });
+
+    try {
+      await fetch(`${SCRIPT_URL}?${params.toString()}`, { method: 'GET', mode: 'no-cors' });
+      $('formBody').classList.add('hidden');
+      $('successOverlay').classList.add('show');
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert('Something went wrong. Please try again or call us directly.');
+      btn.disabled = false;
+      btn.classList.remove('loading');
+    }
+  });
+</script>
+
+</body>
+</html>

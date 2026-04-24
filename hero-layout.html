@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seedling School – Admissions Open 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-light: #D5E7FF;
+      --primary-dark: #102269;
+      --secondary-dark: #29355E;
+      --accent-blue: #1B50EC;
+      --accent-blue-hover: #1340CC;
+      --accent-red: #DC2626;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(16,34,105,0.13);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-light);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background pattern ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 50%, #c2daff 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 80% 20%, #bdd5ff 0%, transparent 60%),
+        var(--bg-light);
+      overflow: hidden;
+      padding: 60px 5vw;
+    }
+
+    /* Decorative blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: -120px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,80,236,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,34,105,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grid dots pattern */
+    .dot-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(27,80,236,0.12) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* ═══════════════ LEFT ═══════════════ */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .tagline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(27,80,236,0.10);
+      border: 1px solid rgba(27,80,236,0.22);
+      border-radius: 100px;
+      padding: 7px 18px;
+      width: fit-content;
+      animation: fadeDown 0.7s ease both;
+    }
+    .tagline-pill .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      animation: pulse 1.8s ease infinite;
+    }
+    .tagline-pill span {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+      font-weight: 900;
+      color: var(--primary-dark);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+    .hero-heading em {
+      font-style: italic;
+      color: var(--accent-blue);
+    }
+
+    .hero-sub {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+    .hero-sub .admission-label {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .hero-sub .program-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--secondary-dark);
+    }
+    .hero-sub .program-label strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .divider {
+      width: 64px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), #6fa3ff);
+      border-radius: 2px;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    /* Badges */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255,255,255,0.75);
+      border: 1.5px solid rgba(27,80,236,0.15);
+      border-radius: 12px;
+      padding: 11px 18px;
+      backdrop-filter: blur(6px);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      cursor: default;
+    }
+    .badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(27,80,236,0.14);
+      border-color: var(--accent-blue);
+    }
+    .badge-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #4a7dff 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .badge-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+    .badge-text span {
+      font-size: 0.74rem;
+      color: var(--secondary-dark);
+      font-weight: 400;
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+    .trust-avatars {
+      display: flex;
+    }
+    .trust-avatars .av {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 2.5px solid var(--white);
+      margin-left: -10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trust-avatars .av:first-child { margin-left: 0; background: #1B50EC; }
+    .trust-avatars .av:nth-child(2) { background: #2563eb; }
+    .trust-avatars .av:nth-child(3) { background: #3b82f6; }
+    .trust-avatars .av:nth-child(4) { background: #60a5fa; }
+    .trust-text {
+      font-size: 0.82rem;
+      color: var(--secondary-dark);
+      font-weight: 500;
+    }
+    .trust-text strong { color: var(--primary-dark); }
+
+    /* ═══════════════ RIGHT ═══════════════ */
+    .form-card {
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 40px 36px;
+      position: relative;
+      animation: fadeLeft 0.8s 0.2s ease both;
+      border: 1.5px solid rgba(27,80,236,0.08);
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-blue), #6fa3ff, var(--accent-blue));
+      border-radius: 24px 24px 0 0;
+    }
+
+    .form-header {
+      margin-bottom: 28px;
+    }
+    .form-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.25;
+    }
+    .form-header p {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--secondary-dark);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--secondary-dark);
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .form-group label .req { color: var(--accent-red); margin-left: 2px; }
+
+    .input-wrap {
+      position: relative;
+    }
+    .input-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 17px; height: 17px;
+      color: #94a3b8;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--primary-dark);
+      background: #f8faff;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+      padding-top: 12px;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #b0bec5; }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 4px rgba(27,80,236,0.10);
+      background: var(--white);
+    }
+    .form-group input:focus ~ svg,
+    .form-group textarea:focus ~ svg {
+      color: var(--accent-blue);
+    }
+    .form-group .input-wrap:focus-within svg { color: var(--accent-blue); }
+
+    .form-group input.error,
+    .form-group textarea.error {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 0 4px rgba(220,38,38,0.08);
+    }
+    .error-msg {
+      display: none;
+      font-size: 0.75rem;
+      color: var(--accent-red);
+      margin-top: 5px;
+      font-weight: 500;
+    }
+    .error-msg.show { display: block; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--accent-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+      margin-top: 6px;
+      box-shadow: 0 6px 20px rgba(27,80,236,0.30);
+      position: relative;
+      overflow: hidden;
+    }
+    .submit-btn:hover:not(:disabled) {
+      background: var(--accent-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(27,80,236,0.38);
+    }
+    .submit-btn:active:not(:disabled) { transform: translateY(0); }
+    .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    /* Spinner */
+    .spinner {
+      display: none;
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto;
+    }
+    .submit-btn.loading .btn-text { display: none; }
+    .submit-btn.loading .spinner { display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Success */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 24px 10px;
+    }
+    .success-msg.show { display: block; }
+    .success-icon {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.7rem;
+    }
+    .success-msg h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+    .success-msg p { font-size: 0.88rem; color: var(--secondary-dark); }
+
+    .privacy-note {
+      text-align: center;
+      font-size: 0.73rem;
+      color: #94a3b8;
+      margin-top: 14px;
+    }
+    .privacy-note svg { width: 13px; height: 13px; vertical-align: -2px; margin-right: 3px; }
+
+    /* ═══════════════ Animations ═══════════════ */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ═══════════════ Responsive ═══════════════ */
+    @media (max-width: 860px) {
+      .hero { padding: 50px 6vw; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+      .form-card { padding: 30px 22px; }
+      .hero-heading { font-size: clamp(2rem, 7vw, 2.8rem); }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 40px 5vw; }
+      .badges { gap: 10px; }
+      .badge { padding: 9px 13px; }
+      .form-card { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero" role="main">
+  <div class="dot-overlay" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <!-- ── LEFT CONTENT ── -->
+    <div class="hero-content">
+
+      <div class="tagline-pill">
+        <span class="dot"></span>
+        <span>Admissions Open 2026</span>
+      </div>
+
+      <h1 class="hero-heading">
+        Because the <em>right guidance</em> shapes the future.
+      </h1>
+
+      <div class="hero-sub">
+        <span class="admission-label">Admissions Open 2026</span>
+        <span class="program-label">Programme: <strong>Pre Nur – XI</strong></span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="badges">
+        <div class="badge">
+          <div class="badge-icon">🏆</div>
+          <div class="badge-text">
+            <strong>100% Result</strong>
+            <span>Consistent excellence</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">👨‍🏫</div>
+          <div class="badge-text">
+            <strong>15:1 Ratio</strong>
+            <span>Student–Teacher</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">🎓</div>
+          <div class="badge-text">
+            <strong>50+ Faculties</strong>
+            <span>Domain experts</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">🕰️</div>
+          <div class="badge-text">
+            <strong>34 Years</strong>
+            <span>Trusted legacy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-bar">
+        <div class="trust-avatars" aria-hidden="true">
+          <div class="av">R</div>
+          <div class="av">A</div>
+          <div class="av">P</div>
+          <div class="av">+</div>
+        </div>
+        <p class="trust-text"><strong>2,000+ families</strong> trust us every year</p>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT FORM ── -->
+    <div class="form-card" role="complementary" aria-label="Enquiry Form">
+
+      <div class="form-header">
+        <h2>Book a Free Counselling Session</h2>
+        <p>Fill in your details and our admissions team will reach out within 24 hours.</p>
+      </div>
+
+      <div class="success-msg" id="successMsg" role="alert">
+        <div class="success-icon">✓</div>
+        <h3>Thank you for reaching out!</h3>
+        <p>Our admissions counsellor will contact you within 24 hours.</p>
+      </div>
+
+      <form id="leadForm" novalidate>
+
+        <div class="form-group">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <input type="text" id="name" name="name" placeholder="e.g. Rahul Sharma" autocomplete="name" />
+          </div>
+          <span class="error-msg" id="nameErr">Please enter a valid name (letters and spaces only).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <span class="error-msg" id="emailErr">Please enter a valid email address.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Mobile Number <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit Indian mobile" autocomplete="tel" maxlength="10" />
+          </div>
+          <span class="error-msg" id="phoneErr">Enter a valid 10-digit Indian mobile number (starts with 6–9).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="school">Current School <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/><path d="M3 21h18"/></svg>
+            <input type="text" id="school" name="school" placeholder="Name of current school" />
+          </div>
+          <span class="error-msg" id="schoolErr">Please enter the current school name.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="top:18px;" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <textarea id="message" name="message" placeholder="Tell us about your child's grade, preferred stream, or any questions..."></textarea>
+          </div>
+          <span class="error-msg" id="messageErr">Please enter your message.</span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Request a Call Back →</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+      </form>
+
+      <p class="privacy-note">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Your information is 100% private &amp; secure.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // ── Config ──
+  const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  const LEAD_TOKEN = 'seedling-lead-forwarding-token-v1';
+
+  // ── Helpers ──
+  const $ = id => document.getElementById(id);
+  const isValidName  = v => /^[a-zA-Z\s]{2,}$/.test(v.trim());
+  const isValidEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  const isValidPhone = v => /^[6-9]\d{9}$/.test(v.trim());
+  const isNotEmpty   = v => v.trim().length > 0;
+
+  function setError(input, errEl, show) {
+    if (show) {
+      input.classList.add('error');
+      errEl.classList.add('show');
+    } else {
+      input.classList.remove('error');
+      errEl.classList.remove('show');
+    }
+  }
+
+  // ── Live validation ──
+  $('name').addEventListener('input', () =>
+    setError($('name'), $('nameErr'), !isValidName($('name').value)));
+  $('email').addEventListener('input', () =>
+    setError($('email'), $('emailErr'), !isValidEmail($('email').value)));
+  $('phone').addEventListener('input', () =>
+    setError($('phone'), $('phoneErr'), !isValidPhone($('phone').value)));
+  $('school').addEventListener('input', () =>
+    setError($('school'), $('schoolErr'), !isNotEmpty($('school').value)));
+  $('message').addEventListener('input', () =>
+    setError($('message'), $('messageErr'), !isNotEmpty($('message').value)));
+
+  // ── Form submit ──
+  $('leadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const name    = $('name').value;
+    const email   = $('email').value;
+    const phone   = $('phone').value;
+    const school  = $('school').value;
+    const message = $('message').value;
+
+    // Validate all fields
+    let valid = true;
+    if (!isValidName(name))   { setError($('name'),    $('nameErr'),    true); valid = false; }
+    if (!isValidEmail(email)) { setError($('email'),   $('emailErr'),   true); valid = false; }
+    if (!isValidPhone(phone)) { setError($('phone'),   $('phoneErr'),   true); valid = false; }
+    if (!isNotEmpty(school))  { setError($('school'),  $('schoolErr'),  true); valid = false; }
+    if (!isNotEmpty(message)) { setError($('message'), $('messageErr'), true); valid = false; }
+
+    if (!valid) return;
+
+    // Loading state
+    const btn = $('submitBtn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    // Build URL
+    const params = new URLSearchParams({
+      token:   LEAD_TOKEN,
+      Name:    name.trim(),
+      Email:   email.trim(),
+      Phone:   phone.trim(),
+      School:  school.trim(),
+      Message: message.trim(),
+      Page:    window.location.href,
+    });
+
+    try {
+      await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`, { method: 'GET', mode: 'no-cors' });
+
+      // Show success
+      $('leadForm').style.display = 'none';
+      $('successMsg').classList.add('show');
+
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert('Something went wrong. Please try again or call us directly.');
+    } finally {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
