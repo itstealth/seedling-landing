@@ -1,0 +1,481 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .testimonials-section {
+    padding: 96px 0;
+    width: 100%;
+    background: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    border: 1.5px solid #4F46E5;
+    background: transparent;
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    flex-shrink: 0;
+    margin: 0 !important;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background: #4F46E5;
+  }
+
+  .swiper-button-prev:hover svg,
+  .swiper-button-next:hover svg {
+    color: #fff;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none !important;
+    content: '' !important;
+  }
+
+  .swiper-button-prev svg,
+  .swiper-button-next svg {
+    width: 20px;
+    height: 20px;
+    color: #4F46E5;
+    transition: color 0.25s ease;
+  }
+
+  .swiper-wrapper {
+    align-items: stretch !important;
+  }
+
+  .swiper-slide {
+    height: auto !important;
+  }
+
+  .t-card {
+    background: #fff;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.3s ease;
+    cursor: default;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .t-card:hover {
+    border-color: #4F46E5;
+  }
+
+  .swiper-slide-active .t-card {
+    border-color: #4F46E5;
+  }
+
+  .stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 28px;
+  }
+
+  .star {
+    width: 18px;
+    height: 18px;
+    color: #F59E0B;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .t-card:hover .star,
+  .swiper-slide-active .t-card .star {
+    color: #4F46E5;
+  }
+
+  .t-quote {
+    font-size: 16px;
+    color: #6B7280;
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: 28px;
+    transition: color 0.3s ease;
+  }
+
+  .t-card:hover .t-quote,
+  .swiper-slide-active .t-card .t-quote {
+    color: #1F2937;
+  }
+
+  .t-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .t-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .t-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    transition: color 0.3s ease;
+  }
+
+  .t-card:hover .t-name,
+  .swiper-slide-active .t-card .t-name {
+    color: #4F46E5;
+  }
+
+  .t-role {
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-top: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .section-title { font-size: 28px; }
+    .testimonials-section { padding: 60px 0; }
+  }
+</style>
+
+<!-- Reusable star SVG symbol — defined once, used everywhere via <use> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-star" viewBox="0 0 18 17">
+    <path d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="slider-controls">
+        <button class="swiper-button-prev" id="btn-prev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.9999 12L4.99992 12M9.99992 6L4.70703 11.2929C4.3737 11.6262 4.20703 11.7929 4.20703 12C4.20703 12.2071 4.3737 12.3738 4.70703 12.7071L9.99992 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="swiper-button-next" id="btn-next" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12L19 12M14 18L19.2929 12.7071C19.6262 12.3738 19.7929 12.2071 19.7929 12C19.7929 11.7929 19.6262 11.6262 19.2929 11.2929L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Testimonial 1: Deepak & Renu Gupta -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">Just a small note of appreciation to thank you for being such wonderful supportive leaders and teachers. Your willingness to extend yourself wherever and whenever necessary is much appreciated — you are a wonderful example of a true leader and teacher.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/4F46E5/ffffff?text=DG" alt="Deepak Gupta"/>
+              <div>
+                <div class="t-name">Deepak & Renu Gupta</div>
+                <div class="t-role">Parents</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Narendra Kumar Sharma & Soniya Yadav -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">We are delighted with the holistic education my child is receiving at Seedling. Teachers go beyond imparting knowledge; they truly understand and encourage every child. We've witnessed our child's growth in both academics and personality.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/7C3AED/ffffff?text=NS" alt="Narendra Sharma"/>
+              <div>
+                <div class="t-name">Narendra & Soniya</div>
+                <div class="t-role">Parents</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Bhanupriya Singh -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">I am very satisfied with the nicely planned and organized academic programme. My child is being groomed very well. The school has successfully balanced academics and co-curricular activities. I am very grateful to all teachers, coordinator, and principal.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/059669/ffffff?text=BS" alt="Bhanupriya Singh"/>
+              <div>
+                <div class="t-name">Bhanupriya Singh</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4: Gargee Bhattacharya -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">Today, I stand with a heart full of gratitude for Seedling Modern High School. The teachers have been guiding lights, imparting not only textbook knowledge but also valuable life lessons. Diverse opportunities have helped our children grow and explore their potential.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/DC2626/ffffff?text=GB" alt="Gargee Bhattacharya"/>
+              <div>
+                <div class="t-name">Gargee Bhattacharya</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5: Mrs. Anita Gupta -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">Seedling Wonderland curriculum is very impressive with unique teaching methods. Well-planned worksheets make my child think beyond textbooks. I congratulate the management and staff for their endless efforts.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/D97706/ffffff?text=AG" alt="Mrs. Anita Gupta"/>
+              <div>
+                <div class="t-name">Mrs. Anita Gupta</div>
+                <div class="t-role">Mother of Kiyansh Gupta, Prep B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 6: Ibha Chabra -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">Thank you Seedling for all the efforts, care, and dedication you put into teaching our child. We are beyond grateful for the guidance and support from the teachers and school management.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/0891B2/ffffff?text=IC" alt="Ibha Chabra"/>
+              <div>
+                <div class="t-name">Ibha Chabra</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 7: Komal Bhatia -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">My experience with Seedling International School has been amazing. The teachers and staff take care of children in a parental manner. His overall development, aptitude, and attitude are improving well.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/BE185D/ffffff?text=KB" alt="Komal Bhatia"/>
+              <div>
+                <div class="t-name">Komal Bhatia</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 8: Aditi Sharma -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">We are thrilled that Seedling School is aligned with the National Educational Policy (NEP). It gives us confidence that our child is receiving education aligned with modern standards. We are grateful for such a strong educational foundation.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/0F766E/ffffff?text=AS" alt="Aditi Sharma"/>
+              <div>
+                <div class="t-name">Aditi Sharma</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 9: Ashish Kumar Jain -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">Seedling School's state-of-the-art facilities are truly impressive. From well-equipped classrooms to modern labs, the school provides a stimulating learning environment that encourages exploration and hands-on learning.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/6D28D9/ffffff?text=AJ" alt="Ashish Kumar Jain"/>
+              <div>
+                <div class="t-name">Ashish Kumar Jain</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 10: Sweta Shrivastava -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">The school prepares children for a digitally driven world by integrating technology into learning. This makes education exciting and helps children develop essential digital skills for the future.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/B45309/ffffff?text=SS" alt="Sweta Shrivastava"/>
+              <div>
+                <div class="t-name">Sweta Shrivastava</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 11: Muskan Rupani -->
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="stars">
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+              <svg class="star"><use href="#icon-star"/></svg>
+            </div>
+            <p class="t-quote">Seedling Modern High School is setting benchmarks in education. Teachers contribute to overall personality, language, and reasoning development. We are happy our child is in the hands of such a skilled and professional team.</p>
+            <div class="t-author">
+              <img class="t-avatar" src="https://placehold.co/64x64/9333EA/ffffff?text=MR" alt="Muskan Rupani"/>
+              <div>
+                <div class="t-name">Muskan Rupani</div>
+                <div class="t-role">Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 28,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: "#btn-next",
+      prevEl: "#btn-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: false,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 28,
+        centeredSlides: true,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+    },
+  });
+</script>
