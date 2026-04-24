@@ -154,8 +154,20 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 80px 72px;
+      padding: 100px 72px;
       position: relative;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .hero::before {
@@ -183,9 +195,6 @@
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
       width: 100%;
     }
 
@@ -272,6 +281,187 @@
     .btn-outline:hover {
       border-color: var(--white);
       background: rgba(255, 255, 255, 0.07);
+    }
+    
+    /* ── HERO FORM ── */
+    .hero-form-wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-form-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 36px;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 24px 64px rgba(16,34,105,0.15);
+      border: 1px solid rgba(27,80,236,0.1);
+    }
+    
+    .form-header h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    
+    .form-header p {
+      font-size: 14.5px;
+      color: #475569;
+      margin-bottom: 28px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    .form-group {
+      margin-bottom: 18px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    
+    .form-group label .req { color: #dc2626; margin-left: 2px; }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--navy);
+      background: #f8fafc;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+    
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #94a3b8;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #3b82f6;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+    }
+    
+    .form-group input.error,
+    .form-group textarea.error {
+      border-color: #ef4444;
+      background: #fef2f2;
+    }
+    
+    .err-msg {
+      display: none;
+      font-size: 12px;
+      color: #ef4444;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+    .err-msg.show { display: block; }
+    
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue) 0%, #2563eb 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 10px;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+    }
+    
+    .submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,99,235,0.4);
+    }
+    
+    .submit-btn:disabled {
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+    
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    
+    .form-trust-badges {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    
+    .form-success {
+      text-align: center;
+      padding: 30px 10px;
+    }
+    
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      box-shadow: 0 8px 24px rgba(34,197,94,0.3);
+    }
+    
+    .form-success h4 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    
+    .form-success p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .hero-actions {
@@ -1199,11 +1389,31 @@
 
       .hero {
         padding: 100px 24px 60px;
-        background: linear-gradient(105deg, var(--navy) 0%, rgba(16, 34, 105, 0.9) 60%, rgba(16, 34, 105, 0.4) 100%), url('images/banner.png') center right / cover no-repeat;
+        background: linear-gradient(105deg, var(--navy) 0%, rgba(16, 34, 105, 0.95) 100%), url('images/banner.png') center right / cover no-repeat;
       }
       
-      .hero-content {
-        padding: 0;
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero-form-wrapper {
+        justify-content: center;
+      }
+      
+      .hero-form-card {
+        padding: 24px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      
+      .form-trust-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
       }
 
       .hero-visual {
@@ -1571,28 +1781,81 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span> Admissions Open 2026</div>
-      <h1>Because the right <em>guidance</em><br />shapes the future.</h1>
-      <p class="hero-sub">
-        Classes Pre Nur - XI
-      </p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="num">100%</div>
-          <div class="lbl">Result</div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><span class="dot"></span> Admissions Open 2026</div>
+        <h1>Because the right <em>guidance</em><br />shapes the future.</h1>
+        <p class="hero-sub">
+          Classes Pre Nur - XI
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="num">100%</div>
+            <div class="lbl">Result</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">15:1</div>
+            <div class="lbl">Student-Teacher Ratio</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">50+</div>
+            <div class="lbl">Expert Faculties</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">34</div>
+            <div class="lbl">Years Legacy</div>
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="num">15:1</div>
-          <div class="lbl">Student-Teacher Ratio</div>
-        </div>
-        <div class="stat-item">
-          <div class="num">50+</div>
-          <div class="lbl">Expert Faculties</div>
-        </div>
-        <div class="stat-item">
-          <div class="num">34</div>
-          <div class="lbl">Years Legacy</div>
+      </div>
+      
+      <div class="hero-form-wrapper">
+        <div class="hero-form-card">
+          <div class="form-header">
+            <h3>Book a Free Counselling Call</h3>
+            <p>Our team will reach out within 24 hours.</p>
+          </div>
+          <div id="heroSuccess" class="form-success" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h4>Thank You!</h4>
+            <p>Your enquiry has been received. Our admissions team will contact you shortly.</p>
+          </div>
+          <form id="heroLeadForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="leadName">Name <span class="req">*</span></label>
+                <input type="text" id="leadName" name="Name" placeholder="e.g. Priya Sharma">
+                <span class="err-msg" id="err-leadName"></span>
+              </div>
+              <div class="form-group">
+                <label for="leadPhone">Phone <span class="req">*</span></label>
+                <input type="tel" id="leadPhone" name="Phone" placeholder="10-digit mobile" maxlength="10">
+                <span class="err-msg" id="err-leadPhone"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="leadEmail">Email <span class="req">*</span></label>
+              <input type="email" id="leadEmail" name="Email" placeholder="you@example.com">
+              <span class="err-msg" id="err-leadEmail"></span>
+            </div>
+            <div class="form-group">
+              <label for="leadSchool">Current School <span class="req">*</span></label>
+              <input type="text" id="leadSchool" name="School" placeholder="Child's current school">
+              <span class="err-msg" id="err-leadSchool"></span>
+            </div>
+            <div class="form-group">
+              <label for="leadMessage">Message <span class="req">*</span></label>
+              <textarea id="leadMessage" name="Message" placeholder="Any queries about grades, curriculum, etc."></textarea>
+              <span class="err-msg" id="err-leadMessage"></span>
+            </div>
+            <button type="submit" id="leadSubmitBtn" class="submit-btn">
+              <span class="btn-text">Submit Enquiry →</span>
+              <span class="spinner" style="display: none;"></span>
+            </button>
+          </form>
+          <div class="form-trust-badges">
+            <span>🛡️ Trusted by 1000+ parents</span>
+            <span>🔒 No spam. 100% privacy</span>
+          </div>
         </div>
       </div>
     </div>
@@ -3219,6 +3482,110 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.count-up').forEach(el => countUpObserver.observe(el));
+
+    // ── HERO LEAD FORM INTEGRATION ──
+    (function() {
+      const form = document.getElementById('heroLeadForm');
+      const submitBtn = document.getElementById('leadSubmitBtn');
+      const successMsg = document.getElementById('heroSuccess');
+      
+      if (!form) return;
+
+      const isValidName = v => /^[A-Za-z\s]+$/.test(v.trim()) && v.trim().length > 0;
+      const isValidEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+      const isValidPhone = v => /^[6-9]\d{9}$/.test(v.trim());
+      const isNotEmpty = v => v.trim().length > 0;
+
+      const setError = (inputId, show, msgText) => {
+        const input = document.getElementById(inputId);
+        const err = document.getElementById(`err-${inputId}`);
+        if (show) {
+          input.classList.add('error');
+          err.textContent = msgText;
+          err.classList.add('show');
+        } else {
+          input.classList.remove('error');
+          err.classList.remove('show');
+        }
+      };
+
+      // Live Validation
+      document.getElementById('leadName').addEventListener('input', (e) => {
+        setError('leadName', !isValidName(e.target.value), 'Only letters and spaces allowed');
+      });
+      document.getElementById('leadEmail').addEventListener('input', (e) => {
+        setError('leadEmail', !isValidEmail(e.target.value), 'Enter a valid email address');
+      });
+      document.getElementById('leadPhone').addEventListener('input', (e) => {
+        setError('leadPhone', !isValidPhone(e.target.value), 'Enter a valid 10-digit Indian number');
+      });
+      document.getElementById('leadSchool').addEventListener('input', (e) => {
+        setError('leadSchool', !isNotEmpty(e.target.value), 'School name is required');
+      });
+      document.getElementById('leadMessage').addEventListener('input', (e) => {
+        setError('leadMessage', !isNotEmpty(e.target.value), 'Message is required');
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('leadName').value;
+        const email = document.getElementById('leadEmail').value;
+        const phone = document.getElementById('leadPhone').value;
+        const school = document.getElementById('leadSchool').value;
+        const message = document.getElementById('leadMessage').value;
+
+        let valid = true;
+        if (!isValidName(name)) { setError('leadName', true, 'Only letters and spaces allowed'); valid = false; }
+        if (!isValidEmail(email)) { setError('leadEmail', true, 'Enter a valid email address'); valid = false; }
+        if (!isValidPhone(phone)) { setError('leadPhone', true, 'Enter a valid 10-digit Indian number'); valid = false; }
+        if (!isNotEmpty(school)) { setError('leadSchool', true, 'School name is required'); valid = false; }
+        if (!isNotEmpty(message)) { setError('leadMessage', true, 'Message is required'); valid = false; }
+
+        if (!valid) return;
+
+        // Get UTMs
+        const urlParams = new URLSearchParams(window.location.search);
+        const utm_source = urlParams.get('utm_source') || '';
+        const utm_medium = urlParams.get('utm_medium') || '';
+        const utm_campaign = urlParams.get('utm_campaign') || '';
+
+        submitBtn.disabled = true;
+        submitBtn.querySelector('.btn-text').style.display = 'none';
+        submitBtn.querySelector('.spinner').style.display = 'block';
+
+        const formData = new FormData();
+        formData.append('Name', name.trim());
+        formData.append('Email', email.trim());
+        formData.append('Phone', phone.trim());
+        formData.append('School', school.trim());
+        formData.append('Message', message.trim());
+        formData.append('utm_source', utm_source);
+        formData.append('utm_medium', utm_medium);
+        formData.append('utm_campaign', utm_campaign);
+        formData.append('enquiry_page', 'Home Page Mobile Form');
+
+        try {
+          // Backend Integration
+          await fetch('https://seedlingschools.com/lead_submit.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          form.reset();
+
+        } catch (error) {
+          console.error('Lead Submission Error:', error);
+          alert('Something went wrong. Please try again.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('.btn-text').style.display = 'block';
+          submitBtn.querySelector('.spinner').style.display = 'none';
+        }
+      });
+    })();
   </script>
 </body>
 
