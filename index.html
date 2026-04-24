@@ -3596,6 +3596,7 @@
           // Backend Integration
           await fetch('https://seedlingschools.com/lead_submit.php', {
             method: 'POST',
+            mode: 'no-cors',
             body: formData
           });
 
