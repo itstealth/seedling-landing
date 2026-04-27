@@ -162,6 +162,7 @@
       align-items: center;
       padding: 60px 72px;
       position: relative;
+      overflow: hidden;
     }
 
     .hero-inner {
@@ -179,10 +180,10 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 600px;
-      height: 600px;
+      top: -60px;
+      right: 0;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
       background: radial-gradient(circle, #1B50EC44 0%, transparent 70%);
       pointer-events: none;
@@ -191,7 +192,7 @@
     .hero::after {
       content: '';
       position: absolute;
-      bottom: -60px;
+      bottom: 0;
       left: 30%;
       width: 400px;
       height: 400px;
