@@ -156,7 +156,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(105deg, var(--navy) 0%, rgba(16, 34, 105, 0.85) 45%, rgba(16, 34, 105, 0.1) 100%), url('images/banner.png') center right / cover no-repeat;
+      background: url('images/banner.png') center right / cover no-repeat;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -202,6 +202,7 @@
 
     .hero-content {
       width: 100%;
+      visibility: hidden;
     }
 
     .hero-badge {
@@ -1436,7 +1437,7 @@
 
       .hero {
         padding: 80px 16px 48px;
-        background: linear-gradient(105deg, var(--navy) 0%, rgba(16, 34, 105, 0.95) 100%), url('images/banner.png') center right / cover no-repeat;
+        background: url('images/banner.png') center / cover no-repeat;
         max-width: 100vw;
         overflow: hidden;
       }
